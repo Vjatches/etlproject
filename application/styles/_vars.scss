@@ -1,0 +1,14 @@
+/*Colors*/
+$uek-red: #8d0126;
+$light-red: #dd4814;
+$background: #f1f1f1;
+/*Mixins*/
+@mixin transform($property){
+  -moz-transform:$property;
+  -webkit-transform:$property;
+  transform:$property;
+}
+/*Extend/Inheritance*/
+%uek-shadow{
+  text-shadow: 1px 1px 3px $uek-red;
+}

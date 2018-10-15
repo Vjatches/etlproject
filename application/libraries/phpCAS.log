@@ -1,0 +1,302 @@
+A1C3 .START (2018-06-27 01:29:31) phpCAS-1.3.5 ****************** [CAS.php:468]
+A1C3 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+A1C3 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+A1C3 .|    |    Session is authenticated as: babanin [Client.php:936]
+A1C3 .|    <= ''
+A1C3 .<= ''
+A1C3 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+A1C3 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+A1C3 .<= ''
+A1C3 .=> phpCAS::forceAuthentication() [Cas.php:74]
+A1C3 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+A1C3 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+A1C3 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+A1C3 .|    |    |    |    user = `babanin' [Client.php:1622]
+A1C3 .|    |    |    <= true
+A1C3 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+A1C3 .|    |    <= true
+A1C3 .|    |    no need to authenticate [Client.php:1282]
+A1C3 .|    <= true
+A1C3 .<= ''
+A1C3 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+A1C3 .|    Not a logout request [Client.php:1739]
+A1C3 .<= ''
+A1C3 .=> phpCAS::isAuthenticated() [Cas.php:86]
+A1C3 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+A1C3 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+A1C3 .|    |    |    user = `babanin' [Client.php:1622]
+A1C3 .|    |    <= true
+A1C3 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+A1C3 .|    <= true
+A1C3 .<= true
+6D20 .START (2018-06-27 01:29:37) phpCAS-1.3.5 ****************** [CAS.php:468]
+6D20 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+6D20 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+6D20 .|    |    Session is authenticated as: babanin [Client.php:936]
+6D20 .|    <= ''
+6D20 .<= ''
+6D20 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+6D20 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+6D20 .<= ''
+6D20 .=> phpCAS::forceAuthentication() [Cas.php:74]
+6D20 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+6D20 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+6D20 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+6D20 .|    |    |    |    user = `babanin' [Client.php:1622]
+6D20 .|    |    |    <= true
+6D20 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+6D20 .|    |    <= true
+6D20 .|    |    no need to authenticate [Client.php:1282]
+6D20 .|    <= true
+6D20 .<= ''
+6D20 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+6D20 .|    Not a logout request [Client.php:1739]
+6D20 .<= ''
+6D20 .=> phpCAS::isAuthenticated() [Cas.php:86]
+6D20 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+6D20 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+6D20 .|    |    |    user = `babanin' [Client.php:1622]
+6D20 .|    |    <= true
+6D20 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+6D20 .|    <= true
+6D20 .<= true
+6C8E .START (2018-06-27 01:29:53) phpCAS-1.3.5 ****************** [CAS.php:468]
+6C8E .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+6C8E .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+6C8E .|    |    Session is authenticated as: babanin [Client.php:936]
+6C8E .|    <= ''
+6C8E .<= ''
+6C8E .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+6C8E .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+6C8E .<= ''
+6C8E .=> phpCAS::forceAuthentication() [Cas.php:74]
+6C8E .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+6C8E .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+6C8E .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+6C8E .|    |    |    |    user = `babanin' [Client.php:1622]
+6C8E .|    |    |    <= true
+6C8E .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+6C8E .|    |    <= true
+6C8E .|    |    no need to authenticate [Client.php:1282]
+6C8E .|    <= true
+6C8E .<= ''
+6C8E .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+6C8E .|    Not a logout request [Client.php:1739]
+6C8E .<= ''
+6C8E .=> phpCAS::isAuthenticated() [Cas.php:86]
+6C8E .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+6C8E .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+6C8E .|    |    |    user = `babanin' [Client.php:1622]
+6C8E .|    |    <= true
+6C8E .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+6C8E .|    <= true
+6C8E .<= true
+86A0 .START (2018-06-27 01:36:50) phpCAS-1.3.5 ****************** [CAS.php:468]
+86A0 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+86A0 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+86A0 .|    |    Session is authenticated as: babanin [Client.php:936]
+86A0 .|    <= ''
+86A0 .<= ''
+86A0 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+86A0 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+86A0 .<= ''
+86A0 .=> phpCAS::forceAuthentication() [Cas.php:74]
+86A0 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+86A0 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+86A0 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+86A0 .|    |    |    |    user = `babanin' [Client.php:1622]
+86A0 .|    |    |    <= true
+86A0 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+86A0 .|    |    <= true
+86A0 .|    |    no need to authenticate [Client.php:1282]
+86A0 .|    <= true
+86A0 .<= ''
+86A0 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+86A0 .|    Not a logout request [Client.php:1739]
+86A0 .<= ''
+86A0 .=> phpCAS::isAuthenticated() [Cas.php:86]
+86A0 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+86A0 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+86A0 .|    |    |    user = `babanin' [Client.php:1622]
+86A0 .|    |    <= true
+86A0 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+86A0 .|    <= true
+86A0 .<= true
+96BB .START (2018-06-27 01:38:17) phpCAS-1.3.5 ****************** [CAS.php:468]
+96BB .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+96BB .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+96BB .|    |    Session is authenticated as: babanin [Client.php:936]
+96BB .|    <= ''
+96BB .<= ''
+96BB .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+96BB .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+96BB .<= ''
+96BB .=> phpCAS::forceAuthentication() [Cas.php:74]
+96BB .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+96BB .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+96BB .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+96BB .|    |    |    |    user = `babanin' [Client.php:1622]
+96BB .|    |    |    <= true
+96BB .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+96BB .|    |    <= true
+96BB .|    |    no need to authenticate [Client.php:1282]
+96BB .|    <= true
+96BB .<= ''
+96BB .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+96BB .|    Not a logout request [Client.php:1739]
+96BB .<= ''
+96BB .=> phpCAS::isAuthenticated() [Cas.php:86]
+96BB .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+96BB .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+96BB .|    |    |    user = `babanin' [Client.php:1622]
+96BB .|    |    <= true
+96BB .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+96BB .|    <= true
+96BB .<= true
+12C8 .START (2018-06-27 01:38:21) phpCAS-1.3.5 ****************** [CAS.php:468]
+12C8 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+12C8 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+12C8 .|    |    Session is authenticated as: babanin [Client.php:936]
+12C8 .|    <= ''
+12C8 .<= ''
+12C8 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+12C8 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+12C8 .<= ''
+12C8 .=> phpCAS::forceAuthentication() [Cas.php:74]
+12C8 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+12C8 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+12C8 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+12C8 .|    |    |    |    user = `babanin' [Client.php:1622]
+12C8 .|    |    |    <= true
+12C8 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+12C8 .|    |    <= true
+12C8 .|    |    no need to authenticate [Client.php:1282]
+12C8 .|    <= true
+12C8 .<= ''
+12C8 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+12C8 .|    Not a logout request [Client.php:1739]
+12C8 .<= ''
+12C8 .=> phpCAS::isAuthenticated() [Cas.php:86]
+12C8 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+12C8 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+12C8 .|    |    |    user = `babanin' [Client.php:1622]
+12C8 .|    |    <= true
+12C8 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+12C8 .|    <= true
+12C8 .<= true
+9601 .START (2018-06-27 01:38:24) phpCAS-1.3.5 ****************** [CAS.php:468]
+9601 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+9601 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+9601 .|    |    Session is authenticated as: babanin [Client.php:936]
+9601 .|    <= ''
+9601 .<= ''
+9601 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+9601 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+9601 .<= ''
+9601 .=> phpCAS::forceAuthentication() [Cas.php:74]
+9601 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+9601 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+9601 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+9601 .|    |    |    |    user = `babanin' [Client.php:1622]
+9601 .|    |    |    <= true
+9601 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+9601 .|    |    <= true
+9601 .|    |    no need to authenticate [Client.php:1282]
+9601 .|    <= true
+9601 .<= ''
+9601 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+9601 .|    Not a logout request [Client.php:1739]
+9601 .<= ''
+9601 .=> phpCAS::isAuthenticated() [Cas.php:86]
+9601 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+9601 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+9601 .|    |    |    user = `babanin' [Client.php:1622]
+9601 .|    |    <= true
+9601 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+9601 .|    <= true
+9601 .<= true
+ACA8 .START (2018-06-27 01:39:03) phpCAS-1.3.5 ****************** [CAS.php:468]
+ACA8 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+ACA8 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+ACA8 .|    |    Session is authenticated as: babanin [Client.php:936]
+ACA8 .|    <= ''
+ACA8 .<= ''
+ACA8 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+ACA8 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+ACA8 .<= ''
+ACA8 .=> phpCAS::forceAuthentication() [Cas.php:74]
+ACA8 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+ACA8 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+ACA8 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+ACA8 .|    |    |    |    user = `babanin' [Client.php:1622]
+ACA8 .|    |    |    <= true
+ACA8 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+ACA8 .|    |    <= true
+ACA8 .|    |    no need to authenticate [Client.php:1282]
+ACA8 .|    <= true
+ACA8 .<= ''
+ACA8 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+ACA8 .|    Not a logout request [Client.php:1739]
+ACA8 .<= ''
+ACA8 .=> phpCAS::isAuthenticated() [Cas.php:86]
+ACA8 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+ACA8 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+ACA8 .|    |    |    user = `babanin' [Client.php:1622]
+ACA8 .|    |    <= true
+ACA8 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+ACA8 .|    <= true
+ACA8 .<= true
+7E93 .START (2018-06-27 01:39:13) phpCAS-1.3.5 ****************** [CAS.php:468]
+7E93 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+7E93 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+7E93 .|    |    Session is authenticated as: babanin [Client.php:936]
+7E93 .|    <= ''
+7E93 .<= ''
+7E93 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+7E93 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+7E93 .<= ''
+7E93 .=> phpCAS::forceAuthentication() [Cas.php:74]
+7E93 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+7E93 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+7E93 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+7E93 .|    |    |    |    user = `babanin' [Client.php:1622]
+7E93 .|    |    |    <= true
+7E93 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+7E93 .|    |    <= true
+7E93 .|    |    no need to authenticate [Client.php:1282]
+7E93 .|    <= true
+7E93 .<= ''
+7E93 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+7E93 .|    Not a logout request [Client.php:1739]
+7E93 .<= ''
+6795 .START (2018-06-27 01:39:46) phpCAS-1.3.5 ****************** [CAS.php:468]
+6795 .=> phpCAS::client('S1', 'cas-1.uek.krakow.pl', 443, '/cas') [Cas.php:55]
+6795 .|    => CAS_Client::__construct('S1', false, 'cas-1.uek.krakow.pl', 443, '/cas', true) [CAS.php:360]
+6795 .|    |    Session is authenticated as: babanin [Client.php:936]
+6795 .|    <= ''
+6795 .<= ''
+6795 .=> phpCAS::setNoCasServerValidation() [Cas.php:59]
+6795 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+6795 .<= ''
+6795 .=> phpCAS::forceAuthentication() [Cas.php:74]
+6795 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+6795 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+6795 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+6795 .|    |    |    |    user = `babanin' [Client.php:1622]
+6795 .|    |    |    <= true
+6795 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+6795 .|    |    <= true
+6795 .|    |    no need to authenticate [Client.php:1282]
+6795 .|    <= true
+6795 .<= ''
+6795 .=> CAS_Client::handleLogoutRequests(false, false) [CAS.php:1276]
+6795 .|    Not a logout request [Client.php:1739]
+6795 .<= ''
+6795 .=> phpCAS::isAuthenticated() [Cas.php:86]
+6795 .|    => CAS_Client::isAuthenticated() [CAS.php:1145]
+6795 .|    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+6795 .|    |    |    user = `babanin' [Client.php:1622]
+6795 .|    |    <= true
+6795 .|    |    user was already authenticated, no need to look for tickets [Client.php:1417]
+6795 .|    <= true
+6795 .<= true
