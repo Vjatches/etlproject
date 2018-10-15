@@ -11,7 +11,7 @@
 	<meta name="description" content="UEK CI Documentation">
 	<meta name="author" content="Viacheslav Babanin">
 	<?=link_tag('img/afav.png', $rel="shortcut icon", $type='')?>
-	<title>UEK Admin</title>
+	<title>Exstract Transform Load</title>
 
 	<?=link_tag('css/bootstrap.min.css')?>
 	<?=link_tag('css/jquery-ui.min.css')?>
