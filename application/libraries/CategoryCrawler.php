@@ -5,16 +5,13 @@
  * Date: 10/15/2018
  * Time: 12:01
  */
-
-class CategoryCrawler
+require_once 'AllegroCrawler.php';
+class CategoryCrawler extends AllegroCrawler
 {
-    private $crawler;
-
+    protected $crawler;
     public function __construct($categoryURI = 'https://allegro.pl/kategoria/laptopy-apple-77915')
     {
-        $dom = new DOMDocument('1.0');
-        @$dom->loadHTMLFile($categoryURI);
-        $this->crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
+        parent::__construct($categoryURI);
     }
 
     function getAmountOfPages()
@@ -23,16 +20,17 @@ class CategoryCrawler
         return $numberOfPages;
     }
 
+
     function getProductLinksFromPage()
     {
         $div = $this->crawler->filter('[data-box-name="items container"]');
         $h2 = $div->filter('[class="_4462670  "],[class="_4462670 _7b0067f "]');
         $anchors = $h2->filter('a');
         $linksArray = $anchors->each(function (\Symfony\Component\DomCrawler\Crawler $node, $i) {
-            return $node->link()->getUri();
+            $url=getCleanUrl($node->link()->getUri());
+            return $url;
         });
         return $linksArray;
     }
-
 
 }

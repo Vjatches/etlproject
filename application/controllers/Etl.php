@@ -7,6 +7,7 @@ class Etl extends CI_Controller{
 		parent::__construct();
 		$this->load->helper('html');
 		$this->load->helper('url');
+		$this->load->helper('extract');
 		$this->load->model('extract_model');
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');

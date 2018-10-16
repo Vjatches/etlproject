@@ -32,7 +32,29 @@ class Extract_model extends CI_Model{
     }
 
     public function runExtractor($amountOfPages){
-        return $this->extractLinks($amountOfPages);
+        $start_time=microtime(1);
+        $links =  $this->extractLinks($amountOfPages);
+        //$links[]='https://allegro.pl/macbook-pro-15-2018-i9-32gb-512gb-560x-4gb-space-i7464414615.html';
+        $initialParams = $links[0];
+        $this->load->library('itemcrawler', $initialParams);
+
+        foreach ($links as $link){
+            $crawler = new itemcrawler($link);
+            $price=$crawler->getPrice();
+            $title=$crawler->getTitle();
+            $seller=$crawler->getSeller();
+
+            $item = array(
+              'title' => $title,
+              'price' => $price,
+                'seller' =>$seller
+            );
+            $result['product'][] = $item;
+        }
+        $end_time=microtime(1);
+        $execution_time=$end_time-$start_time;
+        $result['executiontime']=$execution_time;
+        return $result;
 
 
     }

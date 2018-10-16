@@ -18,4 +18,18 @@ if(!function_exists('toSingleArray')) {
 }
 
 
-//If number of pages is not specified, it will get links from all pages in a given category
+//get final uri without parameters
+if(!function_exists('getCleanUrl')) {
+    function getCleanUrl($uri){
+        //Getting final url, most usefull when uri contains redirects
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true); // Must be set to true so that PHP follows any "Location:" header
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $a = curl_exec($ch); // $a will contain all headers
+        //Stripping query string from final url
+        $url = strtok(curl_getinfo($ch, CURLINFO_EFFECTIVE_URL),'?');
+        return $url;
+    }
+}
