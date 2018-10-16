@@ -4,9 +4,9 @@
 			<a href="." class="icon icon-home"> Admin Panel Centrum Informatyki</a>
 		</div>
 		<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-			<ul class="<?=$current==='page1' ? 'current' : ''?>">
-				<li class="toctree-l1 <?=$current==='page1' ? 'current' : ''?>">
-					<a class="<?=$current==='page1' ? 'current' : ''?>" href="<?=base_url()?>page1">Page 1</a>
+			<ul class="<?=$current==='extract' ? 'current' : ''?>">
+				<li class="toctree-l1 <?=$current==='extract' ? 'current' : ''?>">
+					<a class="<?=$current==='extract' ? 'current' : ''?>" href="<?=base_url()?>extract">Extract</a>
 					<!--<ul class="current subnav">
 						<li class="toctree-l2 toc-item">
 							<a href="<?php /*echo base_url();*/?>home#description" title="Home">Description</a>
@@ -16,10 +16,14 @@
 
 
 			</ul>
-			<ul class="<?=$current==='page2' ? 'current' : ''?>">
-				<li class="toctree-l1 <?=$current==='page2' ? 'current' : ''?>">
-					<a class="<?=$current==='page2' ? 'current' : ''?>" href="<?=base_url()?>page2">Page 2</a>
+			<ul class="<?=$current==='transform' ? 'current' : ''?>">
+				<li class="toctree-l1 <?=$current==='transform' ? 'current' : ''?>">
+					<a class="<?=$current==='transform' ? 'current' : ''?>" href="<?=base_url()?>transform">Transform</a>
 				</li></ul>
+            <ul class="<?=$current==='load' ? 'current' : ''?>">
+                <li class="toctree-l1 <?=$current==='load' ? 'current' : ''?>">
+                    <a class="<?=$current==='load' ? 'current' : ''?>" href="<?=base_url()?>load">Load</a>
+                </li></ul>
 
 		</div>
 		&nbsp;
