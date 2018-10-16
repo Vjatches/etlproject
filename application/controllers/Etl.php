@@ -43,7 +43,7 @@ class Etl extends CI_Controller{
 		}else{
 
 
-			$data['content']=$this->extract_model->runExtractor($this->input->post('amountOfPages'));
+			$data['content']=$this->extract_model->runExtractorAsync($this->input->post('amountOfPages'));
 
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);

@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+/*
+ * My global variables
+ */
+define('ALLEGRO_CATEGORY_URL','https://allegro.pl/kategoria/laptopy-apple-77915');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

@@ -10,6 +10,7 @@ class AllegroCrawler{
     protected $crawler;
     public function __construct($categoryURI)
     {
+
         $dom = new DOMDocument('1.0');
         @$dom->loadHTMLFile($categoryURI);
         $this->crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');

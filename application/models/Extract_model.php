@@ -1,17 +1,18 @@
 <?php
-
+use Clue\React\Buzz\Browser;
 class Extract_model extends CI_Model{
 
     function __construct()
     {
         $this->load->helper('url');
         $this->load->helper('extract');
-        $this->load->library('categorycrawler');
+
     }
 
     public function extractLinks($amountOfPages){
         $errors = array();
         $count = $amountOfPages;
+        $this->load->library('categorycrawler');
         $maxAmountOfPages = $this->categorycrawler->getAmountOfPages();
         $minAmountOfPages = 1;
         if($count>$maxAmountOfPages || $count < $minAmountOfPages){
@@ -31,6 +32,8 @@ class Extract_model extends CI_Model{
 
     }
 
+
+
     public function runExtractor($amountOfPages){
         $start_time=microtime(1);
         $links =  $this->extractLinks($amountOfPages);
@@ -40,10 +43,6 @@ class Extract_model extends CI_Model{
 
         foreach ($links as $link){
             $crawler = new itemcrawler($link);
-            /*$price=$crawler->getPrice();
-            $title=$crawler->getTitle();
-            $seller=$crawler->getSeller();*/
-
             $result['product'][] = array(
                 'title' => $crawler->getAttribute(getClassSelector('title')),
                 'price' => $crawler->getAttribute(getClassSelector('price')),
@@ -56,6 +55,28 @@ class Extract_model extends CI_Model{
         return $result;
 
 
+    }
+
+    public function runExtractorAsync($amountOfPages){
+        $start_time=microtime(1);
+
+        $links =  $this->extractLinks($amountOfPages);
+
+        $loop = React\EventLoop\Factory::create();
+        $client = new Browser($loop);
+
+        //$scraper = new Scraper($client);
+        $this->load->library('scraper');
+        $this->scraper->setClient($client);
+
+        $this->scraper->scrape($links);
+
+        $loop->run();
+        $result['product']=$this->scraper->getData();
+        $end_time=microtime(1);
+        $execution_time=$end_time-$start_time;
+        $result['executiontime']=$execution_time;
+        return $result;
     }
 
 
