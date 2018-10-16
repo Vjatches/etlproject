@@ -33,3 +33,28 @@ if(!function_exists('getCleanUrl')) {
         return $url;
     }
 }
+
+//Returns selectors for html elements (attributes) which we want to parse
+if(!function_exists('getClassSelector')){
+    function getClassSelector($attribute){
+        switch($attribute){
+            case 'title':
+                $response['regular']='[class="_884d145b"]';
+                $response['auction']='[class="m-heading m-heading--xs si-title"]';
+                break;
+            case 'price':
+                $response['regular']='[class="_1f306df3 _1c943cca d7cfa755"]';
+                $response['auction']='[class="m-price m-price--primary"]';
+                break;
+            case 'seller':
+                $response['regular']='[class="_28bad9f5 e42e4878 _808f2003"]';
+                $response['auction']='[class="m-link"]';
+                break;
+            default:
+                $response['regular']='';
+                $response['auction']='';
+                break;
+        }
+        return $response;
+    }
+}

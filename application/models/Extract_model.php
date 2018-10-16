@@ -40,16 +40,15 @@ class Extract_model extends CI_Model{
 
         foreach ($links as $link){
             $crawler = new itemcrawler($link);
-            $price=$crawler->getPrice();
+            /*$price=$crawler->getPrice();
             $title=$crawler->getTitle();
-            $seller=$crawler->getSeller();
+            $seller=$crawler->getSeller();*/
 
-            $item = array(
-              'title' => $title,
-              'price' => $price,
-                'seller' =>$seller
+            $result['product'][] = array(
+                'title' => $crawler->getAttribute(getClassSelector('title')),
+                'price' => $crawler->getAttribute(getClassSelector('price')),
+                'seller' =>$crawler->getAttribute(getClassSelector('seller'))
             );
-            $result['product'][] = $item;
         }
         $end_time=microtime(1);
         $execution_time=$end_time-$start_time;

@@ -16,38 +16,22 @@ class ItemCrawler extends AllegroCrawler
         $this->url=$categoryURI;
     }
 
-    public function getPrice(){
-        try{
-        $price = strip_tags($this->crawler->filter('[class="_1f306df3 _1c943cca d7cfa755"]')->html(),'span');
-        }catch(InvalidArgumentException $exception){
-            $price = strip_tags($this->crawler->filter('[class="m-price m-price--primary"]')->html(),'span');
-            $price = $price.' licytacja';
+    //get html of desired attribute, pass attribute class selector returned by extract_helper
+    //getClassSelector method
+    public function getAttribute(array $classSelector){
+        if(!$this->ifAuction()){
+            $attribute = strip_tags($this->crawler->filter($classSelector['regular'])->html(),'span');
+        }else{
+            $attribute = strip_tags($this->crawler->filter($classSelector['auction'])->html(),'span');
         }
-        finally{
-            return $price;
-        }
-
+        return $attribute;
     }
-    public function getTitle(){
-        try{
-            $title = strip_tags($this->crawler->filter('[class="_884d145b"]')->html(),'span');
-        }catch(InvalidArgumentException $exception){
-            $title = strip_tags($this->crawler->filter('[class="m-heading m-heading--xs si-title"]')->html(),'span');
-            $title = $title.' licytacja';
-        }
-        finally{
-            return $title;
-        }
-    }
-    public function getSeller(){
-        try{
-            $seller = strip_tags($this->crawler->filter('[class="_28bad9f5 e42e4878 _808f2003"]')->html(),'span');
-        }catch(InvalidArgumentException $exception){
-            $seller = strip_tags($this->crawler->filter('[class="m-link"]')->html(),'span');
-            $seller = $seller.' licytacja';
-        }
-        finally{
-            return $seller;
+    //check if item page is an auction by looking for "licytuj" button
+    public function ifAuction(){
+        if( $this->crawler->filter('[value="licytuj"]')->count()){
+            return true;
+        }else{
+            return false;
         }
     }
 
