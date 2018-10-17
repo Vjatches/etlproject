@@ -60,6 +60,65 @@
         ]
     },
     {
+        "name": "clue/mq-react",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clue/php-mq-react.git",
+            "reference": "80226a0d9bf32155fc5a48091c5dd75e9842044d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clue/php-mq-react/zipball/80226a0d9bf32155fc5a48091c5dd75e9842044d",
+            "reference": "80226a0d9bf32155fc5a48091c5dd75e9842044d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3",
+            "react/promise": "^2.2.1 || ^1.2.1"
+        },
+        "require-dev": {
+            "clue/block-react": "^1.0",
+            "clue/buzz-react": "^2.0",
+            "phpunit/phpunit": "^7.0 || ^6.4 || ^5.7 || ^4.8.35",
+            "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3"
+        },
+        "time": "2018-02-26T10:29:23+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Clue\\React\\Mq\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Lück",
+                "email": "christian@lueck.tv"
+            }
+        ],
+        "description": "Mini Queue, the lightweight in-memory message queue to concurrently do many (but not too many) things at once, built on top of ReactPHP",
+        "homepage": "https://github.com/clue/php-mq-react",
+        "keywords": [
+            "Mini Queue",
+            "async",
+            "concurrency",
+            "job",
+            "message",
+            "message queue",
+            "queue",
+            "rate limit",
+            "reactphp",
+            "throttle",
+            "worker"
+        ]
+    },
+    {
         "name": "evenement/evenement",
         "version": "v2.1.0",
         "version_normalized": "2.1.0.0",

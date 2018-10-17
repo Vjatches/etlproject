@@ -10,18 +10,23 @@ require_once 'Worm.php';
 class Scraper
 {
     private $client;
+
     private $scraped = [];
 
     public function setClient(Browser $client){
         $this->client = $client;
     }
 
-    public function scrape(array $urls = [])
+
+    public function scrape(array $urls = [], $concurrencyLimit)
     {
+        $queue = new Clue\React\Mq\Queue($concurrencyLimit, null, function ($url) {
+            return $this->client->get($url);
+        });
         $this->scraped = [];
 
         foreach ($urls as $url) {
-            $this->client->get($url)->then(
+           $queue($url)->then(
                 function (\Psr\Http\Message\ResponseInterface $response) {
                     $this->scraped[] = $this->extractFromHtml((string) $response->getBody());
                 });

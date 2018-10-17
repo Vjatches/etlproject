@@ -42,6 +42,7 @@ class ComposerStaticInit19c3323f2e90e108d5710290209f8529
         ),
         'C' => 
         array (
+            'Clue\\React\\Mq\\' => 14,
             'Clue\\React\\Buzz\\' => 16,
         ),
     );
@@ -106,6 +107,10 @@ class ComposerStaticInit19c3323f2e90e108d5710290209f8529
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Clue\\React\\Mq\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clue/mq-react/src',
         ),
         'Clue\\React\\Buzz\\' => 
         array (

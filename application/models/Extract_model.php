@@ -32,7 +32,7 @@ class Extract_model extends CI_Model{
 
     }
 
-    public function runExtractorAsync($amountOfPages){
+    public function runExtractorAsync($amountOfPages,$concurrent){
         $start_time=microtime(1);
 
         $links =  $this->extractLinks($amountOfPages);
@@ -43,14 +43,14 @@ class Extract_model extends CI_Model{
         $this->load->library('scraper');
         $this->scraper->setClient($client);
 
-        $this->scraper->scrape($links);
+        $this->scraper->scrape($links,$concurrent);
 
         $loop->run();
 
         $result['product']=$this->scraper->getData();
         //Uncomment to get page and check for new class vocabulary
        /* $dom = new DOMDocument('1.0');
-        @$dom->loadHTMLFile('https://allegro.pl/apple-macbook-air-13-mqd32ze-a-i5-8gb-128ssd-i7477224192.html');
+        @$dom->loadHTMLFile('https://allegro.pl/apple-macbook-pro-i5-8gb-128ssd-iris-retina-macos-i7038391109.html');
         $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
         $result['product']=$crawler->html();*/
 
