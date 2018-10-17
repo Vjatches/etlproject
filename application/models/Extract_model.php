@@ -32,31 +32,6 @@ class Extract_model extends CI_Model{
 
     }
 
-
-
-    public function runExtractor($amountOfPages){
-        $start_time=microtime(1);
-        $links =  $this->extractLinks($amountOfPages);
-        //$links[]='https://allegro.pl/macbook-pro-15-2018-i9-32gb-512gb-560x-4gb-space-i7464414615.html';
-        $initialParams = $links[0];
-        $this->load->library('itemcrawler', $initialParams);
-
-        foreach ($links as $link){
-            $crawler = new itemcrawler($link);
-            $result['product'][] = array(
-                'title' => $crawler->getAttribute(getClassSelector('title')),
-                'price' => $crawler->getAttribute(getClassSelector('price')),
-                'seller' =>$crawler->getAttribute(getClassSelector('seller'))
-            );
-        }
-        $end_time=microtime(1);
-        $execution_time=$end_time-$start_time;
-        $result['executiontime']=$execution_time;
-        return $result;
-
-
-    }
-
     public function runExtractorAsync($amountOfPages){
         $start_time=microtime(1);
 
@@ -65,14 +40,20 @@ class Extract_model extends CI_Model{
         $loop = React\EventLoop\Factory::create();
         $client = new Browser($loop);
 
-        //$scraper = new Scraper($client);
         $this->load->library('scraper');
         $this->scraper->setClient($client);
 
         $this->scraper->scrape($links);
 
         $loop->run();
+
         $result['product']=$this->scraper->getData();
+        //Uncomment to get page and check for new class vocabulary
+       /* $dom = new DOMDocument('1.0');
+        @$dom->loadHTMLFile('https://allegro.pl/apple-macbook-air-13-mqd32ze-a-i5-8gb-128ssd-i7477224192.html');
+        $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
+        $result['product']=$crawler->html();*/
+
         $end_time=microtime(1);
         $execution_time=$end_time-$start_time;
         $result['executiontime']=$execution_time;

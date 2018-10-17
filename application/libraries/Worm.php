@@ -13,7 +13,7 @@ class Worm
 
     public function __construct($itemURL)
     {
-        $this->crawler= new \Symfony\Component\DomCrawler\Crawler($itemURL);
+        $this->crawler= new \Symfony\Component\DomCrawler\Crawler($itemURL,'https://allegro.pl/');
     }
 
     //get html of desired attribute, pass attribute class selector returned by extract_helper
