@@ -18,7 +18,7 @@
 			</ul>
 			<ul class="<?=$current==='page2' ? 'current' : ''?>">
 				<li class="toctree-l1 <?=$current==='page2' ? 'current' : ''?>">
-					<a class="<?=$current==='page2' ? 'current' : ''?>" href="<?=base_url()?>page2">Page 2</a>
+					<a class="<?=$current==='page2' ? 'current' : ''?>" href="<?=base_url()?>page2">Transform</a>
 				</li></ul>
 
 		</div>
