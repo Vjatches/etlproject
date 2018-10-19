@@ -28,7 +28,7 @@ class Worm
     }
     //check if item page is an auction by looking for "licytuj" button
     public function ifAuction(){
-        if( $this->crawler->filter('[value="licytuj"]')->count()){
+        if( $this->crawler->filter('[data-analytics-interaction-custom-flow="PurchasingProcess"]')->count()){
             return true;
         }else{
             return false;

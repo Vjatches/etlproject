@@ -46,16 +46,16 @@ if(!function_exists('getClassSelector')){
     function getClassSelector($attribute){
         switch($attribute){
             case 'title':
-                $response['regular']='[class="_2b138ce8"]';
-                $response['auction']='[class="m-heading m-heading--xs si-title"]';
+                $response['regular']='[class="_35c9aba1"]';
+                $response['auction']='[class="_35c9aba1"]';
                 break;
             case 'price':
-                $response['regular']='[class="_09c415b5 _4037db5f ae780ebb"]';
-                $response['auction']='[class="m-price m-price--primary"]';
+                $response['regular']='[class="_55d3c43d _73e98a72 a1bdb080"]';
+                $response['auction']='[class="_55d3c43d _73e98a72 a1bdb080"]';
                 break;
             case 'seller':
                 $response['regular']='[data-analytics-click-value="sellerLogin"]';
-                $response['auction']='[class="m-link"]';
+                $response['auction']='[data-analytics-click-value="sellerLogin"]';
                 break;
             default:
                 $response['regular']='';
