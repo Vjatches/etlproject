@@ -62,5 +62,17 @@ class Extract_model extends CI_Model{
         return $result;
     }
 
+    public function getPageWithItem($url){
+        $start_time=microtime(1);
+        $dom = new DOMDocument('1.0');
+        @$dom->loadHTMLFile($url);
+        $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
+        $result['product']=$crawler->html();
+        $end_time=microtime(1);
+        $execution_time=$end_time-$start_time;
+        $result['executiontime']=$execution_time;
+        return $result;
+    }
+
 
 }

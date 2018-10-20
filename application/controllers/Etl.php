@@ -59,6 +59,39 @@ class Etl extends CI_Controller{
 
 	}
 
+    public function extractPage(){
+        $data['current'] = 'extractPage';
+        $this->load->helper(array('form', 'url'));
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('pageUrl', 'PageUrl', 'required');
+        if ($this->form_validation->run() === FALSE){
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('pages/pageapp');
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+        }else{
+
+
+            $data['content']=$this->extract_model->getPageWithItem($this->input->post('pageUrl'));
+
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('pages/pageresult',$data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+
+        }
+
+
+
+
+    }
+
 
     public function transform(){
         $data['current'] = 'transform';
