@@ -35,4 +35,16 @@ class Worm
         }
     }
 
+    public function getJson(){
+
+        $text = $this->crawler->filter('[data-box-name="summary"]')->filter('script')->html();
+        $start = '"primarySlot":';
+        $end = '"additionalServices"';
+        $jsonstring = get_string_between($text,$start,$end);
+        $stripped = str_replace($jsonstring, "{},",$text);
+
+        $json = rtrim(strstr($stripped,"{\""),";");
+        return json_decode($json,true);
+    }
+
 }

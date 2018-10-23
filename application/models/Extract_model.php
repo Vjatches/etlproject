@@ -67,7 +67,16 @@ class Extract_model extends CI_Model{
         $dom = new DOMDocument('1.0');
         @$dom->loadHTMLFile($url);
         $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
-        $result['product']=$crawler->html();
+        //$result['product']=$crawler->html();
+        $text = $crawler->filter('[data-box-name="summary"]')->filter('script')->html();
+        $start = '"primarySlot":';
+        $end = '"additionalServices"';
+        $jsonstring = get_string_between($text,$start,$end);
+        $stripped = str_replace($jsonstring, "{},",$text);
+
+        $json = rtrim(strstr($stripped,"{\""),";");
+        $item[] = json_decode($json,true);
+        $result['product']=$item;
         $end_time=microtime(1);
         $execution_time=$end_time-$start_time;
         $result['executiontime']=$execution_time;

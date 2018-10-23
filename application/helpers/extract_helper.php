@@ -41,17 +41,31 @@ if(!function_exists('get_string_between')) {
         return substr($string, $ini, $len);
     }
 }
+if(!function_exists('delete_all_between')) {
+    function delete_all_between($string, $beginning, $end )
+    {
+        $beginningPos = strpos($string, $beginning);
+        $endPos = strpos($string, $end);
+        if ($beginningPos === false || $endPos === false) {
+            return $string;
+        }
+
+        $textToDelete = substr($string, $beginningPos, ($endPos + strlen($end)) - $beginningPos);
+
+        return delete_all_between($beginning, $end, str_replace($textToDelete, '', $string)); // recursion to ensure all occurrences are replaced
+    }
+}
 //Returns selectors for html elements (attributes) which we want to parse
 if(!function_exists('getClassSelector')){
     function getClassSelector($attribute){
         switch($attribute){
             case 'title':
-                $response['regular']='[class="_35c9aba1"]';
-                $response['auction']='[class="_35c9aba1"]';
+                $response['regular']='[class="bda14f76"]';
+                $response['auction']='[class="bda14f76"]';
                 break;
             case 'price':
-                $response['regular']='[class="_55d3c43d _73e98a72 a1bdb080"]';
-                $response['auction']='[class="_55d3c43d _73e98a72 a1bdb080"]';
+                $response['regular']='[class="_9c03ab08 _64f505a9 b42b9cd5"]';
+                $response['auction']='[class="_9c03ab08 _64f505a9 b42b9cd5"]';
                 break;
             case 'seller':
                 $response['regular']='[data-analytics-click-value="sellerLogin"]';
