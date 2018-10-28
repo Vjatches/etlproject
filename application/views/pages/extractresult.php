@@ -1,18 +1,8 @@
 <div class="app">
-    <h1>Loaded <?= count($content['product']) ?> items in <?= $content['executiontime'] ?></h1>
+    <h1>Extracted <?= $content['amount']['parsed'] ?> items from Allegro in <?= $content['executiontime'] ?></h1>
     <ul>
-        <!-- <ul><li><? /*=$content['product']*/ ?></li></ul>-->
-        <?php foreach ($content['product'] as $item): ?>
-
-            <li>
-                <ul>
-                    <?php foreach($item as $key=>$value): ?>
-                    <li><?= $key ?> : <?= $value?></li>
-                    <?php endforeach; ?>
-                </ul>
-            </li>
-
-        <?php endforeach; ?>
+        <li>Amount of  New records inserted to temporary database: <b><?=$content['amount']['affected']?></b></li>
+        <li>Amount of records already present in database: <b><?=$content['amount']['notaffected']?></b></li>
     </ul>
 </div>
 </div>

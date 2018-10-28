@@ -42,19 +42,20 @@ class Scraper
         $price = $crawler->getAttribute(getClassSelector('price'));
         $seller = $crawler->getAttribute(getClassSelector('seller'));*/
 
-        $title = $item['offerTitle']['title'];
+        /*$title = $item['offerTitle']['title'];
         $offerId = $item['notifyAndWatch']['offerId'];
         $price = $item['price']['priceInteger'];
         $seller = $item['offerTitle']['sellerName'];
-        $sellerLink = $item['offerTitle']['sellerListingUrl'];
+        $sellerLink = $item['offerTitle']['sellerListingUrl'];*/
 
-        return [
+       /* return [
             'title'        => $title,
             'offerId'   => $offerId,
             'price'       => $price,
             'seller'  => $seller,
             'sellerLink' => $sellerLink,
-        ];
+        ];*/
+       return $item;
     }
 
     public function getData()

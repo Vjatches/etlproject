@@ -48,18 +48,48 @@ class Extract_model extends CI_Model{
 
         $loop->run();
 
-        $result['product']=$this->scraper->getData();
         //Uncomment to get page and check for new class vocabulary
         /*$dom = new DOMDocument('1.0');
         @$dom->loadHTMLFile('https://allegro.pl/apple-macbook-pro-15-retina-256-ssd-ms-office-i7623507422.html');
 		@$dom->loadHTMLFile('https://allegro.pl/apple-macbook-pro-15-i7-2-3ghz-8gb-256gb-a1398-i7621793023.html');
         $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
         $result['product']=$crawler->html();*/
+//$result['product']=$this->scraper->getData();
+
+        //database insert
+        $products = $this->scraper->getData();
+        $query = $this->loadToDatabase($products);
+
 
         $end_time=microtime(1);
         $execution_time=$end_time-$start_time;
+
         $result['executiontime']=$execution_time;
+        $result['amount']['parsed']=count($links);
+        $result['amount']['affected']=$query['inserted'];
+        $result['amount']['notaffected']=$query['matched'];
         return $result;
+    }
+
+    public function loadToDatabase(array $array){
+        $bulk = new \MongoDB\Driver\BulkWrite(['ordered'=>false]);
+        foreach ($array as $item){
+            $bulk->update(
+                ['_id' =>$item['notifyAndWatch']['offerId']],
+                array('$setOnInsert' => $item),
+                array('upsert' => true)
+            );
+        }
+
+        $manager = new \MongoDB\Driver\Manager('mongodb+srv://root:root@kreslav-hcr9i.mongodb.net');
+        $writeConcern = new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 100);
+
+        $insert_result = $manager->executeBulkWrite('extracthub.products', $bulk, $writeConcern);
+        $amountofinserted = $insert_result->getUpsertedCount();
+        return [
+            'inserted'=>$insert_result->getUpsertedCount(),
+            'matched'=>$insert_result->getMatchedCount()
+        ];
     }
 
     public function getPageWithItem($url){
