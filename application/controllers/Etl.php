@@ -26,24 +26,29 @@ class Etl extends CI_Controller{
 
 
 	}
+
+
+
 	public function extract(){
 		$data['current'] = 'extract';
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');
+        $data['pagesqty'] = $this->extract_model->getPagesQuantity();
 
-        $this->form_validation->set_rules('amountOfPages', 'AmountOfPages', 'required');
-        if ($this->form_validation->run() === FALSE){
+        $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required|callback_quantity_check');
+        if ($this->form_validation->run($this) === FALSE){
+            $data['pagesqty'] = $this->extract_model->getPagesQuantity();
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar',$data);
-            $this->load->view('pages/extractapp');
+            $this->load->view('pages/extractapp', $data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
 		}else{
 
 
-			$data['content']=$this->extract_model->runExtractorAsync($this->input->post('amountOfPages'),$this->input->post('concurrent'));
+			$data['content']=$this->extract_model->runExtractorAsync($this->input->post('amountOfPages'));
 
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
@@ -58,6 +63,21 @@ class Etl extends CI_Controller{
 
 
 	}
+    public function quantity_check($input){
+	    $max = $this->extract_model->getPagesQuantity();
+        if ($input > $max)
+        {
+            $this->form_validation->set_message('quantity_check', '{field} can not be bigger than <b>'.$max.'</b>');
+            return FALSE;
+        }
+        elseif($input < 1)
+        {
+            $this->form_validation->set_message('quantity_check', '{field} can not be smaller than <b>1</b>');
+            return FALSE;
+        }else{
+            return TRUE;
+        }
+    }
 
     public function extractPage(){
         $data['current'] = 'extractPage';

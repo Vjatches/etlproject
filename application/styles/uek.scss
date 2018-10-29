@@ -129,6 +129,7 @@ a{
 /*Buttons*/
 
 .wy-menu-vertical{
+
   li.current>a, li.current>a:hover{
 	border-top:1px solid $uek-red;
 	background-color: $uek-red;
@@ -138,6 +139,18 @@ a{
 	border-right:black solid 1px;
 	position:relative;
   }
+	li.blue>a, li.blue>a:hover{
+		border-top:1px solid $uek-blue;
+		background-color: $uek-blue;
+		border-bottom:1px solid $uek-blue;
+
+	}
+	li.green>a, li.green>a:hover{
+		border-top:1px solid $uek-green;
+		background-color: $uek-green;
+		border-bottom:1px solid $uek-green;
+
+	}
 
   /*arrow on lists*/
   li.current>a:after{

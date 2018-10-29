@@ -151,6 +151,18 @@ a {
   position: relative;
 }
 
+.wy-menu-vertical li.blue > a, .wy-menu-vertical li.blue > a:hover {
+  border-top: 1px solid #27018d;
+  background-color: #27018d;
+  border-bottom: 1px solid #27018d;
+}
+
+.wy-menu-vertical li.green > a, .wy-menu-vertical li.green > a:hover {
+  border-top: 1px solid #004f48;
+  background-color: #004f48;
+  border-bottom: 1px solid #004f48;
+}
+
 .wy-menu-vertical li.current > a:after {
   content: '';
   width: 15px;

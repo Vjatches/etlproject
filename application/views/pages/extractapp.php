@@ -1,29 +1,31 @@
 <div class="windows">
     <div class="app">
-        <h1 id="welcome-to-cas-ci-documentation">Extract links from allegro category</h1><hr>
+        <h1 id="welcome-to-cas-ci-documentation">Extract products from Allegro category</h1>
+        <hr>
 
 
         <?php echo validation_errors(); ?>
 
-        <?=form_open('extract', array('class' => '.form-horizontal', 'id' => 'form_search'))?>
+        <?= form_open('extract', array('class' => '.form-horizontal', 'id' => 'form_search')) ?>
+
         <div class="form-group">
-            <label class="control-label" for="concurrent">Limit of concurrent requests</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="concurrent" value="10" placeholder="Enter amount of concurrent requests" name="concurrent">
+            <div class="col-sm-5" style="margin-bottom: 10px;margin-top: 10px;padding-left: 8px;">
+                <input class="form-control" type="number" placeholder="Enter value" name="amountOfPages"
+                       id="amountOfPages"/>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="amountOfPages">Amount of pages</label>
-            <div class="col-sm-10">
-                <input class="form-control" type="text" placeholder="Enter amount of pages to process" name="amountOfPages" id="amountOfPages"/>
+            <label class="control-label" for="amountOfPages">Enter amount of pages to process</label>
+            <ul>
+                <li>Minimum: <b>1</b></li>
+                <li>Maximum: <b><?=$pagesqty?></b></li>
+            </ul>
+            <div class="row">
+
+                <span class="input-group-btn float-right" style="margin-left: 300px"><input id="submit" class="btn btn-danger" type="submit" name="submit"
+                                                      value="Extract"/></span>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <span class="input-group-btn">
-<input id="submit" class="btn btn-danger" type="submit" name="submit" value="Extract" />
-	</span>
-            </div>
+
+
+
         </div>
 
 

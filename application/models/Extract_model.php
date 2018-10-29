@@ -7,13 +7,21 @@ class Extract_model extends CI_Model{
         $this->load->helper('url');
         $this->load->helper('extract');
 
+
     }
+
+    public function getPagesQuantity(){
+        $this->load->library('categorycrawler');
+        $amountOfPages = $this->categorycrawler->getAmountOfPages();
+        return $amountOfPages;
+    }
+
+
 
     public function extractLinks($amountOfPages){
         $errors = array();
         $count = $amountOfPages;
-        $this->load->library('categorycrawler');
-        $maxAmountOfPages = $this->categorycrawler->getAmountOfPages();
+        $maxAmountOfPages = $this->getPagesQuantity();
         $minAmountOfPages = 1;
         if($count>$maxAmountOfPages || $count < $minAmountOfPages){
             $errors[]="Invalid number of pages. Please specify range between $minAmountOfPages and $maxAmountOfPages";
@@ -22,7 +30,7 @@ class Extract_model extends CI_Model{
         $i = 1;
         $links = array();
         while ($i <= $count) {
-            $crawlers = new categorycrawler('' . 'https://allegro.pl/kategoria/laptopy-apple-77915' . '?p=' . $i);
+            $crawlers = new categorycrawler('' . ALLEGRO_CATEGORY_URL . '?p=' . $i);
             $links[] = $crawlers->getProductLinksFromPage();
             $i++;
         }
@@ -32,7 +40,7 @@ class Extract_model extends CI_Model{
 
     }
 
-    public function runExtractorAsync($amountOfPages,$concurrent){
+    public function runExtractorAsync($amountOfPages = 1){
     	set_time_limit(0);
         $start_time=microtime(1);
 
@@ -44,7 +52,7 @@ class Extract_model extends CI_Model{
         $this->load->library('scraper');
         $this->scraper->setClient($client);
 
-        $this->scraper->scrape($links,$concurrent);
+        $this->scraper->scrape($links,10);
 
         $loop->run();
 
@@ -62,7 +70,8 @@ class Extract_model extends CI_Model{
 
 
         $end_time=microtime(1);
-        $execution_time=$end_time-$start_time;
+        $execution_time=getTime($start_time,$end_time);
+
 
         $result['executiontime']=$execution_time;
         $result['amount']['parsed']=count($links);

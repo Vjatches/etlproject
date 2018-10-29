@@ -9,7 +9,7 @@ require_once 'AllegroCrawler.php';
 class CategoryCrawler extends AllegroCrawler
 {
     protected $crawler;
-    public function __construct($categoryURI = 'https://allegro.pl/kategoria/laptopy-apple-77915')
+    public function __construct($categoryURI = ALLEGRO_CATEGORY_URL)
     {
         parent::__construct($categoryURI);
     }

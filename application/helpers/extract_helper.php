@@ -1,6 +1,6 @@
 <?php
 //Function which recursively converts multidimensional array to single-dimensional array for ease of iteration
-if(!function_exists('toSingleArray')) {
+if (!function_exists('toSingleArray')) {
     function toSingleArray($arr)
     {
         foreach ($arr as $key) {
@@ -19,18 +19,18 @@ if(!function_exists('toSingleArray')) {
 
 
 //get final uri without parameters
-if(!function_exists('getCleanUrl')) {
-    function getCleanUrl($uri){
+if (!function_exists('getCleanUrl')) {
+    function getCleanUrl($uri)
+    {
         if (strpos($uri, '&redirect=') !== false) {
-            $url=get_string_between($uri,'redirect=','?');
-        }
-        else{
+            $url = get_string_between($uri, 'redirect=', '?');
+        } else {
             $url = $uri;
         }
         return $url;
     }
 }
-if(!function_exists('get_string_between')) {
+if (!function_exists('get_string_between')) {
     function get_string_between($string, $start, $end)
     {
         $string = ' ' . $string;
@@ -41,8 +41,8 @@ if(!function_exists('get_string_between')) {
         return substr($string, $ini, $len);
     }
 }
-if(!function_exists('delete_all_between')) {
-    function delete_all_between($string, $beginning, $end )
+if (!function_exists('delete_all_between')) {
+    function delete_all_between($string, $beginning, $end)
     {
         $beginningPos = strpos($string, $beginning);
         $endPos = strpos($string, $end);
@@ -55,27 +55,45 @@ if(!function_exists('delete_all_between')) {
         return delete_all_between($beginning, $end, str_replace($textToDelete, '', $string)); // recursion to ensure all occurrences are replaced
     }
 }
+
+
 //Returns selectors for html elements (attributes) which we want to parse
-if(!function_exists('getClassSelector')){
-    function getClassSelector($attribute){
-        switch($attribute){
+if (!function_exists('getClassSelector')) {
+    function getClassSelector($attribute)
+    {
+        switch ($attribute) {
             case 'title':
-                $response['regular']='[class="bda14f76"]';
-                $response['auction']='[class="bda14f76"]';
+                $response['regular'] = '[class="bda14f76"]';
+                $response['auction'] = '[class="bda14f76"]';
                 break;
             case 'price':
-                $response['regular']='[class="_9c03ab08 _64f505a9 b42b9cd5"]';
-                $response['auction']='[class="_9c03ab08 _64f505a9 b42b9cd5"]';
+                $response['regular'] = '[class="_9c03ab08 _64f505a9 b42b9cd5"]';
+                $response['auction'] = '[class="_9c03ab08 _64f505a9 b42b9cd5"]';
                 break;
             case 'seller':
-                $response['regular']='[data-analytics-click-value="sellerLogin"]';
-                $response['auction']='[data-analytics-click-value="sellerLogin"]';
+                $response['regular'] = '[data-analytics-click-value="sellerLogin"]';
+                $response['auction'] = '[data-analytics-click-value="sellerLogin"]';
                 break;
             default:
-                $response['regular']='';
-                $response['auction']='';
+                $response['regular'] = '';
+                $response['auction'] = '';
                 break;
         }
         return $response;
     }
+}
+if (!function_exists('getTime')) {
+    function getTime($start_time, $end_time)
+    {
+        $duration = $end_time-$start_time;
+
+        if ($duration < 60)
+           return $duration;
+        else {
+            $min = (int)($duration / 60);
+            $sec = $duration % 60;
+           return "$min min $sec s";
+        }
+    }
+
 }

@@ -13,23 +13,18 @@
 						</li>
 					</ul>-->
 				</li>
-
-
 			</ul>
 			<ul class="<?=$current==='transform' ? 'current' : ''?>">
-				<li class="toctree-l1 <?=$current==='transform' ? 'current' : ''?>">
-					<a class="<?=$current==='transform' ? 'current' : ''?>" href="<?=base_url()?>transform">Transform</a>
+				<li class="toctree-l1 <?=$current==='transform' ? 'current blue' : ''?>">
+					<a class="<?=$current==='transform' ? 'current blue' : ''?>" href="<?=base_url()?>transform">Transform</a>
 				</li></ul>
             <ul class="<?=$current==='load' ? 'current' : ''?>">
-                <li class="toctree-l1 <?=$current==='load' ? 'current' : ''?>">
-                    <a class="<?=$current==='load' ? 'current' : ''?>" href="<?=base_url()?>load">Load</a>
+                <li class="toctree-l1 <?=$current==='load' ? 'current green' : ''?>">
+                    <a class="<?=$current==='load' ? 'current green' : ''?>" href="<?=base_url()?>load">Load</a>
                 </li></ul>
             <ul class="<?=$current==='extractPage' ? 'current' : ''?>">
                 <li class="toctree-l1 <?=$current==='extractPage' ? 'current' : ''?>">
                     <a class="<?=$current==='extractPage' ? 'current' : ''?>" href="<?=base_url()?>extractPage">Extract page</a>
                 </li></ul>
-
 		</div>
-		&nbsp;
 	</nav>
-
