@@ -1,5 +1,5 @@
 .DS_Store
-
+application/config/config.php
 application/cache/*
 !application/cache/index.html
 
@@ -29,3 +29,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+itempage\.html
+
+test\.html

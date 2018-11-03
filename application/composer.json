@@ -1,6 +1,8 @@
 {
     "require": {
         "symfony/dom-crawler": "^3.4",
-        "symfony/css-selector": "^3.4"
+        "symfony/css-selector": "^3.4",
+        "clue/buzz-react": "^2.4",
+        "clue/mq-react": "1.0"
     }
 }
