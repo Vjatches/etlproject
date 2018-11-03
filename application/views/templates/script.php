@@ -17,7 +17,21 @@
 				}
 		});
 
+        $("#checkall_chb").change(function() {
+            if (this.checked) {
+                $("[name='fields[]']").each(function() {
+                    this.checked=true;
+                });
+            } else {
+                $("[name='fields[]']").each(function() {
+                    this.checked=false;
+                });
+            }
+        });
+
 	});
+
+
 
 	function submitPassword(event, form, dn, pwd1, pwd2, chb1, chb2, butt){
 		var request;

@@ -138,6 +138,7 @@ a {
 /*Sidebar*/
 /*Buttons*/
 .wy-menu-vertical {
+  /*Classes to color buttons */
   /*arrow on lists*/
 }
 
@@ -174,8 +175,8 @@ a {
   transform: rotate(45deg);
   top: 27%;
   left: 142px;
-  border-left: #8d0126 solid 1px;
-  border-bottom: #8d0126 solid 1px;
+  border-left: black solid 1px;
+  border-bottom: black solid 1px;
 }
 
 .wy-menu-vertical li :active {
@@ -266,13 +267,11 @@ th {
   margin-right: 10px;
 }
 
-/*Stan serwerów*/
-p.czerwony {
-  color: red;
-  display: inline;
+.row {
+  margin-bottom: 5px;
 }
 
-p.zielony {
-  color: green;
-  display: inline;
+.col-centered {
+  float: none;
+  margin: 0 auto;
 }

@@ -8,7 +8,9 @@ class Etl extends CI_Controller{
 		$this->load->helper('html');
 		$this->load->helper('url');
 		$this->load->helper('extract');
+        $this->load->helper('transform');
 		$this->load->model('extract_model');
+       // $this->load->model('transform_model');
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		$this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -42,7 +44,7 @@ class Etl extends CI_Controller{
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar',$data);
-            $this->load->view('pages/extractapp', $data);
+            $this->load->view('pages/extract_app', $data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
 		}else{
@@ -53,7 +55,7 @@ class Etl extends CI_Controller{
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar',$data);
-            $this->load->view('pages/extractresult',$data);
+            $this->load->view('pages/extract_result',$data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
 
@@ -115,13 +117,28 @@ class Etl extends CI_Controller{
 
     public function transform(){
         $data['current'] = 'transform';
+        $data['checkboxes']=generateCheckboxes();
+        $this->load->helper(array('form', 'url'));
 
-        $this->load->view('templates/meta');
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar',$data);
-        $this->load->view('templates/footer');
-        $this->load->view('templates/script');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required');
+        if ($this->form_validation->run() === FALSE){
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('pages/transform_app');
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+        }else{
 
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('pages/transform_result',$data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+
+        }
 
     }
     public function load(){

@@ -127,7 +127,6 @@ a{
 
 /*Sidebar*/
 /*Buttons*/
-
 .wy-menu-vertical{
 
   li.current>a, li.current>a:hover{
@@ -139,6 +138,7 @@ a{
 	border-right:black solid 1px;
 	position:relative;
   }
+	/*Classes to color buttons */
 	li.blue>a, li.blue>a:hover{
 		border-top:1px solid $uek-blue;
 		background-color: $uek-blue;
@@ -162,8 +162,8 @@ a{
 	@include transform(rotate(45deg));
 	top:27%;
 	left:142px;
-	border-left:$uek-red solid 1px;
-	border-bottom:$uek-red solid 1px;
+	border-left:black solid 1px;
+	border-bottom:black solid 1px;
   }
 
   li :active{
@@ -240,6 +240,12 @@ th {
 	display:inline-block;
 	margin-right: 10px;
 }
-/*Stan serwerów*/
-p.czerwony{color:red;display: inline;}
-p.zielony{color:green;display: inline;}
+
+//Bootstrap overwrites
+.row{
+	margin-bottom: 5px;
+}
+.col-centered{
+	float: none;
+	margin: 0 auto;
+}
