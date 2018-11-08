@@ -4,8 +4,9 @@
         <hr>
 
 
-        <?php echo validation_errors(); ?>
-
+        <div class="<?php  echo form_error('amountOfPages') ? 'error' : ''; ?>">
+            <?php echo validation_errors(); ?>
+        </div>
         <?= form_open('extract', array('class' => '.form-horizontal', 'id' => 'form_search')) ?>
 
         <div class="form-group">

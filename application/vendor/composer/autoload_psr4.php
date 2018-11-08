@@ -21,6 +21,7 @@ return array(
     'React\\Dns\\' => array($vendorDir . '/react/dns/src'),
     'React\\Cache\\' => array($vendorDir . '/react/cache/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'MongoDB\\' => array($vendorDir . '/mongodb/mongodb/src'),
     'Clue\\React\\Mq\\' => array($vendorDir . '/clue/mq-react/src'),
     'Clue\\React\\Buzz\\' => array($vendorDir . '/clue/buzz-react/src'),
 );

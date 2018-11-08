@@ -10,7 +10,7 @@ class Etl extends CI_Controller{
 		$this->load->helper('extract');
         $this->load->helper('transform');
 		$this->load->model('extract_model');
-       // $this->load->model('transform_model');
+        $this->load->model('transform_model');
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		$this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -38,7 +38,8 @@ class Etl extends CI_Controller{
         $this->load->library('form_validation');
         $data['pagesqty'] = $this->extract_model->getPagesQuantity();
 
-        $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required|callback_quantity_check');
+
+        $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required|callback_quantity_check', array('required'=>'Please, provide amount of pages to extract'));
         if ($this->form_validation->run($this) === FALSE){
             $data['pagesqty'] = $this->extract_model->getPagesQuantity();
             $this->load->view('templates/meta');
@@ -48,10 +49,7 @@ class Etl extends CI_Controller{
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
 		}else{
-
-
 			$data['content']=$this->extract_model->runExtractorAsync($this->input->post('amountOfPages'));
-
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar',$data);
@@ -80,7 +78,6 @@ class Etl extends CI_Controller{
             return TRUE;
         }
     }
-
     public function extractPage(){
         $data['current'] = 'extractPage';
         $this->load->helper(array('form', 'url'));
@@ -113,15 +110,14 @@ class Etl extends CI_Controller{
 
 
     }
-
-
     public function transform(){
         $data['current'] = 'transform';
         $data['checkboxes']=generateCheckboxes();
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required');
+        $this->form_validation->set_rules('fields[]', 'Fields', 'required');
+        $this->form_validation->set_message('required', 'Please, choose at least one attribute');
         if ($this->form_validation->run() === FALSE){
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
@@ -130,7 +126,7 @@ class Etl extends CI_Controller{
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
         }else{
-
+            $data['content']=$this->transform_model->runTransform($this->input->post('fields[]'));
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar',$data);

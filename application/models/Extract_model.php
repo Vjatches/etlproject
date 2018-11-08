@@ -17,7 +17,6 @@ class Extract_model extends CI_Model{
     }
 
 
-
     public function extractLinks($amountOfPages){
         $errors = array();
         $count = $amountOfPages;

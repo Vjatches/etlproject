@@ -13,6 +13,7 @@ class ComposerStaticInit19c3323f2e90e108d5710290209f8529
         'ebf8799635f67b5d7248946fe2154f4a' => __DIR__ . '/..' . '/ringcentral/psr7/src/functions_include.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -39,6 +40,10 @@ class ComposerStaticInit19c3323f2e90e108d5710290209f8529
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+        ),
+        'M' => 
+        array (
+            'MongoDB\\' => 8,
         ),
         'C' => 
         array (
@@ -107,6 +112,10 @@ class ComposerStaticInit19c3323f2e90e108d5710290209f8529
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'MongoDB\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
         ),
         'Clue\\React\\Mq\\' => 
         array (
