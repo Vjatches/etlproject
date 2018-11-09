@@ -29,11 +29,11 @@ if (!function_exists('generateCheckboxes')) {
             ],[
                 'value'=>'popularity.label','id'=>'popularity_chb','label'=>'Popularity'
             ],[
-                'value'=>'installments.quantity','id'=>'installments_chb','label'=>'Installments qty'
+                'value'=>'price.installments.quantity','id'=>'installments_chb','label'=>'Installments qty'
             ],[
-                'value'=>'installments.free','id'=>'insttype_chb','label'=>'Inst type'
+                'value'=>'price.installments.free','id'=>'insttype_chb','label'=>'Inst type'
             ],[
-                'value'=>'installments.price','id'=>'qtyprice_chb','label'=>'Inst price'
+                'value'=>'price.installments.price','id'=>'qtyprice_chb','label'=>'Inst price'
             ]
 
         ];

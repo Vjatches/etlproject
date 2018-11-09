@@ -55,14 +55,6 @@ class Extract_model extends CI_Model{
 
         $loop->run();
 
-        //Uncomment to get page and check for new class vocabulary
-        /*$dom = new DOMDocument('1.0');
-        @$dom->loadHTMLFile('https://allegro.pl/apple-macbook-pro-15-retina-256-ssd-ms-office-i7623507422.html');
-		@$dom->loadHTMLFile('https://allegro.pl/apple-macbook-pro-15-i7-2-3ghz-8gb-256gb-a1398-i7621793023.html');
-        $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
-        $result['product']=$crawler->html();*/
-//$result['product']=$this->scraper->getData();
-
         //database insert
         $products = $this->scraper->getData();
         $query = $this->loadToDatabase($products);

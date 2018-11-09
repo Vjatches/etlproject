@@ -37,24 +37,6 @@ class Scraper
     {
         $crawler = new Worm($html);
         $item = $crawler->getJson();
-
-        /*$title = $crawler->getAttribute(getClassSelector('title'));
-        $price = $crawler->getAttribute(getClassSelector('price'));
-        $seller = $crawler->getAttribute(getClassSelector('seller'));*/
-
-        /*$title = $item['offerTitle']['title'];
-        $offerId = $item['notifyAndWatch']['offerId'];
-        $price = $item['price']['priceInteger'];
-        $seller = $item['offerTitle']['sellerName'];
-        $sellerLink = $item['offerTitle']['sellerListingUrl'];*/
-
-       /* return [
-            'title'        => $title,
-            'offerId'   => $offerId,
-            'price'       => $price,
-            'seller'  => $seller,
-            'sellerLink' => $sellerLink,
-        ];*/
        return $item;
     }
 

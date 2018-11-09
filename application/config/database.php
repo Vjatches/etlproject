@@ -74,13 +74,13 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost;port=3306;dbname=codeigniter',
-	'hostname' => 'localhost',
-	'username' => 'codeigniter',
-	'password' => 'codeigniter',
-	'database' => 'codeigniter',
+	'dsn'	=> 'pgsql:host=ec2-54-217-235-16.eu-west-1.compute.amazonaws.com;port=5432;dbname=d9s0u9fllbnr55',
+	'hostname' => 'ec2-54-217-235-16.eu-west-1.compute.amazonaws.com',
+	'username' => 'nvmqibhuxsgzkg',
+	'password' => '29305003a59b9a32ac4435a49987f6f9484bb76a7fb85d819909d17a68bf71b7',
+	'database' => 'd9s0u9fllbnr55',
 	'dbdriver' => 'pdo',
-	'dbprefix' => 'news_',
+	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,

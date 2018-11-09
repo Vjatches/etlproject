@@ -43,7 +43,7 @@ class Worm
         $jsonstring = get_string_between($text,$start,$end);
         $stripped = str_replace($jsonstring, "{},",$text);
 
-        $json = rtrim(strstr($stripped,"{\""),";");
+        $json = html_entity_decode(rtrim(strstr($stripped,"{\""),";"));
         return json_decode($json,true);
     }
 
