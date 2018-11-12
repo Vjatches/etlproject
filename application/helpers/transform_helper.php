@@ -2,6 +2,9 @@
 
 if (!function_exists('convertBoolean')) {
     function convertBoolean($attribute){
+        if($attribute=='NULL'){
+            return 'NULL';
+        }
         return $attribute ? 'TRUE' : 'FALSE';
     }
 
