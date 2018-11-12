@@ -16,9 +16,10 @@ class Etl extends CI_Controller{
 		$this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 	}
 
-
 	public function home(){
 		$data['current'] = 'home';
+
+
 		$this->load->view('templates/meta');
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/topbar',$data);
@@ -32,16 +33,18 @@ class Etl extends CI_Controller{
 
 
 	public function extract(){
+
+
 		$data['current'] = 'extract';
+
         $this->load->helper(array('form', 'url'));
-
         $this->load->library('form_validation');
-        $data['pagesqty'] = $this->extract_model->getPagesQuantity();
 
+        $data['pagesqty'] = $this->extract_model->getPagesQuantity();
 
         $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required|callback_quantity_check', array('required'=>'Please, provide amount of pages to extract'));
         if ($this->form_validation->run($this) === FALSE){
-            $data['pagesqty'] = $this->extract_model->getPagesQuantity();
+
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar',$data);
@@ -49,6 +52,7 @@ class Etl extends CI_Controller{
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
 		}else{
+
 			$data['content']=$this->extract_model->runExtractorAsync($this->input->post('amountOfPages'));
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
@@ -63,21 +67,49 @@ class Etl extends CI_Controller{
 
 
 	}
-    public function quantity_check($input){
-	    $max = $this->extract_model->getPagesQuantity();
-        if ($input > $max)
-        {
-            $this->form_validation->set_message('quantity_check', '{field} can not be bigger than <b>'.$max.'</b>');
-            return FALSE;
-        }
-        elseif($input < 1)
-        {
-            $this->form_validation->set_message('quantity_check', '{field} can not be smaller than <b>1</b>');
-            return FALSE;
+
+    public function transform(){
+        $data['current'] = 'transform';
+        $data['checkboxes']=generateCheckboxes();
+        $this->load->helper(array('form', 'url'));
+
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('fields[]', 'Fields', 'required');
+        $this->form_validation->set_message('required', 'Please, choose at least one attribute');
+
+        if ($this->form_validation->run() === FALSE){
+            $data['choice'] = $this->transform_model->getChoice();
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('pages/transform_app');
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
         }else{
-            return TRUE;
+            $this->transform_model->setChoice($this->input->post('fields[]'),$this->input->post('default_chb'));
+            $data['content']=$this->transform_model->runTransform($this->input->post('fields[]'));
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('pages/transform_result',$data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+
         }
+
     }
+    public function load(){
+        $data['current'] = 'load';
+
+        $this->load->view('templates/meta');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/script');
+
+
+    }
+
     public function extractPage(){
         $data['current'] = 'extractPage';
         $this->load->helper(array('form', 'url'));
@@ -110,45 +142,24 @@ class Etl extends CI_Controller{
 
 
     }
-    public function transform(){
-        $data['current'] = 'transform';
-        $data['checkboxes']=generateCheckboxes();
-        $this->load->helper(array('form', 'url'));
 
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('fields[]', 'Fields', 'required');
-        $this->form_validation->set_message('required', 'Please, choose at least one attribute');
-        if ($this->form_validation->run() === FALSE){
-            $this->load->view('templates/meta');
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar',$data);
-            $this->load->view('pages/transform_app');
-            $this->load->view('templates/footer');
-            $this->load->view('templates/script');
-        }else{
-            $data['content']=$this->transform_model->runTransform($this->input->post('fields[]'));
-            $this->load->view('templates/meta');
-            $this->load->view('templates/sidebar', $data);
-            $this->load->view('templates/topbar',$data);
-            $this->load->view('pages/transform_result',$data);
-            $this->load->view('templates/footer');
-            $this->load->view('templates/script');
 
+
+    public function quantity_check($input){
+        $max = $this->extract_model->getPagesQuantity();
+        if ($input > $max)
+        {
+            $this->form_validation->set_message('quantity_check', '{field} can not be bigger than <b>'.$max.'</b>');
+            return FALSE;
         }
-
+        elseif($input < 1)
+        {
+            $this->form_validation->set_message('quantity_check', '{field} can not be smaller than <b>1</b>');
+            return FALSE;
+        }else{
+            return TRUE;
+        }
     }
-    public function load(){
-        $data['current'] = 'load';
-
-        $this->load->view('templates/meta');
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar',$data);
-        $this->load->view('templates/footer');
-        $this->load->view('templates/script');
-
-
-    }
-
 
 
 

@@ -26,5 +26,6 @@
                 <li class="toctree-l1 <?=$current==='extractPage' ? 'current' : ''?>">
                     <a class="<?=$current==='extractPage' ? 'current' : ''?>" href="<?=base_url()?>extractPage">Extract page</a>
                 </li></ul>
+
 		</div>
 	</nav>

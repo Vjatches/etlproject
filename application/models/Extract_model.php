@@ -6,8 +6,6 @@ class Extract_model extends CI_Model{
     {
         $this->load->helper('url');
         $this->load->helper('extract');
-
-
     }
 
     public function getPagesQuantity(){
@@ -40,8 +38,9 @@ class Extract_model extends CI_Model{
     }
 
     public function runExtractorAsync($amountOfPages = 1){
+        $this->load->library('timer');
+        $this->timer->start();
     	set_time_limit(0);
-        $start_time=microtime(1);
 
         $links =  $this->extractLinks($amountOfPages);
 
@@ -60,14 +59,15 @@ class Extract_model extends CI_Model{
         $query = $this->loadToDatabase($products);
 
 
-        $end_time=microtime(1);
-        $execution_time=getTime($start_time,$end_time);
-
-
-        $result['executiontime']=$execution_time;
         $result['amount']['parsed']=count($links);
         $result['amount']['affected']=$query['inserted'];
         $result['amount']['notaffected']=$query['matched'];
+        $result['executiontime']=$this->timer->stop();
+        //Explanation 'associative array'
+        /*$result = ['executiontime'=>22,
+            'amount' => ['parsed' => 64, 'affected' => 0, 'notaffected' => 64],
+            'test' => ['test', ['level'=>1]]
+        ];*/
         return $result;
     }
 
@@ -93,7 +93,8 @@ class Extract_model extends CI_Model{
     }
 
     public function getPageWithItem($url){
-        $start_time=microtime(1);
+        $this->load->library('timer');
+        $this->timer->start();
         $dom = new DOMDocument('1.0');
         @$dom->loadHTMLFile($url);
         $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
@@ -107,9 +108,8 @@ class Extract_model extends CI_Model{
         $json = rtrim(strstr($stripped,"{\""),";");
         $item[] = json_decode($json,true);
         $result['product']=$item;
-        $end_time=microtime(1);
-        $execution_time=$end_time-$start_time;
-        $result['executiontime']=$execution_time;
+
+        $result['executiontime']=$this->timer->stop();
         return $result;
     }
 

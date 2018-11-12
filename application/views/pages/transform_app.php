@@ -14,7 +14,11 @@
                 <?php
                 $itemcounter = 0;
                 foreach ($checkboxes as $checkbox) {
-                    echo '<div class="col-sm"><label class="checkbox-inline"><input type="checkbox" id="' . $checkbox['id'] . '" name="fields[]" value="' . $checkbox['value'] . '">' . $checkbox['label'] . '</label></div>';
+                    $checked = 'checked';
+                    if(array_search($checkbox['value'], $choice) === FALSE){
+                        $checked = '';
+                    }
+                    echo '<div class="col-sm"><label class="checkbox-inline"><input type="checkbox" '.$checked.' id="' . $checkbox['id'] . '" name="fields[]" value="' . $checkbox['value'] . '">' . $checkbox['label'] . '</label></div>';
                     $itemcounter++;
                     if ($itemcounter == 3) {
                         echo '</div><div class="row">';
@@ -28,7 +32,7 @@
         <hr>
         <div class="container" style="margin-top:25px">
             <div class="row">
-                <div class="col-8"><label><input type="checkbox" id="default_chb"  value="default">Save as default<br><span style="margin-left: 18px">transform profile</span></label></div>
+                <div class="col-8"><label><input type="checkbox" id="default_chb" name="default_chb" value="default">Save as default<br><span style="margin-left: 18px">transform profile</span></label></div>
                 <div class="col-4"><span class="input-group-btn "><input id="submit" class="btn btn-info" type="submit" name="submit" value="Transform"/></span></div>
             </div>
         </div>

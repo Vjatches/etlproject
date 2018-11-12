@@ -1,5 +1,28 @@
 <?php
 
+if (!function_exists('convertBoolean')) {
+    function convertBoolean($attribute){
+        return $attribute ? 'TRUE' : 'FALSE';
+    }
+
+}
+
+if (!function_exists('getAttributeOrNull')) {
+    function getAttributeOrNull($attribute){
+        $value =  isset($attribute) ? $attribute : 'NULL';
+        //Add single quotes around values which are of a string type or an empty string
+        if($value!=='NULL'&&is_string($value)){
+            //replace single quotes with double quotes inside strings
+            $value = str_replace('\'','"',$value);
+            $value = '\''.$value.'\'';
+
+        }
+        return $value;
+    }
+
+}
+
+
 if (!function_exists('generateCheckboxes')) {
     function generateCheckboxes(){
 

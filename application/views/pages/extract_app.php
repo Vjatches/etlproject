@@ -9,6 +9,7 @@
         </div>
         <?= form_open('extract', array('class' => '.form-horizontal', 'id' => 'form_search')) ?>
 
+
         <div class="form-group">
             <div class="col-sm-5" style="margin-bottom: 10px;margin-top: 10px;padding-left: 8px;">
                 <input class="form-control" type="number" placeholder="Enter value" name="amountOfPages"
@@ -25,10 +26,7 @@
                                                       value="Extract"/></span>
             </div>
 
-
-
         </div>
-
 
         </form>
     </div>

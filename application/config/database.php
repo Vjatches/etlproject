@@ -73,15 +73,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
-$db['default'] = array(
-	'dsn'	=> 'pgsql:host=ec2-54-217-235-16.eu-west-1.compute.amazonaws.com;port=5432;dbname=d9s0u9fllbnr55',
-	'hostname' => 'ec2-54-217-235-16.eu-west-1.compute.amazonaws.com',
-	'username' => 'nvmqibhuxsgzkg',
-	'password' => '29305003a59b9a32ac4435a49987f6f9484bb76a7fb85d819909d17a68bf71b7',
-	'database' => 'd9s0u9fllbnr55',
+$db['mysql'] = array(
+	'dsn'	=> 'mysql:host=localhost;dbname=warehouse',
+	'hostname' => 'localhost',
+	'username' => 'etl',
+	'password' => 'etlproject',
+	'database' => 'warehouse',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
-	'pconnect' => FALSE,
+	'pconnect' => true,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
 	'cachedir' => '',
@@ -92,5 +92,5 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => true
 );
