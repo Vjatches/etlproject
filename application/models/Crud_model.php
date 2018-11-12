@@ -17,7 +17,7 @@ class Crud_model extends CI_Model
 
     public function getResult($sql, $table){
         $sqlstring = strtolower($sql);
-        if (!preg_match('/\b'.$table.'\b/',$sqlstring) || strpos($sqlstring,'select')) {
+        if (!preg_match('/\b'.$table.'\b/',$sqlstring) ||!preg_match('/\bselect\b/',$sqlstring)) {
             return ['success' => '0','table_name'=>$table];
         }
         $query = $this->db->query($sqlstring);
