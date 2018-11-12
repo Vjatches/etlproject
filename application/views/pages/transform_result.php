@@ -1,7 +1,7 @@
 <div class="app">
     <h1>Transform report:</h1>
     <hr>
-    <p>Transform process has been executed in <b><?= $content['executiontime'] ?></b></p>
+    <p>Transform process has been executed in <b><?= $content['executiontime'] ?> s</b></p>
     <ul>
         <li>MongoDB aggregation status:
         <?php if (is_object($content['mongodb'])):?>

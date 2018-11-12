@@ -139,13 +139,7 @@ class Transform_model extends CI_Model
                       '.getAttributeOrNull($installmentsquantity).',
                       '.convertBoolean($installmentsfree).',
                       '.getAttributeOrNull($installmentsprice).') 
-                      ON DUPLICATE KEY UPDATE title = values(title), priceInteger = values(priceInteger), sellerName = values(sellerName), 
-                      sellerListingUrl = values(sellerListingUrl), quantityWithLabel = values(quantityWithLabel), 
-                      quantity = values(quantity), description = values(description), 
-                      superSellerActive = values(superSellerActive), itemCondition = values(itemCondition), 
-                      endingDate = values(endingDate), nextPrice = values(nextPrice), 
-                      label = values(label), installmentsquantity = values(installmentsquantity),
-                      installmentsfree = values(installmentsfree),installmentsprice = values(installmentsprice);';
+                      ON DUPLICATE KEY UPDATE _id = values(_id);';
 
             if(!$this->db->query($sql)){
                 $failed[] = $product['_id'];

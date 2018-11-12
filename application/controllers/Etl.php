@@ -11,6 +11,7 @@ class Etl extends CI_Controller{
         $this->load->helper('transform');
 		$this->load->model('extract_model');
         $this->load->model('transform_model');
+        $this->load->model('load_model');
 		$this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		$this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
@@ -100,13 +101,29 @@ class Etl extends CI_Controller{
     }
     public function load(){
         $data['current'] = 'load';
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $data['rowsqty'] = $this->load_model->getRowsQuantity();
 
-        $this->load->view('templates/meta');
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar',$data);
-        $this->load->view('templates/footer');
-        $this->load->view('templates/script');
+         $this->form_validation->set_rules('numrows', 'Number of rows', 'required|callback_rows_check', array('required'=>'Please, provide amount of rows to load'));
+        if ($this->form_validation->run($this) === FALSE) {
 
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pages/load_app', $data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+        }
+        else{
+            $data['content']=$this->load_model->runLoad($this->input->post('numrows'));
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pages/load_result', $data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+        }
 
     }
 
@@ -155,6 +172,21 @@ class Etl extends CI_Controller{
         elseif($input < 1)
         {
             $this->form_validation->set_message('quantity_check', '{field} can not be smaller than <b>1</b>');
+            return FALSE;
+        }else{
+            return TRUE;
+        }
+    }
+    public function rows_check($input){
+        $max = $this->load_model->getRowsQuantity();
+        if ($input > $max)
+        {
+            $this->form_validation->set_message('rows_check', '{field} can not be bigger than <b>'.$max.'</b>');
+            return FALSE;
+        }
+        elseif($input < 1)
+        {
+            $this->form_validation->set_message('rows_check', '{field} can not be smaller than <b>1</b>');
             return FALSE;
         }else{
             return TRUE;
