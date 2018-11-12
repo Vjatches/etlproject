@@ -126,6 +126,52 @@ class Etl extends CI_Controller{
         }
 
     }
+    public function crudhome(){
+        $data['current'] = 'crudhome';
+        $this->load->view('templates/meta');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('pages/crud/crudhome',$data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/script');
+    }
+
+    public function emongocrud(){
+        $data['current'] = 'crudhome';
+        $this->load->view('templates/meta');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('pages/crud/emongocrud',$data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/script');
+    }
+    public function tmongocrud(){
+        $data['current'] = 'crudhome';
+        $this->load->view('templates/meta');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('pages/crud/tmongocrud',$data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/script');
+    }
+    public function tsqlcrud(){
+        $data['current'] = 'crudhome';
+        $this->load->view('templates/meta');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('pages/crud/tsqlcrud',$data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/script');
+    }
+    public function lsqlcrud(){
+        $data['current'] = 'crudhome';
+        $this->load->view('templates/meta');
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar',$data);
+        $this->load->view('pages/crud/lsqlcrud',$data);
+        $this->load->view('templates/footer');
+        $this->load->view('templates/script');
+    }
 
     public function extractPage(){
         $data['current'] = 'extractPage';

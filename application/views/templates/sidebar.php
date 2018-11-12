@@ -7,11 +7,6 @@
 			<ul class="<?=$current==='extract' ? 'current' : ''?>">
 				<li class="toctree-l1 <?=$current==='extract' ? 'current' : ''?>">
 					<a class="<?=$current==='extract' ? 'current' : ''?>" href="<?=base_url()?>extract">Extract</a>
-					<!--<ul class="current subnav">
-						<li class="toctree-l2 toc-item">
-							<a href="<?php /*echo base_url();*/?>home#description" title="Home">Description</a>
-						</li>
-					</ul>-->
 				</li>
 			</ul>
 			<ul class="<?=$current==='transform' ? 'current' : ''?>">
@@ -22,10 +17,27 @@
                 <li class="toctree-l1 <?=$current==='load' ? 'current green' : ''?>">
                     <a class="<?=$current==='load' ? 'current green' : ''?>" href="<?=base_url()?>load">Load</a>
                 </li></ul>
+            <ul class="<?=$current==='crudhome' ? 'current' : ''?>">
+                <li class="toctree-l1 <?=$current==='crudhome' ? 'current' : ''?>">
+                    <a class="<?=$current==='crudhome' ? 'current' : ''?>" href="<?=base_url()?>crudhome">Monitor DB</a>
+                    <ul class="current subnav">
+						<li class="toctree-l2 toc-item">
+							<a href="<?php echo base_url();?>emongocrud" title="Extract Mongo CRUD">E: Mongo</a>
+						</li>
+                        <li class="toctree-l2 toc-item">
+                            <a href="<?php echo base_url();?>tmongocrud" title="Transform Mongo CRUD">T: Mongo</a>
+                        </li>
+                        <li class="toctree-l2 toc-item">
+                            <a href="<?php echo base_url();?>tsqlcrud" title="Transform SQL CRUD">T: SQL</a>
+                        </li>
+                        <li class="toctree-l2 toc-item">
+                            <a href="<?php echo base_url();?>lsqlcrud" title="Load SQL CRUD">L: SQL</a>
+                        </li>
+					</ul>
+                </li></ul>
             <ul class="<?=$current==='extractPage' ? 'current' : ''?>">
                 <li class="toctree-l1 <?=$current==='extractPage' ? 'current' : ''?>">
-                    <a class="<?=$current==='extractPage' ? 'current' : ''?>" href="<?=base_url()?>extractPage">Extract page</a>
-                </li></ul>
+                    <a class="<?=$current==='extractPage' ? 'current' : ''?>" href="<?=base_url()?>extractPage">Extract 1 item</a></li></ul>
 
 		</div>
 	</nav>
