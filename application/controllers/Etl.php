@@ -233,6 +233,7 @@ class Etl extends CI_Controller
     public function extractPage()
     {
         $data['current'] = 'extractPage';
+        $data['toccurrent'] = '';
         $this->load->helper(array('form', 'url'));
 
         $this->load->library('form_validation');

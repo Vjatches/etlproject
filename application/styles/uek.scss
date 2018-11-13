@@ -264,6 +264,7 @@ th {
 }
 
 //CRUD Table
+
 td > div {
 	max-height: 50px;
 	text-align:center;
@@ -272,12 +273,8 @@ td > div {
 	overflow-x:auto;
 }
 
-//last query input
-#last_query, #query, label{
-	width:300px;
-}
+
 textarea{
 	min-height: 49px;
 	height: auto;
-	width: 300px;
 }

@@ -299,12 +299,7 @@ td > div {
   overflow-x: auto;
 }
 
-#last_query, #query, label {
-  width: 300px;
-}
-
 textarea {
   min-height: 49px;
   height: auto;
-  width: 300px;
 }
