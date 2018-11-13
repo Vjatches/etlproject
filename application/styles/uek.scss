@@ -138,6 +138,10 @@ a{
 	border-right:black solid 1px;
 	position:relative;
   }
+
+	li.toc-current{
+		background: #d8d7d7;
+	}
 	/*Classes to color buttons */
 	li.blue>a, li.blue>a:hover{
 		border-top:1px solid $uek-blue;
@@ -256,12 +260,24 @@ th {
 .table td, .table th {
 	padding: 5px;
 	font-size: 14px;
+	text-align:center;
 }
 
 //CRUD Table
 td > div {
 	max-height: 50px;
-	max-width: 150px;
+	text-align:center;
+	display: inline-block;
 	overflow-y:auto;
 	overflow-x:auto;
+}
+
+//last query input
+#last_query, #query, label{
+	width:300px;
+}
+textarea{
+	min-height: 49px;
+	height: auto;
+	width: 300px;
 }

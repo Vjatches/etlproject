@@ -152,6 +152,10 @@ a {
   position: relative;
 }
 
+.wy-menu-vertical li.toc-current {
+  background: #d8d7d7;
+}
+
 .wy-menu-vertical li.blue > a, .wy-menu-vertical li.blue > a:hover {
   border-top: 1px solid #27018d;
   background-color: #27018d;
@@ -284,11 +288,23 @@ th {
 .table td, .table th {
   padding: 5px;
   font-size: 14px;
+  text-align: center;
 }
 
 td > div {
   max-height: 50px;
-  max-width: 150px;
+  text-align: center;
+  display: inline-block;
   overflow-y: auto;
   overflow-x: auto;
+}
+
+#last_query, #query, label {
+  width: 300px;
+}
+
+textarea {
+  min-height: 49px;
+  height: auto;
+  width: 300px;
 }

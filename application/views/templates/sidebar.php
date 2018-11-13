@@ -21,16 +21,16 @@
                 <li class="toctree-l1 <?=$current==='crudhome' ? 'current' : ''?>">
                     <a class="<?=$current==='crudhome' ? 'current' : ''?>" href="<?=base_url()?>crudhome">Monitor DB</a>
                     <ul class="current subnav">
-						<li class="toctree-l2 toc-item">
+						<li class="toctree-l2 toc-item <?=$toccurrent==='emongocrud' ? 'toc-current' : ''?>">
 							<a href="<?php echo base_url();?>emongocrud" title="Extract Mongo CRUD">E: Mongo</a>
 						</li>
-                        <li class="toctree-l2 toc-item">
+                        <li class="toctree-l2 toc-item <?=$toccurrent==='tmongocrud' ? 'toc-current' : ''?>">
                             <a href="<?php echo base_url();?>tmongocrud" title="Transform Mongo CRUD">T: Mongo</a>
                         </li>
-                        <li class="toctree-l2 toc-item">
+                        <li class="toctree-l2 toc-item <?=$toccurrent==='tsqlcrud' ? 'toc-current' : ''?>">
                             <a href="<?php echo base_url();?>tsqlcrud" title="Transform SQL CRUD">T: SQL</a>
                         </li>
-                        <li class="toctree-l2 toc-item">
+                        <li class="toctree-l2 toc-item <?=$toccurrent==='lsqlcrud' ? 'toc-current' : ''?>">
                             <a href="<?php echo base_url();?>lsqlcrud" title="Load SQL CRUD">L: SQL</a>
                         </li>
 					</ul>

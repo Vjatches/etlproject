@@ -82,7 +82,7 @@ $db['mysql'] = array(
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => true,
-	'db_debug' => (ENVIRONMENT !== 'production'),
+	'db_debug' => false,
 	'cache_on' => FALSE,
 	'cachedir' => '',
 	'char_set' => 'utf8',

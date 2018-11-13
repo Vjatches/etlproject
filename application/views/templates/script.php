@@ -8,14 +8,15 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#query").autocomplete({
-			source: "<?php echo site_url('get_autocomplete');?>",
-			select: function(event, ui) {
-				$("#query").val(ui.item.dn);
-				console.log(ui.item);
-				document.getElementById('submit').click();
-				}
-		});
+
+        $("#query").keypress(function (e) {
+            if(e.which == 13 && !e.shiftKey) {
+               $("#submit").click();
+                e.preventDefault();
+                return false;
+            }
+        });
+
 
         $("#checkall_chb").change(function() {
             if (this.checked) {

@@ -23,6 +23,7 @@ class Etl extends CI_Controller
     public function home()
     {
         $data['current'] = 'home';
+        $data['toccurrent'] = 'home';
 
 
         $this->load->view('templates/meta');
@@ -41,6 +42,7 @@ class Etl extends CI_Controller
 
 
         $data['current'] = 'extract';
+        $data['toccurrent'] = '';
 
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
@@ -74,6 +76,7 @@ class Etl extends CI_Controller
     public function transform()
     {
         $data['current'] = 'transform';
+        $data['toccurrent'] = '';
         $data['checkboxes'] = generateCheckboxes();
         $this->load->helper(array('form', 'url'));
 
@@ -106,6 +109,7 @@ class Etl extends CI_Controller
     public function load()
     {
         $data['current'] = 'load';
+        $data['toccurrent'] = '';
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $data['rowsqty'] = $this->load_model->getRowsQuantity();
@@ -134,6 +138,7 @@ class Etl extends CI_Controller
     public function crudhome()
     {
         $data['current'] = 'crudhome';
+        $data['toccurrent'] = '';
         $this->load->view('templates/meta');
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -145,6 +150,7 @@ class Etl extends CI_Controller
     public function emongocrud()
     {
         $data['current'] = 'crudhome';
+        $data['toccurrent'] = 'emongocrud';
         $this->load->view('templates/meta');
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -156,6 +162,7 @@ class Etl extends CI_Controller
     public function tmongocrud()
     {
         $data['current'] = 'crudhome';
+        $data['toccurrent'] = 'tmongocrud';
         $this->load->view('templates/meta');
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
@@ -171,7 +178,8 @@ class Etl extends CI_Controller
         $this->form_validation->set_rules('query', 'Query', 'required', array('required' => 'Please, provide query'));
         if ($this->form_validation->run($this) === FALSE) {
             $data['current'] = 'crudhome';
-            $data['content'] =$this->crud_model->getResult('select * from temp_products limit 50','temp_products');
+            $data['toccurrent'] = 'tsqlcrud';
+            $data['content'] =$this->crud_model->getResult('select * from temp_products','temp_products');
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -181,6 +189,7 @@ class Etl extends CI_Controller
         } else {
 
             $data['current'] = 'crudhome';
+            $data['toccurrent'] = 'tsqlcrud';
             $data['content'] = $this->crud_model->getResult($this->input->post('query'),'temp_products');
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
@@ -199,7 +208,8 @@ class Etl extends CI_Controller
         $this->form_validation->set_rules('query', 'Query', 'required', array('required' => 'Please, provide query'));
         if ($this->form_validation->run($this) === FALSE) {
             $data['current'] = 'crudhome';
-            $data['content'] =$this->crud_model->getResult('select * from products limit 50','products');
+            $data['toccurrent'] = 'lsqlcrud';
+            $data['content'] =$this->crud_model->getResult('select * from products','products');
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -209,6 +219,7 @@ class Etl extends CI_Controller
         } else {
 
             $data['current'] = 'crudhome';
+            $data['toccurrent'] = 'lsqlcrud';
             $data['content'] = $this->crud_model->getResult($this->input->post('query'),'products');
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
