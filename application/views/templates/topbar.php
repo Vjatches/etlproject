@@ -3,6 +3,9 @@
 		<ul class="button-left">
 			<li onclick="location.href='<?=base_url('home')?>';"><i class="fa fa-home"></i> Home</a></li>
 		</ul>
+        <ul class="button-left">
+            <li onclick="location.href='<?=base_url('home')?>';"><i class="fa fa-home"></i> Settings</a></li>
+        </ul>
 	</div>
 	<nav class="wy-nav-top" role="navigation" aria-label="top navigation">
 		<i data-toggle="wy-nav-top" class="fa fa-bars"></i>

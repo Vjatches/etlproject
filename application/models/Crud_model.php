@@ -67,4 +67,24 @@ class Crud_model extends CI_Model
         return $result;
     }
 
+    public function get_phase(){
+        $sql = 'select state from phase';
+        $query = $this->db->query($sql);
+        if($query === FALSE){
+            return $this->db->error();
+            }
+        $result = $query->result_array();
+        $currentphase = $result[0]['state'];
+        return $currentphase;
+    }
+
+    public function set_phase($phase){
+        $sql = 'update phase set state = \''.$phase.'\';';
+        $query = $this->db->query($sql);
+        if($query === FALSE){
+            return $this->db->error();
+        }
+        return true;
+    }
+
 }
