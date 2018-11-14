@@ -18,11 +18,14 @@ class Load_model extends CI_Model{
         return $this->db->count_all('temp_products');
     }
 
-    public function runLoad($numrows){
+    public function runLoad($numrows, $mod_id){
         $this->load->library('timer');
         $this->timer->start();
-
-        $selectsql = 'select * from temp_products limit '.$numrows.';';
+        $limit = '';
+        if($numrows!=0){
+            $limit = 'limit '.$numrows;
+        }
+        $selectsql = 'select * from temp_products '.$limit.';';
         $selectquery = $this->db->query($selectsql);
 
         $transactionsql = 'START TRANSACTION';
@@ -34,9 +37,9 @@ class Load_model extends CI_Model{
 
         foreach ($selectquery->result() as $row){
 
-            $modify_id = "load_module";
+            $create_id = $mod_id;
 
-            $loadsql = 'insert into products (`_id`, title, price, seller_name, seller_url, coins, available_quantity, description, super_status, item_condition, auction_ending_date, next_price, popularity_data, installments_quantity, free_installments, installments_price, modify_id) VALUES (
+            $loadsql = 'insert into products (`_id`, title, price, seller_name, seller_url, coins, available_quantity, description, super_status, item_condition, auction_ending_date, next_price, popularity_data, installments_quantity, free_installments, installments_price, create_id) VALUES (
                       \''.$row->_id.'\',
                       \''.$row->title.'\',
                       \''.$row->priceInteger.'\',
@@ -53,7 +56,7 @@ class Load_model extends CI_Model{
                       \''.$row->installmentsquantity.'\',
                       \''.$row->installmentsfree.'\',
                       \''.$row->installmentsprice.'\',
-                      \''.$modify_id.'\') 
+                      \''.$create_id.'\') 
                       ON DUPLICATE KEY UPDATE modify_id = values(modify_id), title = values(title),price = values(price),seller_name = values(seller_name),
                       seller_url = values(seller_url),coins = values(coins),available_quantity = values(available_quantity),description = values(description),super_status = values(super_status),
                       item_condition = values(item_condition),auction_ending_date = values(auction_ending_date),next_price = values(next_price),popularity_data = values(popularity_data),installments_quantity = values(installments_quantity),

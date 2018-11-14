@@ -1,6 +1,6 @@
 <div class="windows">
     <div class="app" style="width:520px">
-        <h1 id="welcome-to-cas-ci-documentation">Customise Transform options</h1>
+        <h1>Customise Transform options</h1>
         <hr>
         <div class="<?php  echo form_error('fields[]') ? 'error' : ''; ?>">
         <?php echo validation_errors(); ?>

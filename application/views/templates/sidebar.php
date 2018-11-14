@@ -1,7 +1,7 @@
 
 <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
 		<div class="wy-side-nav-search">
-			<a href="." class="icon icon-home"> Admin Panel Centrum Informatyki</a>
+			<a href="." class="icon icon-home"> Extract Transform Load</a>
 		</div>
 		<div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 			<ul class="<?=$current==='extract' ? 'current' : ''?>">

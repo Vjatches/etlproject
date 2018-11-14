@@ -24,18 +24,42 @@ class Etl extends CI_Controller
     {
         $data['current'] = 'home';
         $data['toccurrent'] = 'home';
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
 
+        $data['pagesqty'] = $this->extract_model->getPagesQuantity();
+        $data['choice'] = $this->transform_model->getChoice();
+        $data['checkboxes'] = generateCheckboxes();
+        $data['rowsqty'] = $this->load_model->getRowsQuantity();
 
-        $this->load->view('templates/meta');
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('pages/home');
-        $this->load->view('templates/footer');
-        $this->load->view('templates/script');
+        $this->form_validation->set_rules('amountOfPages', 'Amount of pages', 'required|callback_quantity_check', array('required' => 'Please, provide amount of pages to extract'));
+        $this->form_validation->set_rules('numrows', 'Number of rows', 'required|callback_rows_check', array('required' => 'Please, provide amount of rows to load'));
+        $this->form_validation->set_rules('fields[]', 'Fields', 'required');
+        $this->form_validation->set_message('required', 'Please, choose at least one attribute');
+
+        if ($this->form_validation->run($this) === FALSE) {
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pages/home', $data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+        }else{
+
+            $data['content']['extract'] = $this->extract_model->runExtractorAsync($this->input->post('amountOfPages'));
+            $data['content']['transform'] = $this->transform_model->runTransform($this->input->post('fields[]'));
+            $data['content']['load'] = $this->load_model->runLoad($this->input->post('numrows'),'etl_module');
+            $data['content']['cleanup'] = $this->crud_model->cleanUp($this->input->post('cleanups[]'));
+            $this->load->view('templates/meta');
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('pages/home_result', $data);
+            $this->load->view('templates/footer');
+            $this->load->view('templates/script');
+        }
 
 
     }
-
 
     public function extract()
     {
@@ -124,7 +148,7 @@ class Etl extends CI_Controller
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
         } else {
-            $data['content'] = $this->load_model->runLoad($this->input->post('numrows'));
+            $data['content'] = $this->load_model->runLoad($this->input->post('numrows'),'load_module');
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
@@ -154,7 +178,7 @@ class Etl extends CI_Controller
         $this->load->view('templates/meta');
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('pages/crud/emongocrud', $data);
+        $this->load->view('pages/crud/mongocrud', $data);
         $this->load->view('templates/footer');
         $this->load->view('templates/script');
     }
@@ -166,7 +190,7 @@ class Etl extends CI_Controller
         $this->load->view('templates/meta');
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('pages/crud/tmongocrud', $data);
+        $this->load->view('pages/crud/mongocrud', $data);
         $this->load->view('templates/footer');
         $this->load->view('templates/script');
     }
@@ -183,7 +207,7 @@ class Etl extends CI_Controller
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pages/crud/tsqlcrud', $data);
+            $this->load->view('pages/crud/sqlcrud', $data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
         } else {
@@ -194,7 +218,7 @@ class Etl extends CI_Controller
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pages/crud/tsqlcrud', $data);
+            $this->load->view('pages/crud/sqlcrud', $data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
         }
@@ -213,7 +237,7 @@ class Etl extends CI_Controller
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pages/crud/lsqlcrud', $data);
+            $this->load->view('pages/crud/sqlcrud', $data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
         } else {
@@ -224,7 +248,7 @@ class Etl extends CI_Controller
             $this->load->view('templates/meta');
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('pages/crud/lsqlcrud', $data);
+            $this->load->view('pages/crud/sqlcrud', $data);
             $this->load->view('templates/footer');
             $this->load->view('templates/script');
         }
@@ -284,8 +308,8 @@ class Etl extends CI_Controller
         if ($input > $max) {
             $this->form_validation->set_message('rows_check', '{field} can not be bigger than <b>' . $max . '</b>');
             return FALSE;
-        } elseif ($input < 1) {
-            $this->form_validation->set_message('rows_check', '{field} can not be smaller than <b>1</b>');
+        } elseif ($input < 0) {
+            $this->form_validation->set_message('rows_check', '{field} can not be smaller than <b>0</b>');
             return FALSE;
         } else {
             return TRUE;

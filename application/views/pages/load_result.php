@@ -10,6 +10,7 @@
     </ul>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
 
+        <a href="<?=base_url()?>lsqlcrud" class="btn float-right" title="Load">Proceed to CRUD <span class="icon icon-circle-arrow-right"></span></a>
         <a href="<?=base_url()?>load" class="btn btn-success" title="Load"><span class="icon icon-circle-arrow-left"></span> Back to Load</a>
 
     </div>

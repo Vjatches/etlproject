@@ -12,3 +12,15 @@ if (!function_exists('validateSql')) {
     }
 
 }
+
+if (!function_exists('getDbType')) {
+
+    function getDbType($string){
+        if($string=='temp_products'){
+            return 'sql';
+        }else{
+            return 'mongo';
+        }
+    }
+
+}

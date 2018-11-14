@@ -1,6 +1,6 @@
 <div class="windows">
     <div class="app">
-        <h1 id="welcome-to-cas-ci-documentation">Extract products from Allegro category</h1>
+        <h1>Extract products from Allegro category</h1>
         <hr>
 
         <div class="<?php  echo form_error('amountOfPages') ? 'error' : ''; ?>">

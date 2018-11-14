@@ -2,7 +2,7 @@
     <div class="<?php  echo form_error('query') ? 'error' : ''; ?>">
         <?php echo validation_errors(); ?>
     </div>
-    <?= form_open('tsqlcrud', array('class' => '.form-horizontal', 'id' => 'form_search')) ?>
+    <?= form_open($toccurrent, array('class' => '.form-horizontal', 'id' => 'form_search')) ?>
     <div class="form-group">
         <div class="input-group" style="width: 500px;">
             <div class="input-group-prepend">
@@ -17,7 +17,7 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Last query:</span>
         </div>
-        <textarea  rows="1" class="form-control" type="text" id="last_query" name="last_query" readonly><?=$content['query']?></textarea>
+        <textarea  rows="1" class="form-control" type="text" id="last_query" name="last_query" readonly><?=isset($content['query']) ? $content['query'] : ''?></textarea>
     </div>
 </div>
 

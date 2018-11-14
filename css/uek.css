@@ -303,3 +303,10 @@ textarea {
   min-height: 49px;
   height: auto;
 }
+
+.btn-big {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  font-size: 25px;
+}
