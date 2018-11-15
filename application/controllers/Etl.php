@@ -20,6 +20,14 @@ class Etl extends CI_Controller
         $this->output->set_header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
     }
 
+    public function settings(){
+        $data['current'] = 'settings';
+        $data['toccurrent'] = 'settings';
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $this->load_page('pages/settings',$data);
+    }
+
     public function home()
     {
         $data['current'] = 'home';
@@ -65,7 +73,7 @@ class Etl extends CI_Controller
         $this->load->view('templates/topbar', $data);
         $this->load->view($page, $data);
         $this->load->view('templates/footer');
-        $this->load->view('templates/script');
+        $this->load->view('templates/script', $data);
     }
 
     public function extract()
@@ -164,22 +172,62 @@ class Etl extends CI_Controller
 
     public function emongocrud()
     {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
         $data['current'] = 'crudhome';
         $data['toccurrent'] = 'emongocrud';
-        $this->load_page('pages/crud/mongocrud', $data);
+
+        if($this->input->post('delete') == 'X'){
+            $this->crud_model->cleanUp(['products']);
+        }
+        $this->form_validation->set_rules('filter', 'Filter', 'required|callback_validate_filter', array('required' => 'Please, provide filter'));
+        if ($this->form_validation->run($this) === FALSE) {
+
+            $data['content'] = $this->crud_model->get_collection('products', '[]');
+            $this->load_page('pages/crud/mongocrud', $data);
+        } else {
+
+
+            $data['content'] = $this->crud_model->get_collection('products', $this->input->post('filter'));
+            $this->load_page('pages/crud/mongocrud', $data);
+        }
     }
 
     public function tmongocrud()
     {
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
         $data['current'] = 'crudhome';
         $data['toccurrent'] = 'tmongocrud';
-        $this->load_page('pages/crud/mongocrud', $data);
+
+        if($this->input->post('delete') == 'X'){
+            $this->crud_model->cleanUp(['aggregated']);
+        }
+
+        $this->form_validation->set_rules('filter', 'Filter', 'required|callback_validate_filter', array('required' => 'Please, provide filter'));
+
+
+        if ($this->form_validation->run($this) === FALSE) {
+
+            $data['content'] = $this->crud_model->get_collection('aggregated', '[]');
+            $this->load_page('pages/crud/mongocrud', $data);
+        } else {
+
+
+            $data['content'] = $this->crud_model->get_collection('aggregated', $this->input->post('filter'));
+            $this->load_page('pages/crud/mongocrud', $data);
+        }
     }
 
     public function tsqlcrud()
     {
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+
+        if($this->input->post('delete') == 'X'){
+            $this->crud_model->cleanUp(['temp_products']);
+        }
+
         $this->form_validation->set_rules('query', 'Query', 'required', array('required' => 'Please, provide query'));
         if ($this->form_validation->run($this) === FALSE) {
             $data['current'] = 'crudhome';
@@ -200,6 +248,9 @@ class Etl extends CI_Controller
 
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
+        if($this->input->post('delete') == 'X'){
+            $this->crud_model->cleanUp(['sql_products']);
+        }
         $this->form_validation->set_rules('query', 'Query', 'required', array('required' => 'Please, provide query'));
         if ($this->form_validation->run($this) === FALSE) {
             $data['current'] = 'crudhome';
@@ -228,8 +279,7 @@ class Etl extends CI_Controller
             $this->load_page('pages/pageapp', $data);
         } else {
             $data['content'] = $this->extract_model->getPageWithItem($this->input->post('pageUrl'));
-
-            $$this->load_page('pages/pageresult', $data);
+            $this->load_page('pages/pageresult', $data);
 
         }
 
@@ -263,6 +313,18 @@ class Etl extends CI_Controller
         } else {
             return TRUE;
         }
+    }
+
+    public function validate_filter($input){
+        $json = json_decode($input, true);
+        if(json_last_error() == JSON_ERROR_NONE){
+
+            return true;
+        }
+        $this->form_validation->set_message('validate_filter', '{field} is not a valid JSON string. Check syntax in '.$input);
+        return false;
+
+
     }
 
 

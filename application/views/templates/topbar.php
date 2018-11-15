@@ -4,7 +4,10 @@
 			<li onclick="location.href='<?=base_url('home')?>';"><i class="fa fa-home"></i> Home</a></li>
 		</ul>
         <ul class="button-left">
-            <li onclick="location.href='<?=base_url('home')?>';"><i class="fa fa-home"></i> Settings</a></li>
+            <li onclick="location.href='<?=base_url('settings')?>';"><i class="fa fa-cogs"></i> Settings</a></li>
+        </ul>
+        <ul class="button-left">
+            <li onclick="location.href='<?=base_url('docs')?>';"><i class="fa fa-book"></i> Documentation</a></li>
         </ul>
 	</div>
 	<nav class="wy-nav-top" role="navigation" aria-label="top navigation">

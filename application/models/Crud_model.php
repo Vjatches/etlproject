@@ -17,6 +17,18 @@ class Crud_model extends CI_Model
         $this->load->database('mysql');
     }
 
+    public function get_collection($input_collection, $input_filter){
+        $filter = json_decode($input_filter);
+
+        $collection = $this->mongoClient->extracthub->$input_collection;
+        $cursor = $collection->find($filter, ['limit'=>20]);
+        $result = [];
+        foreach ($cursor as $id=>$document){
+            $result[$id] = json_encode($document);
+        }
+
+        return ['documents'=>$result, 'num_documents' => $collection->count($filter), 'table_name' =>$input_collection, 'filter'=>$input_filter];
+    }
 
     public function getResult($sql, $table){
 
@@ -52,6 +64,7 @@ class Crud_model extends CI_Model
         }
         foreach ($input as $datastructure){
             if(getDbType($datastructure) =='sql'){
+                $datastructure = str_replace('sql_', '',$datastructure);
                 if($this->db->query('DELETE FROM '.$datastructure) !== FALSE){
                     $result['clean_succ'][] = $datastructure;
                 }else{

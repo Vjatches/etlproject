@@ -106,8 +106,8 @@ class Extract_model extends CI_Model{
         $stripped = str_replace($jsonstring, "{},",$text);
 
         $json = rtrim(strstr($stripped,"{\""),";");
-        $item[] = json_decode($json,true);
-        $result['product']=$item;
+        //$item[] = json_decode($json,true);
+        $result['product']=$json;
 
         $result['executiontime']=$this->timer->stop();
         return $result;

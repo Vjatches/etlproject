@@ -283,6 +283,7 @@ th {
 .table-responsive {
   max-height: 500px;
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .table td, .table th {
@@ -309,4 +310,8 @@ textarea {
   width: 150px;
   border-radius: 50%;
   font-size: 25px;
+}
+
+ul.json-dict li, ol.json-array li {
+  list-style: none !important;
 }

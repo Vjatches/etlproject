@@ -21,6 +21,8 @@
 	<?=link_tag('css/theme_extra.css')?>
 	<?=link_tag('css/highlight.css')?>
 	<?=link_tag('css/uek.css')?>
+    <?=link_tag('css/jquery.json-viewer.css')?>
+    <?=link_tag('css/jquery-confirm.min.css')?>
 
 
 </head>

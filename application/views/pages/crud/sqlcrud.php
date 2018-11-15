@@ -8,7 +8,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-btn input-group-text"><input id="submit" class="btn btn-danger" type="submit" name="submit" value="Run Query"/></span>
             </div>
-            <textarea  rows="1" class="form-control" type="text" id="query" name="query"></textarea>
+            <textarea  rows="1" class="form-control" type="text" id="query" name="query" placeholder="SELECT ... FROM temp_products WHERE ..."></textarea>
         </div>
     </div>
 
@@ -36,6 +36,9 @@
     <?php else: ?>
     <div class="card-header">
         Table <b><?=$content['table_name']?></b> shown <b><?=count($content['rows'])?></b> rows out of <b><?=$content['numrows']?></b>
+        <?= form_open($toccurrent, array('name' => 'form_delete', 'id' => 'form_delete')) ?>
+        <span class="input-group-btn input-group-text float-right"><input id="delete" class="btn btn-danger" type="submit" name="delete" value="X"/></span>
+        </form>
     </div>
     <div class="card-body">
 
