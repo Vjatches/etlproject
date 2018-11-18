@@ -57,7 +57,7 @@ class Load_model extends CI_Model{
                       \''.$row->installmentsfree.'\',
                       \''.$row->installmentsprice.'\',
                       \''.$create_id.'\') 
-                      ON DUPLICATE KEY UPDATE modify_id = values(modify_id), title = values(title),price = values(price),seller_name = values(seller_name),
+                      ON DUPLICATE KEY UPDATE modify_id = values(create_id), title = values(title),price = values(price),seller_name = values(seller_name),
                       seller_url = values(seller_url),coins = values(coins),available_quantity = values(available_quantity),description = values(description),super_status = values(super_status),
                       item_condition = values(item_condition),auction_ending_date = values(auction_ending_date),next_price = values(next_price),popularity_data = values(popularity_data),installments_quantity = values(installments_quantity),
                       installments_price = values(installments_price),free_installments = values(free_installments);';
