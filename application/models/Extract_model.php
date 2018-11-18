@@ -4,18 +4,21 @@ use Clue\React\Buzz\Browser;
 
 class Extract_model extends CI_Model
 {
+    private $settings;
 
     function __construct()
     {
+
         $this->load->model('crud_model');
         $this->load->helper('url');
         $this->load->helper('extract');
+        $this->settings = $this->crud_model->get_settings();
     }
 
     public function getPagesQuantity()
     {
-        $settings = $this->crud_model->get_settings();
-        $category[] = $settings['category'];
+
+        $category[] = $this->settings['category'];
         $this->load->library('categorycrawler', $category);
         $amountOfPages = $this->categorycrawler->getAmountOfPages();
         return $amountOfPages;
@@ -24,21 +27,13 @@ class Extract_model extends CI_Model
 
     public function extractLinks($amountOfPages)
     {
-        $settings = $this->crud_model->get_settings();
-        $category = $settings['category'];
+        $category = $this->settings['category'];
 
-        $errors = array();
         $count = $amountOfPages;
-        $maxAmountOfPages = $this->getPagesQuantity();
-        $minAmountOfPages = 1;
-        if ($count > $maxAmountOfPages || $count < $minAmountOfPages) {
-            $errors[] = "Invalid number of pages. Please specify range between $minAmountOfPages and $maxAmountOfPages";
-            return $errors;
-        }
         $i = 1;
         $links = array();
         while ($i <= $count) {
-            $category_page[] = $category.'?p='.$i;
+            $category_page[0] = $category.'?p='.$i;
             $crawlers = new categorycrawler($category_page);
             $links[] = $crawlers->getProductLinksFromPage();
             $i++;
