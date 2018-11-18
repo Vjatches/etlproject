@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
  * My global variables
  */
-define('ALLEGRO_CATEGORY_URL','https://allegro.pl/kategoria/laptopy-apple-77915');
+define('ALLEGRO_CATEGORY_URL','https://allegro.pl/kategoria/apple-iphone-xr-259718');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

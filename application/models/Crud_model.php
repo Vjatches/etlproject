@@ -100,4 +100,73 @@ class Crud_model extends CI_Model
         return true;
     }
 
+    public function get_settings(){
+        $sql = 'select * from settings';
+        $query = $this->db->query($sql);
+        if($query === FALSE){
+            return $this->db->error();
+        }
+        $result = $query->result_array();
+        $category = $result[0]['category'];
+        $restriction = $result[0]['restriction_level'];
+
+        return ['category'=>''.$category,'restriction_level'=>$restriction];
+    }
+
+    public function set_settings(array $settings){
+        $sql = 'update settings set category = \''.$settings['category'].'\', restriction_level = \''.$settings['restriction_level'].'\';';
+        $query = $this->db->query($sql);
+        if($query === FALSE){
+            return $this->db->error();
+        }
+        return true;
+    }
+
+    public function check_restrictions($page, $phase){
+        $settings = $this->get_settings();
+        $restriction_level = $settings['restriction_level'];
+
+        if ($restriction_level == 'strict'){
+            return $page == $phase;
+        }elseif ($restriction_level == 'development'){
+            return true;
+        }elseif ($restriction_level == 'soft'){
+
+            switch($phase){
+                case 'extract':
+                    if($page == 'extract' || $page == 'load'){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                case 'transform':
+                    if($page == 'transform' || $page == 'extract'){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                case 'load':
+                    if($page == 'load' || $page == 'transform'){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                default:
+                    return ['error'=>'phase is not valid, check database'];
+            }
+
+        }
+        return ['error'=>'restriction_level is not valid, check database'];
+    }
+
+    public function get_csv($sql_query){
+        $this->load->dbutil();
+        $this->load->helper('file');
+        $this->load->helper('download');
+        $query = $this->db->query($sql_query);
+        $delimiter = ",";
+        $newline = "\r\n";
+        $data = $this->dbutil->csv_from_result($query, $delimiter, $newline);
+        force_download('CSV_Report.csv', $data);
+    }
 }

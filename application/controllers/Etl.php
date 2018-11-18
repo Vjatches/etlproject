@@ -25,7 +25,18 @@ class Etl extends CI_Controller
         $data['toccurrent'] = 'settings';
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
-        $this->load_page('pages/settings',$data);
+
+
+
+         $this->form_validation->set_rules('category', 'Category', 'required', array('required' => 'Please, provide url to allegro category'));
+            if ($this->form_validation->run($this) === FALSE) {
+                $data['settings'] = $this->crud_model->get_settings();
+                $this->load_page('pages/settings',$data);
+            }else{
+                $this->crud_model->set_settings(['category'=>$this->input->post('category'), 'restriction_level'=>$this->input->post('restriction_level')]);
+                $data['settings'] = $this->crud_model->get_settings();
+                $this->load_page('pages/settings',$data);
+            }
     }
 
     public function home()
@@ -83,7 +94,9 @@ class Etl extends CI_Controller
         $data['current'] = 'extract';
         $data['toccurrent'] = '';
         $data['phase'] = $phase;
-        if( $phase != $data['current']){
+
+
+        if( $this->crud_model->check_restrictions($data['current'], $phase) === FALSE){
             $this->load_page('pages/wrongphase',$data);
         }else {
 
@@ -106,13 +119,15 @@ class Etl extends CI_Controller
 
     }
 
+
+
     public function transform()
     {
         $phase = $this->crud_model->get_phase();
         $data['phase'] = $phase;
         $data['current'] = 'transform';
         $data['toccurrent'] = '';
-        if( $phase != $data['current']){
+        if( $this->crud_model->check_restrictions($data['current'], $phase) === FALSE){
             $this->load_page('pages/wrongphase',$data);
         }else {
 
@@ -143,7 +158,7 @@ class Etl extends CI_Controller
         $data['phase'] = $phase;
         $data['current'] = 'load';
         $data['toccurrent'] = '';
-        if( $phase != $data['current']){
+        if( $this->crud_model->check_restrictions($data['current'], $phase) === FALSE){
             $this->load_page('pages/wrongphase',$data);
         }else {
 
@@ -251,6 +266,11 @@ class Etl extends CI_Controller
         if($this->input->post('delete') == 'X'){
             $this->crud_model->cleanUp(['sql_products']);
         }
+
+        if($this->input->post('getcsv') == 'Get CSV'){
+            $this->crud_model->get_csv($this->input->post('last_query'));
+        }
+
         $this->form_validation->set_rules('query', 'Query', 'required', array('required' => 'Please, provide query'));
         if ($this->form_validation->run($this) === FALSE) {
             $data['current'] = 'crudhome';

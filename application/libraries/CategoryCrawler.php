@@ -9,9 +9,10 @@ require_once 'AllegroCrawler.php';
 class CategoryCrawler extends AllegroCrawler
 {
     protected $crawler;
-    public function __construct($categoryURI = ALLEGRO_CATEGORY_URL)
+    public function __construct(array $category_uri_array)
     {
-        parent::__construct($categoryURI);
+       $url =  $category_uri_array[0];
+        parent::__construct($url);
     }
 
     function getAmountOfPages()
@@ -19,6 +20,7 @@ class CategoryCrawler extends AllegroCrawler
         $numberOfPages = $this->crawler->filter('[class="m-pagination__text"]')->text();
         return $numberOfPages;
     }
+
 
 
     function getProductLinksFromPage()

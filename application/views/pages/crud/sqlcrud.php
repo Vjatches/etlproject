@@ -13,6 +13,7 @@
     </div>
 
     </form>
+    <?= form_open($toccurrent, array('name' => 'form_getcsv', 'id' => 'form_getcsv')) ?>
     <div class="input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">Last query:</span>
@@ -36,8 +37,21 @@
     <?php else: ?>
     <div class="card-header">
         Table <b><?=$content['table_name']?></b> shown <b><?=count($content['rows'])?></b> rows out of <b><?=$content['numrows']?></b>
+
+
+        <?php if($toccurrent == 'lsqlcrud'){
+            echo '<div class="btn-group float-right">
+            <span class="input-group-btn input-group-text "><input id="getcsv" class="btn btn-info btn-primary" type="submit" name="getcsv" value="Get CSV"/></span>
+        
+            </form>';
+            }
+            else echo ' </form>';
+        ?>
+
+
+
         <?= form_open($toccurrent, array('name' => 'form_delete', 'id' => 'form_delete')) ?>
-        <span class="input-group-btn input-group-text float-right"><input id="delete" class="btn btn-danger" type="submit" name="delete" value="X"/></span>
+        <span class="input-group-btn input-group-text"><input id="delete" class="btn btn-danger btn-default" type="submit" name="delete" value="X"/></span></div>
         </form>
     </div>
     <div class="card-body">

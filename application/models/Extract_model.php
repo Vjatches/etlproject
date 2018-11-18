@@ -1,33 +1,45 @@
 <?php
+
 use Clue\React\Buzz\Browser;
-class Extract_model extends CI_Model{
+
+class Extract_model extends CI_Model
+{
 
     function __construct()
     {
+        $this->load->model('crud_model');
         $this->load->helper('url');
         $this->load->helper('extract');
     }
 
-    public function getPagesQuantity(){
-        $this->load->library('categorycrawler');
+    public function getPagesQuantity()
+    {
+        $settings = $this->crud_model->get_settings();
+        $category[] = $settings['category'];
+        $this->load->library('categorycrawler', $category);
         $amountOfPages = $this->categorycrawler->getAmountOfPages();
         return $amountOfPages;
     }
 
 
-    public function extractLinks($amountOfPages){
+    public function extractLinks($amountOfPages)
+    {
+        $settings = $this->crud_model->get_settings();
+        $category = $settings['category'];
+
         $errors = array();
         $count = $amountOfPages;
         $maxAmountOfPages = $this->getPagesQuantity();
         $minAmountOfPages = 1;
-        if($count>$maxAmountOfPages || $count < $minAmountOfPages){
-            $errors[]="Invalid number of pages. Please specify range between $minAmountOfPages and $maxAmountOfPages";
+        if ($count > $maxAmountOfPages || $count < $minAmountOfPages) {
+            $errors[] = "Invalid number of pages. Please specify range between $minAmountOfPages and $maxAmountOfPages";
             return $errors;
         }
         $i = 1;
         $links = array();
         while ($i <= $count) {
-            $crawlers = new categorycrawler('' . ALLEGRO_CATEGORY_URL . '?p=' . $i);
+            $category_page[] = $category.'?p='.$i;
+            $crawlers = new categorycrawler($category_page);
             $links[] = $crawlers->getProductLinksFromPage();
             $i++;
         }
@@ -37,12 +49,13 @@ class Extract_model extends CI_Model{
 
     }
 
-    public function runExtractorAsync($amountOfPages = 1){
+    public function runExtractorAsync($amountOfPages = 1)
+    {
         $this->load->library('timer');
         $this->timer->start();
-    	set_time_limit(0);
+        set_time_limit(0);
 
-        $links =  $this->extractLinks($amountOfPages);
+        $links = $this->extractLinks($amountOfPages);
 
         $loop = React\EventLoop\Factory::create();
         $client = new Browser($loop);
@@ -50,7 +63,7 @@ class Extract_model extends CI_Model{
         $this->load->library('scraper');
         $this->scraper->setClient($client);
 
-        $this->scraper->scrape($links,10);
+        $this->scraper->scrape($links, 10);
 
         $loop->run();
 
@@ -59,10 +72,10 @@ class Extract_model extends CI_Model{
         $query = $this->loadToDatabase($products);
 
 
-        $result['amount']['parsed']=count($links);
-        $result['amount']['affected']=$query['inserted'];
-        $result['amount']['notaffected']=$query['matched'];
-        $result['executiontime']=$this->timer->stop();
+        $result['amount']['parsed'] = count($links);
+        $result['amount']['affected'] = $query['inserted'];
+        $result['amount']['notaffected'] = $query['matched'];
+        $result['executiontime'] = $this->timer->stop();
         //Explanation 'associative array'
         /*$result = ['executiontime'=>22,
             'amount' => ['parsed' => 64, 'affected' => 0, 'notaffected' => 64],
@@ -71,11 +84,12 @@ class Extract_model extends CI_Model{
         return $result;
     }
 
-    public function loadToDatabase(array $array){
-        $bulk = new \MongoDB\Driver\BulkWrite(['ordered'=>false]);
-        foreach ($array as $item){
+    public function loadToDatabase(array $array)
+    {
+        $bulk = new \MongoDB\Driver\BulkWrite(['ordered' => false]);
+        foreach ($array as $item) {
             $bulk->update(
-                ['_id' =>$item['notifyAndWatch']['offerId']],
+                ['_id' => $item['notifyAndWatch']['offerId']],
                 array('$setOnInsert' => $item),
                 array('upsert' => true)
             );
@@ -87,12 +101,13 @@ class Extract_model extends CI_Model{
         $insert_result = $manager->executeBulkWrite('extracthub.products', $bulk, $writeConcern);
         $amountofinserted = $insert_result->getUpsertedCount();
         return [
-            'inserted'=>$insert_result->getUpsertedCount(),
-            'matched'=>$insert_result->getMatchedCount()
+            'inserted' => $insert_result->getUpsertedCount(),
+            'matched' => $insert_result->getMatchedCount()
         ];
     }
 
-    public function getPageWithItem($url){
+    public function getPageWithItem($url)
+    {
         $this->load->library('timer');
         $this->timer->start();
         $dom = new DOMDocument('1.0');
@@ -102,14 +117,14 @@ class Extract_model extends CI_Model{
         $text = $crawler->filter('[data-box-name="summary"]')->filter('script')->html();
         $start = '"primarySlot":';
         $end = '"additionalServices"';
-        $jsonstring = get_string_between($text,$start,$end);
-        $stripped = str_replace($jsonstring, "{},",$text);
+        $jsonstring = get_string_between($text, $start, $end);
+        $stripped = str_replace($jsonstring, "{},", $text);
 
-        $json = rtrim(strstr($stripped,"{\""),";");
+        $json = rtrim(strstr($stripped, "{\""), ";");
         //$item[] = json_decode($json,true);
-        $result['product']=$json;
+        $result['product'] = $json;
 
-        $result['executiontime']=$this->timer->stop();
+        $result['executiontime'] = $this->timer->stop();
         return $result;
     }
 
