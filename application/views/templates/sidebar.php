@@ -21,23 +21,20 @@
                 <li class="toctree-l1 <?=$current==='crudhome' ? 'current' : ''?>">
                     <a class="<?=$current==='crudhome' ? 'current' : ''?>" href="<?=base_url()?>crudhome">Monitor DB</a>
                     <ul class="current subnav">
-						<li class="toctree-l2 toc-item <?=$toccurrent==='emongocrud' ? 'toc-current' : ''?>">
-							<a href="<?php echo base_url();?>emongocrud" title="Extract Mongo CRUD">E: Mongo</a>
+						<li class="toctree-l2 toc-item <?=$toccurrent==='mongo/products' ? 'toc-current' : ''?>">
+							<a href="<?php echo base_url();?>mongo/products" title="Extract Mongo CRUD">E: Mongo</a>
 						</li>
-                        <li class="toctree-l2 toc-item <?=$toccurrent==='tmongocrud' ? 'toc-current' : ''?>">
-                            <a href="<?php echo base_url();?>tmongocrud" title="Transform Mongo CRUD">T: Mongo</a>
+                        <li class="toctree-l2 toc-item <?=$toccurrent==='mongo/aggregated' ? 'toc-current' : ''?>">
+                            <a href="<?php echo base_url();?>mongo/aggregated" title="Transform Mongo CRUD">T: Mongo</a>
                         </li>
-                        <li class="toctree-l2 toc-item <?=$toccurrent==='tsqlcrud' ? 'toc-current' : ''?>">
-                            <a href="<?php echo base_url();?>tsqlcrud" title="Transform SQL CRUD">T: SQL</a>
+                        <li class="toctree-l2 toc-item <?=$toccurrent==='sql/temp_products' ? 'toc-current' : ''?>">
+                            <a href="<?php echo base_url();?>sql/temp_products" title="Transform SQL CRUD">T: SQL</a>
                         </li>
-                        <li class="toctree-l2 toc-item <?=$toccurrent==='lsqlcrud' ? 'toc-current' : ''?>">
-                            <a href="<?php echo base_url();?>lsqlcrud" title="Load SQL CRUD">L: SQL</a>
+                        <li class="toctree-l2 toc-item <?=$toccurrent==='sql/products' ? 'toc-current' : ''?>">
+                            <a href="<?php echo base_url();?>sql/products" title="Load SQL CRUD">L: SQL</a>
                         </li>
 					</ul>
                 </li></ul>
-            <ul class="<?=$current==='extractPage' ? 'current' : ''?>">
-                <li class="toctree-l1 <?=$current==='extractPage' ? 'current' : ''?>">
-                    <a class="<?=$current==='extractPage' ? 'current' : ''?>" href="<?=base_url()?>extractPage">Extract 1 item</a></li></ul>
 
 		</div>
 	</nav>

@@ -38,9 +38,9 @@
     <div class="card-header">
         Table <b><?=$content['table_name']?></b> shown <b><?=count($content['rows'])?></b> rows out of <b><?=$content['numrows']?></b>
 
-
-        <?php if($toccurrent == 'lsqlcrud'){
-            echo '<div class="btn-group float-right">
+        <div class="btn-group float-right">
+        <?php if($toccurrent == 'sql/products'){
+            echo '
             <span class="input-group-btn input-group-text "><input id="getcsv" class="btn btn-info btn-primary" type="submit" name="getcsv" value="Get CSV"/></span>
         
             </form>';

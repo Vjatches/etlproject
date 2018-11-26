@@ -100,28 +100,4 @@ class Extract_model extends CI_Model
             'matched' => $insert_result->getMatchedCount()
         ];
     }
-
-    public function getPageWithItem($url)
-    {
-        $this->load->library('timer');
-        $this->timer->start();
-        $dom = new DOMDocument('1.0');
-        @$dom->loadHTMLFile($url);
-        $crawler = new \Symfony\Component\DomCrawler\Crawler($dom, 'https://allegro.pl/');
-        //$result['product']=$crawler->html();
-        $text = $crawler->filter('[data-box-name="summary"]')->filter('script')->html();
-        $start = '"primarySlot":';
-        $end = '"additionalServices"';
-        $jsonstring = get_string_between($text, $start, $end);
-        $stripped = str_replace($jsonstring, "{},", $text);
-
-        $json = rtrim(strstr($stripped, "{\""), ";");
-        //$item[] = json_decode($json,true);
-        $result['product'] = $json;
-
-        $result['executiontime'] = $this->timer->stop();
-        return $result;
-    }
-
-
 }

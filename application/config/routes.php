@@ -52,3 +52,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'etl/home';
 $route['(:any)']='etl/$1';
+$route['mongo/(:any)'] = 'etl/mongo/$1';
+$route['sql/(:any)'] = 'etl/sql/$1';

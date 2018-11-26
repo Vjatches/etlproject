@@ -59,7 +59,7 @@
         });
 
         <?php
-        if ($toccurrent == 'emongocrud' || $toccurrent == 'tmongocrud') {
+        if ($toccurrent == 'mongo/products' || $toccurrent == 'mongo/aggregated') {
                 foreach ($content['documents'] as $id => $document) {
                     echo '$(\'#' . $id . '\').jsonViewer(' . $document . ', {collapsed: true});';
                 }

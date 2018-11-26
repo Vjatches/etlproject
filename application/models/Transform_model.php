@@ -120,7 +120,7 @@ class Transform_model extends CI_Model
             $installmentsquantity= isset($product['installmentsquantity']) ? $product['installmentsquantity'] : 'NULL';
             $installmentsfree= isset($product['installmentsfree']) ? $product['installmentsfree'] : 'NULL';
             $installmentsprice= isset($product['installmentsprice']) ? $product['installmentsprice'] : 'NULL';
-            
+
 
 
             $sql = 'insert into temp_products VALUES (
