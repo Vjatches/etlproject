@@ -1,24 +1,29 @@
 <?php
 
 if (!function_exists('convertBoolean')) {
+    /**
+     * Function that converts boolean values to string values
+     * @param $attribute - input value, boolean or NULL
+     * @return string - string "TRUE", "FALSE", or "NULL"
+     */
     function convertBoolean($attribute){
-
-
         if($attribute==='NULL'){
             return 'NULL';
         }
-
         if($attribute === true){
             return "TRUE";
         }else{
             return "FALSE";
         }
-
     }
-
 }
 
 if (!function_exists('getAttributeOrNull')) {
+    /**
+     * Function which helps to retrieve value of an attribute and strips illegal characters in strings, if it is NULL it returns string "NULL"
+     * @param $attribute - name of an attribute
+     * @return mixed|string - attribute or null
+     */
     function getAttributeOrNull($attribute){
         $value =  isset($attribute) ? $attribute : 'NULL';
         //Add single quotes around values which are of a string type or an empty string
@@ -35,8 +40,12 @@ if (!function_exists('getAttributeOrNull')) {
 
 
 if (!function_exists('generateCheckboxes')) {
+    /**
+     * Function which helps to generate checkboxes for views
+     * @return array
+     */
     function generateCheckboxes(){
-
+    //value has to be like in mongo collection
         $checkboxes= [
             [
             'value'=>'offerTitle.title','id'=>'title_chb','label'=>'Title'

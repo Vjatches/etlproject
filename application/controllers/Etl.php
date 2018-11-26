@@ -143,7 +143,6 @@ class Etl extends CI_Controller
      */
     function extract()
     {
-
         //Get current phase
         $phase = $this->crud_model->get_phase();
         //Set current phase to value which we got earlier from controller on line 95
@@ -156,7 +155,7 @@ class Etl extends CI_Controller
         //Check if we can access this page based on current phase of application
         if( $this->crud_model->check_restrictions($data['current'], $phase) === FALSE){
             //If FALSE -> load page which tells us that we are on a wrong phase to access this module
-            $this->load_page('pages/wrongphase',$data);
+            $this->load_page('errors/html/error_wrongphase',$data);
         }else {
             //If TRUE -> we are on correct page according to current phase do:
 
@@ -211,7 +210,7 @@ class Etl extends CI_Controller
         //Check if we can access this page based on current phase of application
         if( $this->crud_model->check_restrictions($data['current'], $phase) === FALSE){
             //If FALSE -> load page which tells us that we are on a wrong phase to access this module
-            $this->load_page('pages/wrongphase',$data);
+            $this->load_page('errors/html/error_wrongphase',$data);
         }else {
             //If TRUE -> we are on correct page according to current phase do:
 
@@ -270,7 +269,7 @@ class Etl extends CI_Controller
         //Check if we can access this page based on current phase of application
         if( $this->crud_model->check_restrictions($data['current'], $phase) === FALSE){
             //If FALSE -> load page which tells us that we are on a wrong phase to access this module
-            $this->load_page('pages/wrongphase',$data);
+            $this->load_page('errors/html/error_wrongphase',$data);
         }else {
             //If TRUE -> we are on correct page according to current phase do:
 

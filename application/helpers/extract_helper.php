@@ -1,6 +1,11 @@
 <?php
-//Function which recursively converts multidimensional array to single-dimensional array for ease of iteration
+
 if (!function_exists('toSingleArray')) {
+    /**
+     * Function which recursively converts multidimensional array to one-dimensional array for ease of iteration
+     * @param $arr - input multidimensional array
+     * @return array - output one-dimensional array
+     */
     function toSingleArray($arr)
     {
         foreach ($arr as $key) {
@@ -18,8 +23,12 @@ if (!function_exists('toSingleArray')) {
 }
 
 
-//get final uri without parameters
 if (!function_exists('getCleanUrl')) {
+    /**
+     * Strip uri from redirects and any parameters
+     * @param $uri - input dirty uri
+     * @return bool|string - clean uri or error
+     */
     function getCleanUrl($uri)
     {
         if (strpos($uri, '&redirect=') !== false) {
@@ -31,6 +40,13 @@ if (!function_exists('getCleanUrl')) {
     }
 }
 if (!function_exists('get_string_between')) {
+    /**
+     * Function which returns substring located between two other substrings
+     * @param $string - input string
+     * @param $start - start substring
+     * @param $end - end substring
+     * @return bool|string - cut substring or error
+     */
     function get_string_between($string, $start, $end)
     {
         $string = ' ' . $string;
@@ -42,6 +58,13 @@ if (!function_exists('get_string_between')) {
     }
 }
 if (!function_exists('delete_all_between')) {
+    /**
+     * Cuts and removes substring between two other substrings
+     * @param $string - input string
+     * @param $beginning - start substring
+     * @param $end - end substring
+     * @return mixed - transformed input substring
+     */
     function delete_all_between($string, $beginning, $end)
     {
         $beginningPos = strpos($string, $beginning);
@@ -57,32 +80,14 @@ if (!function_exists('delete_all_between')) {
 }
 
 
-//Returns selectors for html elements (attributes) which we want to parse
-if (!function_exists('getClassSelector')) {
-    function getClassSelector($attribute)
-    {
-        switch ($attribute) {
-            case 'title':
-                $response['regular'] = '[class="bda14f76"]';
-                $response['auction'] = '[class="bda14f76"]';
-                break;
-            case 'price':
-                $response['regular'] = '[class="_9c03ab08 _64f505a9 b42b9cd5"]';
-                $response['auction'] = '[class="_9c03ab08 _64f505a9 b42b9cd5"]';
-                break;
-            case 'seller':
-                $response['regular'] = '[data-analytics-click-value="sellerLogin"]';
-                $response['auction'] = '[data-analytics-click-value="sellerLogin"]';
-                break;
-            default:
-                $response['regular'] = '';
-                $response['auction'] = '';
-                break;
-        }
-        return $response;
-    }
-}
 if (!function_exists('getTime')) {
+    /**
+     * Function which returns time between two microtimes in seconds
+     * if it is less than 60, otherwise in minutes and seconds
+     * @param $start_time
+     * @param $end_time
+     * @return string
+     */
     function getTime($start_time, $end_time)
     {
         $duration = $end_time-$start_time;
