@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Viacheslav Babanin">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Frontend Logic - ETL Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/uekrtd.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Frontend Logic";
+    var mkdocs_page_input_path = "frontend.md";
+    var mkdocs_page_url = "/frontend/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ETL Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	  
+          
+		  
+  <ul class="" href="..">
+    <li class="toctree-l1">
+  <a class="" href="..">Home</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../installation/">
+    <li class="toctree-l1">
+  <a class="" href="../installation/">Installation</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../overview/">
+    <li class="toctree-l1">
+  <a class="" href="../overview/">General Overview</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../tutorial/">
+    <li class="toctree-l1">
+  <a class="" href="../tutorial/">Tutorial</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../flow/">
+    <li class="toctree-l1">
+  <a class="" href="../flow/">Application Flow</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../routing/">
+    <li class="toctree-l1">
+  <a class="" href="../routing/">URI Routing</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../controller/">
+    <li class="toctree-l1">
+  <a class="" href="../controller/">Controllers</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../models/">
+    <li class="toctree-l1">
+  <a class="" href="../models/">Models</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../views/">
+    <li class="toctree-l1">
+  <a class="" href="../views/">Views</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../libraries/">
+    <li class="toctree-l1">
+  <a class="" href="../libraries/">Custom Libraries</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../helpers/">
+    <li class="toctree-l1">
+  <a class="" href="../helpers/">Helper functions</a>
+  </li></ul>
+          
+		  
+  <ul class="current" href="./">
+    <li class="toctree-l1 current">
+  <a class="current" href="./">Frontend Logic</a>
+  <ul class="subnav">
+      
+  <li class="toctree-l2 current">
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#javascript">JavaScript</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#libraries">Libraries</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  </ul>
+  </li></ul>
+          
+		  
+  <ul class="" href="../stylesheets/">
+    <li class="toctree-l1">
+  <a class="" href="../stylesheets/">Stylesheets</a>
+  </li></ul>
+          
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ETL Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Frontend Logic</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Vjatches/etlproject/edit/master/docs/frontend.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="frontend-logic">Frontend Logic<a class="headerlink" href="#frontend-logic" title="Permanent link"></a></h1>
+<p>Application frontend logic is written partially in JavaScript and in Php.</p>
+<p>Javascript plays supportive role and is mainly used for data presentation.</p>
+<h1 id="javascript">JavaScript<a class="headerlink" href="#javascript" title="Permanent link"></a></h1>
+<p>Function that processes user confirmation for deleting everything from given database.</p>
+<pre><code>var askConfirmation = true;
+
+ $("#form_delete").submit(function(e) {
+            if (askConfirmation) {
+                e.preventDefault(); // dont submit the form, ask for confirmation first.
+                $.confirm({
+                    title: "Erase &lt;b&gt;&lt;?=isset($content['table_name']) ? $content['table_name'] : ""?&gt;&lt;/b&gt;",
+                    content: "Are you sure you want to delete all records from &lt;span style=\"color: red\"&gt;&lt;?=isset($content['table_name']) ? $content['table_name'] : ""?&gt;&lt;/span&gt; ?",
+                    buttons: {
+                        confirm: {
+                            text: "Delete",
+                            btnClass: 'btn-danger',
+                            action: function() {
+                                askConfirmation = false; // done asking confirmation, now submit the form
+                                $('#delete').click();
+                            }
+                        },
+                        cancel: {
+                            text: "Cancel",
+                            btnClass: 'btn-default'
+                        }
+                    }
+                });
+            }
+        });
+</code></pre>
+<p>Function that allows to submit sql query or mongo filter on <code>Enter</code> keypress.</p>
+<pre><code>$("#query").keypress(function (e) {
+            if (e.which == 13 &amp;&amp; !e.shiftKey) {
+                $("#submit").click();
+                e.preventDefault();
+                return false;
+            }
+        });
+</code></pre>
+<p>Function that handles 'Check all' checkbox behavior.</p>
+<pre><code>$("#checkall_chb").change(function () {
+            if (this.checked) {
+                $("[name='fields[]']").each(function () {
+                    this.checked = true;
+                });
+            } else {
+                $("[name='fields[]']").each(function () {
+                    this.checked = false;
+                });
+            }
+        });
+</code></pre>
+<p>Function which is used to generate MongoDB crud interface.</p>
+<pre><code>&lt;?php
+        if ($toccurrent == 'mongo/products' || $toccurrent == 'mongo/aggregated') {
+                foreach ($content['documents'] as $id =&gt; $document) {
+                    echo '$(\'#' . $id . '\').jsonViewer(' . $document . ', {collapsed: true});';
+                }
+        }
+?&gt;
+</code></pre>
+<h2 id="libraries">Libraries<a class="headerlink" href="#libraries" title="Permanent link"></a></h2>
+<p>Following libraries are used to support frontend of the application.</p>
+<pre><code>&lt;?= script_tag('js/modernizr-2.8.3.min.js') ?&gt;
+&lt;?= script_tag('js/highlight.pack.js') ?&gt;    
+&lt;?= script_tag('js/jquery-3.3.1.min.js') ?&gt;
+&lt;?= script_tag('js/jquery.json-viewer.js') ?&gt;
+&lt;?= script_tag('js/bootstrap.min.js') ?&gt;
+&lt;?= script_tag('js/jquery-ui.min.js') ?&gt;
+&lt;?= script_tag('js/jquery-confirm.min.js') ?&gt;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../stylesheets/" class="btn btn-neutral float-right" title="Stylesheets">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../helpers/" class="btn btn-neutral" title="Helper functions"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2018 Uniwersytet Ekonomiczny w Krakowie</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Vjatches/etlproject/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../helpers/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../stylesheets/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Viacheslav Babanin">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Models - ETL Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/uekrtd.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Models";
+    var mkdocs_page_input_path = "models.md";
+    var mkdocs_page_url = "/models/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ETL Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	  
+          
+		  
+  <ul class="" href="..">
+    <li class="toctree-l1">
+  <a class="" href="..">Home</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../installation/">
+    <li class="toctree-l1">
+  <a class="" href="../installation/">Installation</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../overview/">
+    <li class="toctree-l1">
+  <a class="" href="../overview/">General Overview</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../tutorial/">
+    <li class="toctree-l1">
+  <a class="" href="../tutorial/">Tutorial</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../flow/">
+    <li class="toctree-l1">
+  <a class="" href="../flow/">Application Flow</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../routing/">
+    <li class="toctree-l1">
+  <a class="" href="../routing/">URI Routing</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../controller/">
+    <li class="toctree-l1">
+  <a class="" href="../controller/">Controllers</a>
+  </li></ul>
+          
+		  
+  <ul class="current" href="./">
+    <li class="toctree-l1 current">
+  <a class="current" href="./">Models</a>
+  <ul class="subnav">
+      
+  <li class="toctree-l2 current">
+  
+    <a class="current"  href="#application-models">Application Models</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#extract-model">Extract Model</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#fields">Fields</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#constructor">Constructor</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#main-function">Main Function</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#other-functions">Other Functions</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#transform-model">Transform Model</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#fields_1">Fields</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#constructor_1">Constructor</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#main-function_1">Main Function</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#other-functions_1">Other Functions</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#load-model">Load Model</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#constructor_2">Constructor</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#main-function_2">Main Function</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#other-functions_2">Other Functions</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#crud-model">Crud Model</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#fields_2">Fields</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#constructor_3">Constructor</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#other-functions_3">Other Functions</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  </ul>
+  </li></ul>
+          
+		  
+  <ul class="" href="../views/">
+    <li class="toctree-l1">
+  <a class="" href="../views/">Views</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../libraries/">
+    <li class="toctree-l1">
+  <a class="" href="../libraries/">Custom Libraries</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../helpers/">
+    <li class="toctree-l1">
+  <a class="" href="../helpers/">Helper functions</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../frontend/">
+    <li class="toctree-l1">
+  <a class="" href="../frontend/">Frontend Logic</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../stylesheets/">
+    <li class="toctree-l1">
+  <a class="" href="../stylesheets/">Stylesheets</a>
+  </li></ul>
+          
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ETL Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Models</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Vjatches/etlproject/edit/master/docs/models.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="application-models">Application Models<a class="headerlink" href="#application-models" title="Permanent link"></a></h1>
+<p>Application makes use of 4 models, each one handles business logic of respective module of the program.</p>
+<p><img alt="alt text" src="../img/models.png" /></p>
+<ul>
+<li>
+<p><code>Extract_model</code> - handles the Extract process as well as manages the connection with MongoDB temporal collections.</p>
+</li>
+<li>
+<p><code>Transform_model</code> - handles the Transform process as well as manages the connection with MongoDB and MySQL temporal databases.</p>
+</li>
+<li>
+<p><code>Load_model</code> - handles the Load process as well as manages the connection with target Data Warehouse.</p>
+</li>
+<li>
+<p><code>Crud_model</code> - handles all logic which is responsible for interaction with both MongoDB and MySQL databases. Is used in all other models and a controller.</p>
+</li>
+</ul>
+<h1 id="extract-model">Extract Model<a class="headerlink" href="#extract-model" title="Permanent link"></a></h1>
+<p><img alt="alt text" src="../img/extractmodel.png" /></p>
+<p>This model handles all the logic behind Extract process. 
+It connects to remote web-page, scraps data and inserts it into temporal MongoDB collection named <code>extracted</code>.</p>
+<h2 id="fields">Fields<a class="headerlink" href="#fields" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Variable which contains global application settings
+ * @var
+ */
+private $settings;
+</code></pre>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Extract_model constructor.
+ * Loads helpers, other models, libraries and settings
+ */
+function __construct()
+{
+    //Load crud model so we can read settings from database
+    $this-&gt;load-&gt;model('crud_model');
+    //Load settings from database via crud_model
+    $this-&gt;settings = $this-&gt;crud_model-&gt;get_settings();
+
+    //Load helpers with usefull functions
+    $this-&gt;load-&gt;helper('url'); //built-in
+    $this-&gt;load-&gt;helper('extract'); //custom
+}
+</code></pre>
+<h2 id="main-function">Main Function<a class="headerlink" href="#main-function" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Main function of Extract process which uses all other functions
+ * @param int $amountOfPages - amount of pages to extract from allegro category
+ * @return mixed - returns report with data about extract process
+ */
+public function runExtractorAsync($amountOfPages = 1)
+{
+    //Load timer library
+    $this-&gt;load-&gt;library('timer');
+    //Start timer
+    $this-&gt;timer-&gt;start();
+    //Set php timeout to 0 so it will not timeout during lengthy scraping process
+    set_time_limit(0);
+    //Extract links from allegro category pages
+    $links = $this-&gt;extractLinks($amountOfPages);
+    //Create multi-threading loop
+    $loop = React\EventLoop\Factory::create();
+    //Create virtual browser which will process pages
+    $client = new Browser($loop);
+    //Load scraper class which will scrape data from products
+    $this-&gt;load-&gt;library('scraper');
+    //Set browser client for scraper
+    $this-&gt;scraper-&gt;setClient($client);
+    //Set data on which scraper will operate. Links is an array of product links from allegro category, 10 is an amount of simultaneous request
+    $this-&gt;scraper-&gt;scrape($links, 10);
+    //Start multi-threading loop
+    $loop-&gt;run();
+    //After loop finished looping, retrieve data from scraper
+    $products = $this-&gt;scraper-&gt;getData();
+    //Insert data to database
+    $query = $this-&gt;loadToDatabase($products);
+    //Pack data to be sent as a report of a process
+    $result = [
+        'amount' =&gt; [
+            'parsed' =&gt; count($links),
+            'affected' =&gt; $query['inserted'],
+            'notaffected' =&gt; $query['matched'],
+            ],
+        'executiontime' =&gt;  $this-&gt;timer-&gt;stop()
+    ];
+
+    return $result;
+}
+</code></pre>
+<h2 id="other-functions">Other Functions<a class="headerlink" href="#other-functions" title="Permanent link"></a></h2>
+<p>Function which returns amount of pages in category.</p>
+<pre><code>/**
+ * Function which is used to get pages quantity from category
+ * @return mixed - amount of pages
+ */
+public function getPagesQuantity()
+{
+    //Get category from settings
+    $category[] = $this-&gt;settings['category'];
+    //Load category crawler
+    $this-&gt;load-&gt;library('categorycrawler', $category);
+    //Send crawler to get amount of pages from current working category
+    $amountOfPages = $this-&gt;categorycrawler-&gt;getAmountOfPages();
+    return $amountOfPages;
+}
+</code></pre>
+<p>Function which extracts links.</p>
+<pre><code>/**
+ * Function which extracts links to products from current category
+ * @param $amountOfPages - from how many pages we want to extract links
+ * @return array - array with product links
+ */
+public function extractLinks($amountOfPages)
+{
+    //Set from how many pages from category we wont to extract links
+    $count = $amountOfPages;
+    $i = 1;
+    //Empty container which will be populated with links
+    $links = array();
+    //Extract links from category pages in a loop while i is smaller that requested amount of pages
+    while ($i &lt;= $count) {
+        //Create link to new category page which looks like https://allegro.pl/category?p=i where ?p=i part shows page from which we will extract links
+        $category_page[0] = $this-&gt;settings['category'].'?p='.$i;
+        //Create category crawler and send it to collect links from this page
+        $crawlers = new categorycrawler($category_page);
+        //Populate $links array with links which category crawler brought to us
+        $links[] = $crawlers-&gt;getProductLinksFromPage();
+        //Increase value of i
+        $i++;
+    }
+    //Aggregate links to one-dimesional array for further ease of processing
+    $links = toSingleArray($links);
+    return $links;
+
+}
+</code></pre>
+<p>Function which loads data objects to database.</p>
+<pre><code>/**
+ * Function which loads extracted data to mongo database
+ * @param array $array - array of extracted data
+ * @return array - report of load process
+ */
+public function loadToDatabase(array $array)
+{
+    //Create a bulk object
+    $bulk = new \MongoDB\Driver\BulkWrite(['ordered' =&gt; false]);
+    //Populate bulk object with records to be inserted in database
+    foreach ($array as $item) {
+        $bulk-&gt;update(
+            ['_id' =&gt; $item['notifyAndWatch']['offerId']],
+            array('$setOnInsert' =&gt; $item),
+            array('upsert' =&gt; true)
+        );
+    }
+    //Create manager which will perform bulk write to a certain mongodb database. Provide credentials to database as parameter
+    $manager = new \MongoDB\Driver\Manager('mongodb+srv://root:root@kreslav-hcr9i.mongodb.net');
+    //Create error handler, if something stucks it will throw an appropriate error
+    $writeConcern = new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 100);
+    //Let manager execute bulk insert
+    $insert_result = $manager-&gt;executeBulkWrite('extracthub.products', $bulk, $writeConcern);
+    //Pack data and report how many records has been inserted and how many were already present in database
+    return [
+        'inserted' =&gt; $insert_result-&gt;getUpsertedCount(),
+        'matched' =&gt; $insert_result-&gt;getMatchedCount()
+    ];
+}
+</code></pre>
+<h1 id="transform-model">Transform Model<a class="headerlink" href="#transform-model" title="Permanent link"></a></h1>
+<p><img alt="alt text" src="../img/transformmodel.png" /></p>
+<p>This model handles all the logic behind Transform process. 
+It collects data from <code>extracted</code> temporal collection, aggregates and pushes it to another temporal collection
+<code>aggregated</code> and then converts data types and migrates data to <code>temp_products</code> MySQL table.</p>
+<h2 id="fields_1">Fields<a class="headerlink" href="#fields_1" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Variable which holds object responsible for connection with MongoDB
+ * @var \MongoDB\Client
+ */
+private $mongoClient;
+</code></pre>
+<h2 id="constructor_1">Constructor<a class="headerlink" href="#constructor_1" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Transform_model constructor.
+ * Here we connect to databases and load helpers
+ */
+function __construct()
+{
+    //connect to MongoDB
+    $this-&gt;mongoClient= new \MongoDB\Client('mongodb+srv://root:root@kreslav-hcr9i.mongodb.net/test?retryWrites=true');
+    //connect to mysql, connection parameters are in application/config/database.php
+    $this-&gt;load-&gt;database('mysql');
+    //Load helpers
+    $this-&gt;load-&gt;helper('url');
+    $this-&gt;load-&gt;helper('transform');
+}
+</code></pre>
+<h2 id="main-function_1">Main Function<a class="headerlink" href="#main-function_1" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Main function of Transform process which uses other functions
+ * @param $input - set of checkboxes which show what data do we want to transform
+ * @return mixed - report with data about transform process
+ */
+public function runTransform($input){
+    //Set php time limit to 0 so it wont timeout during long process of quering database
+    set_time_limit(0);
+    //Load timer library
+    $this-&gt;load-&gt;library('timer');
+    //Start time
+    $this-&gt;timer-&gt;start();
+    //Aggregate data from mongoDB and write aggregation report to $result['mongodb']
+    $result['mongodb'] = $this-&gt;aggregateData($input);
+    //Transform data from aggregated mongodb collection to temp_products sql table and write report to variable $result['mysql']
+    $result['mysql'] = $this-&gt;transformToSql();
+    //stop timer and write execution time to $result['executiontime'] variable
+    $result['executiontime']=$this-&gt;timer-&gt;stop();
+    return $result;
+}
+</code></pre>
+<h2 id="other-functions_1">Other Functions<a class="headerlink" href="#other-functions_1" title="Permanent link"></a></h2>
+<p>Setter which is used to save transform settings to database.</p>
+<pre><code>/**
+ * Function which is used to save information which checkboxes from transform page has to remain checked when we reload page
+ * @param $input - array of checkboxes
+ * @param $consent - do we want to set array of checkboxes as default or no
+ */
+public function setChoice($input, $consent){
+    //check if we really want to sent it as default
+    if($consent != 'default'){
+        //if not do nothing and exit function
+        return;
+    }
+    //clear previous default set of checkboxes which are stored in database
+    $this-&gt;db-&gt;query('DELETE from choice');
+    //Start sql transaction. This query is used before loops to speed up sql inserts
+    $transactionsql = 'START TRANSACTION';
+    $this-&gt;db-&gt;query($transactionsql);
+    //Insert information with names of checkboxes which we want to remain checked at later loads
+    foreach ($input as $checkbox){
+        $sql = 'insert into choice (checkbox) value ("'.$checkbox.'");';
+        $this-&gt;db-&gt;query($sql);
+    }
+    //Commit transaction. This query is used after loop inserts to summarise transaction and speed it up
+    $commitsql = 'commit';
+    $this-&gt;db-&gt;query($commitsql);
+}
+</code></pre>
+<p>Getter which is used to retrieve transform settings.</p>
+<pre><code>/**
+ * Function which is used to retrieve information from database about which checkboxes should be checked on page load.
+ * It loads default set of checkboxes
+ * @return array - array of checkboxes which have to be checked
+ */
+public function getChoice(){
+    //Select everything from choice table
+    $sql = 'select * from choice';
+    $query = $this-&gt;db-&gt;query($sql);
+    $result = [];
+    //Write names of checkboxes to result array and return int
+    foreach ($query-&gt;result() as $row){
+        $result[] = $row-&gt;checkbox;
+    }
+    return $result;
+}
+</code></pre>
+<p>Function which aggregates data via Mongo aggregation pipeline.</p>
+<pre><code>/**
+ * Function which extracts only useful data from big mongoDB object and aggregates it to simple key=&gt;value pair
+ * @param array $arrayOfValues - set of checkboxes which show what data do we want to aggregate
+ * @return Traversable - object which contains report about aggregation process
+ */
+public function aggregateData(array $arrayOfValues){
+    //Assign mongodb collection 'products' to a variable
+    $extracted = $this-&gt;mongoClient-&gt;extracthub-&gt;products;
+    //Generate aggregation options based on array of chosen values
+    $options = $this-&gt;generateAggregateOptions($arrayOfValues);
+    //Assign mongodb collection 'aggregated' to a variable
+    $aggregated = $this-&gt;mongoClient-&gt;extracthub-&gt;aggregated;
+    //Clear 'aggregated' collection from any previous data
+    $aggregated-&gt;deleteMany([]);
+    //Use aggregation pipeline framework with aggregation options on collection with big objects
+    $result = $extracted-&gt;aggregate($options);
+    return $result;
+}
+</code></pre>
+<p>Function which generates options for aggregation pipeline.</p>
+<pre><code>/**
+ * Function that sets and generates aggregation options
+ * @param array $arrayOfValues - set of checkboxes which show what data do we want to aggregate
+ * @return array - array of options to pass to aggregation pipeline
+ */
+public function generateAggregateOptions(array $arrayOfValues){
+    //Set what attributes do we want to project during aggregation
+    //project id always
+    $project = ["id"=&gt;1];
+    //Foreach attribute project it as its final name and reduce nesting to single level
+    foreach ($arrayOfValues as $attribute){
+        //Determine how deeply is attribute nested by exploding it by dot
+        $explodedAttribute = explode('.', $attribute);
+        //Amount of product elements = depth of nesting
+        $amount = count($explodedAttribute);
+        //If attribute is nested reduce nesting (e.g. price.installments.installmentsQuantity becomes just installmentsQuantity)
+        if($amount&gt;2){
+            $project[$explodedAttribute[$amount-2].''.$explodedAttribute[$amount-1]] = '$'.$attribute;
+        }else{
+            $project[$explodedAttribute[1]] = '$'.$attribute;
+        }
+
+    }
+    //Create aggregation pipeline
+    $ops = array(
+        array(
+            '$project' =&gt; $project //array of options which configure how to project attributes
+        ),
+        array(
+            '$out' =&gt; "aggregated" //output of aggregation write directly to `aggregated` collection
+        )
+    );
+    //Return aggregation pipeline
+    return $ops;
+}
+</code></pre>
+<p>MongoDB to MySQL migrator.</p>
+<pre><code>/**
+ * Function that migrates data from mongoDB to sql table
+ * @return mixed - report on migration process
+ */
+public function transformToSql(){
+    //Refresh connection to sql database
+    $this-&gt;db-&gt;reconnect();
+    //Assign mongoDB collection to variable
+    $mongodb = $this-&gt;mongoClient-&gt;extracthub-&gt;aggregated;
+    //Find everything in this collection and assign to cursor object
+    $cursor = $mongodb-&gt;find();
+    //Container which will host failed inserts
+    $failed =[];
+    //Start sql transaction. This query is used before loops to speed up sql inserts
+    $transactionsql = 'START TRANSACTION';
+    $this-&gt;db-&gt;query($transactionsql);
+
+    //Loop through all products in MongoDB cursor
+    foreach ($cursor as $product){
+        //If cursor doesn't have this value assign string "NULL" to it
+        //During assignment convert boolean values to respective strings using helper methods
+        $id= isset($product['_id']) ? $product['_id'] : 'NULL';
+        $title= isset($product['title']) ? $product['title'] : 'NULL';
+        $priceInteger= isset($product['priceInteger']) ? $product['priceInteger'] : 'NULL';
+        $sellerName= isset($product['sellerName']) ? $product['sellerName'] : 'NULL';
+        $sellerListingUrl= isset($product['sellerListingUrl']) ? $product['sellerListingUrl'] : 'NULL';
+        $quantityWithLabel= isset($product['quantityWithLabel']) ? $product['quantityWithLabel'] : 'NULL';
+        $quantity= isset($product['quantity']) ? $product['quantity'] : 'NULL';
+        $description= isset($product['description']) ? $product['description'] : 'NULL';
+        $superSellerActive= isset($product['superSellerActive']) ? $product['superSellerActive'] : 'NULL';
+        $itemCondition= isset($product['itemCondition']) ? $product['itemCondition'] : 'NULL';
+        $endingDate= isset($product['endingDate']) ? $product['endingDate'] : 'NULL';
+        $endingDate = getAttributeOrNull($endingDate);
+        $nextPrice= isset($product['nextPrice']) ? $product['nextPrice'] : 'NULL';
+        $label= isset($product['label']) ? $product['label'] : 'NULL';
+        $installmentsquantity= isset($product['installmentsquantity']) ? $product['installmentsquantity'] : 'NULL';
+        $installmentsfree= isset($product['installmentsfree']) ? $product['installmentsfree'] : 'NULL';
+        $installmentsprice= isset($product['installmentsprice']) ? $product['installmentsprice'] : 'NULL';
+
+
+        //Perform INSERT .... ON DUPLICATE KEY UPDATE .... - insert value, if value with such primary key exists, update certain fields
+        $sql = 'insert into temp_products VALUES (
+                  '.getAttributeOrNull($id).',
+                  '.getAttributeOrNull($title).',
+                  '.trim(str_replace(' ','',getAttributeOrNull($priceInteger)), '\'').',
+                  '.getAttributeOrNull($sellerName).',
+                  '.getAttributeOrNull($sellerListingUrl).',
+                 '.getAttributeOrNull($quantityWithLabel).',
+                  '.getAttributeOrNull($quantity).',
+                  '.getAttributeOrNull($description).',
+                  '.convertBoolean($superSellerActive).',
+                  '.str_replace('Condition', '',str_replace('http://schema.org/','',getAttributeOrNull($itemCondition))).',
+                  '.$endingDate.',
+                  '.getAttributeOrNull($nextPrice).',
+                  '.getAttributeOrNull($label).',
+                  '.getAttributeOrNull($installmentsquantity).',
+                  '.convertBoolean($installmentsfree).',
+                  '.getAttributeOrNull($installmentsprice).') 
+                  ON DUPLICATE KEY UPDATE title = values(title),priceInteger = values(priceInteger),sellerName = values(sellerName),
+                  sellerListingUrl = values(sellerListingUrl),quantityWithLabel = values(quantityWithLabel),quantity = values(quantity),description = values(description),superSellerActive = values(superSellerActive),
+                  itemCondition = values(itemCondition),endingDate = values(endingDate),nextPrice = values(nextPrice),label = values(label),installmentsquantity = values(installmentsquantity),
+                  installmentsprice = values(installmentsprice),installmentsfree = values(installmentsfree);';
+
+        //If something went wrong add id of failed insert to $failed array
+        if(!$this-&gt;db-&gt;query($sql)){
+            $failed[] = $product['_id'];
+        }
+    }
+    //Commit transaction. This query is used after loop inserts to summarise transaction and speed it up
+    $commitsql = 'commit';
+    $this-&gt;db-&gt;query($commitsql);
+    //Pack data with errors and amount of rows affected to array and return it
+    $result['failed']=$failed;
+    $result['numrows']=$this-&gt;db-&gt;count_all('temp_products');
+    return $result;
+}
+</code></pre>
+<h1 id="load-model">Load Model<a class="headerlink" href="#load-model" title="Permanent link"></a></h1>
+<p><img alt="alt text" src="../img/loadmodel.png" /></p>
+<p>This model handles all the logic behind Load process. 
+It collects data from <code>temp_products</code> MySQL table, converts data types, appends timestamp and compares record with target data warehouse.
+If the record with the same key exists, modify it and change <code>modify_id</code> and <code>modify_date</code> columns, otherwise insert.</p>
+<h2 id="constructor_2">Constructor<a class="headerlink" href="#constructor_2" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Load_model constructor.
+ * Here we connect to databases and load helpers
+ */
+function __construct()
+{
+    //connect to mysql, connection parameters are in application/config/database.php
+    $this-&gt;load-&gt;database('mysql');
+}
+</code></pre>
+<h2 id="main-function_2">Main Function<a class="headerlink" href="#main-function_2" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Main function of Load process which uses other functions
+ * @param $numrows - amount of rows to load from temp_products to products tables
+ * @param $mod_id - identifier of a process which initiates load
+ * @return array - report on load process
+ */
+public function runLoad($numrows, $mod_id){
+    //Load timer
+    $this-&gt;load-&gt;library('timer');
+    //start timer
+    $this-&gt;timer-&gt;start();
+    //Set imitial limit to unlimited
+    $limit = '';
+    //If user specified limit overwrite initial limit
+    if($numrows!=0){
+        $limit = 'limit '.$numrows;
+    }
+    //Prepare select query
+    $selectsql = 'select * from temp_products '.$limit.';';
+    //Select everything from temp_products
+    $selectquery = $this-&gt;db-&gt;query($selectsql);
+    //Start sql transaction. This query is used before loops to speed up sql inserts
+    $transactionsql = 'START TRANSACTION';
+    $this-&gt;db-&gt;query($transactionsql);
+    //Create counters for inserted, updated and not affected rows
+    $count_insert =0;
+    $count_update = 0;
+    $count_notaffected = 0;
+
+    //Loop through all records which we selected from `temp_products` and compare with records in 'products'
+    foreach ($selectquery-&gt;result() as $row){
+        //Set id of a process which is used to create records
+        $create_id = $mod_id;
+        //Prepare sql: Insert if there is no such record, update on duplicate key if there is such record with different data
+        $loadsql = 'insert into products (`_id`, title, price, seller_name, seller_url, coins, available_quantity, description, super_status, item_condition, auction_ending_date, next_price, popularity_data, installments_quantity, free_installments, installments_price, create_id) VALUES (
+                  \''.$row-&gt;_id.'\',
+                  \''.$row-&gt;title.'\',
+                  \''.$row-&gt;priceInteger.'\',
+                  \''.$row-&gt;sellerName.'\',
+                  \''.$row-&gt;sellerListingUrl.'\',
+                 \''.$row-&gt;quantityWithLabel.'\',
+                  \''.$row-&gt;quantity.'\',
+                  \''.$row-&gt;description.'\',
+                  \''.$row-&gt;superSellerActive.'\',
+                  \''.$row-&gt;itemCondition.'\',
+                  \''.$row-&gt;endingDate.'\',
+                  \''.$row-&gt;nextPrice.'\',
+                  \''.$row-&gt;label.'\',
+                  \''.$row-&gt;installmentsquantity.'\',
+                  \''.$row-&gt;installmentsfree.'\',
+                  \''.$row-&gt;installmentsprice.'\',
+                  \''.$create_id.'\') 
+                  ON DUPLICATE KEY UPDATE modify_id = values(create_id), title = values(title),price = values(price),seller_name = values(seller_name),
+                  seller_url = values(seller_url),coins = values(coins),available_quantity = values(available_quantity),description = values(description),super_status = values(super_status),
+                  item_condition = values(item_condition),auction_ending_date = values(auction_ending_date),next_price = values(next_price),popularity_data = values(popularity_data),installments_quantity = values(installments_quantity),
+                  installments_price = values(installments_price),free_installments = values(free_installments);';
+        //Run previously prepared sql
+        $this-&gt;db-&gt;query($loadsql);
+        //Increase counters based on what happened with record
+        if($this-&gt;db-&gt;affected_rows()==1){
+            $count_insert += 1;
+        }elseif($this-&gt;db-&gt;affected_rows()==2){
+            $count_update += 1;
+        }else{
+            $count_notaffected += 1;
+        }
+    }
+    //Commit transaction. This query is used after loop inserts to summarise transaction and speed it up
+    $commitsql = 'commit';
+    $this-&gt;db-&gt;query($commitsql);
+
+    //Pack and return report data: counters and execution time
+    return ['executiontime'=&gt;$this-&gt;timer-&gt;stop(),'inserted' =&gt; $count_insert, 'updated' =&gt; $count_update, 'not_affected'=&gt;$count_notaffected];
+}
+</code></pre>
+<h2 id="other-functions_2">Other Functions<a class="headerlink" href="#other-functions_2" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Function which is used to get rows quantity from temp_products table
+ * @return int - amount of rows
+ */
+public function getRowsQuantity(){
+    return $this-&gt;db-&gt;count_all('temp_products');
+}
+</code></pre>
+<h1 id="crud-model">Crud Model<a class="headerlink" href="#crud-model" title="Permanent link"></a></h1>
+<p><img alt="alt text" src="../img/crudmodel.png" /></p>
+<p>This model handles all the logic which is used in other models and controller when they need to perform Create Read Update Delete (CRUD) operations on
+any data structures involved in application workflow, be it MongoDB collections or MySQL tables.</p>
+<h2 id="fields_2">Fields<a class="headerlink" href="#fields_2" title="Permanent link"></a></h2>
+<pre><code>/**
+ * variable which holds object responsible for connection with MongoDB
+ * @var \MongoDB\Client
+ */
+private $mongoClient;
+</code></pre>
+<h2 id="constructor_3">Constructor<a class="headerlink" href="#constructor_3" title="Permanent link"></a></h2>
+<pre><code>/**
+ * Crud_model constructor.
+ * Here we connect to databases and load helpers
+ */
+function __construct()
+{
+    //connect to MongoDB
+    $this-&gt;mongoClient= new \MongoDB\Client('mongodb+srv://root:root@kreslav-hcr9i.mongodb.net/test?retryWrites=true');
+    //Load helpers
+    $this-&gt;load-&gt;helper('url');
+    $this-&gt;load-&gt;helper('crud');
+    //connect to mysql, connection parameters are in application/config/database.php
+    $this-&gt;load-&gt;database('mysql');
+}
+</code></pre>
+<h2 id="other-functions_3">Other Functions<a class="headerlink" href="#other-functions_3" title="Permanent link"></a></h2>
+<p>Function which allows us to perform filter on mongoDB collection.</p>
+<pre><code>/**
+ * Function which allows us to perform filter on mongoDB collection
+ * @param $input_collection - name of collection
+ * @param $input_filter - valid json filter
+ * @return array - query result
+ */
+public function get_collection($input_collection, $input_filter){
+    //Decode json filter to string
+    $filter = json_decode($input_filter);
+    //Assign collection to variable
+    $collection = $this-&gt;mongoClient-&gt;extracthub-&gt;$input_collection;
+    //Perform find() operation on collection with given filer and return result as cursor object. Default limit for amount of returned results is 20
+    $cursor = $collection-&gt;find($filter, ['limit'=&gt;20]);
+    //Initiate result container
+    $result = [];
+    //Loop through cursor object and convert BSON cursor to php array
+    foreach ($cursor as $id=&gt;$document){
+        $result[$id] = json_encode($document);
+    }
+    //Pack array as well as amount of documents and name of a collection and return it
+    return ['documents'=&gt;$result, 'num_documents' =&gt; $collection-&gt;count($filter), 'table_name' =&gt;$input_collection, 'filter'=&gt;$input_filter];
+}
+</code></pre>
+<p>Function which allows us to perform query on sql table.</p>
+<pre><code>/**
+ * Function which allows us to perform query on sql table
+ * @param $sql - query string
+ * @param $table - table name
+ * @return array - query result
+ */
+public function getResult($sql, $table){
+    //Validate sql string
+    $sqlstring = validateSql($sql);
+    //If string doesnt contain word Select or name of the current table return error
+    if (!preg_match('/\b'.$table.'\b/',$sqlstring) ||!preg_match('/\bselect\b/',$sqlstring)) {
+        return ['success' =&gt; '0','table_name'=&gt;$table, 'query'=&gt;$sqlstring, 'error'=&gt;['code'=&gt;'1','message'=&gt;'Please provide valid SELECT query string to table '.$table]];
+    }
+    //Run query with provided sql string on a provided table
+    $query = $this-&gt;db-&gt;query($sqlstring);
+    //If query succeded
+    if( $query !== FALSE ){
+        //trim last query string from limit keyword
+        $querystring = str_replace('limit 100','',$this-&gt;db-&gt;last_query());
+        //assign result to an array
+        $result = $query-&gt;result_array();
+        //assign names of columns in table to variable
+        $columns = $query-&gt;list_fields();
+        //get total amount of rows which satisfy last query
+        $numrows = $this-&gt;db-&gt;query('select count(*) '.strstr($sqlstring,'from'))-&gt;result_array();
+        //pack data report and return it
+        return ['success' =&gt; '1',
+            'rows' =&gt; $result,
+            'column_names' =&gt; $columns,
+            'table_name'=&gt;$table,
+            'numrows'=&gt;$numrows[0]['count(*)'],
+            'query'=&gt;$querystring];
+    }
+    //If query failed return error
+    return ['success' =&gt; '0','table_name'=&gt;$table, 'error'=&gt; $this-&gt;db-&gt;error()];
+
+}
+</code></pre>
+<p>Function which allows delete everything from table or collection.</p>
+<pre><code>/**
+ * Function which allows delete everything from table or collection
+ * @param $input - array of tables/collection to clean up
+ * @return array - report which contains which data structures cleaned up successfully and which failed
+ */
+public function cleanUp($input){
+    //Prepare container to store result
+    $result = [];
+    //if input is empty return empty result
+    if(!isset($input) or $input == NULL){
+        return $result;
+    }
+    //Loop through data structures(table or collection) in input array
+    foreach ($input as $datastructure){
+        //If data structure is sql perform sql delete
+        if(getDbType($datastructure) =='sql'){
+            //Trim sql_ prefix from name of a table
+            $datastructure = str_replace('sql_', '',$datastructure);
+            //If sql delete was successful add name of data structure to array of successful results
+            if($this-&gt;db-&gt;query('DELETE FROM '.$datastructure) !== FALSE){
+                $result['clean_succ'][] = $datastructure;
+            }else{
+                //If sql delete was NOT successful add name of data structure to array of FAILED results
+                $result['clean_fail'][] = $datastructure;
+            }
+        }else{
+            //If data structure is not sql, then it is mongodb, so perform a MongoDB specific Deletion process
+            //Assign collection to variable
+            $collection = $this-&gt;mongoClient-&gt;extracthub-&gt;$datastructure;
+            //Delete everything from this collection
+            $collection-&gt;deleteMany([]);
+            //Add name of this collection to the array of successful results
+            $result['clean_succ'][] = $datastructure;
+        }
+
+    }
+    return $result;
+}
+</code></pre>
+<p>Getter which allows to retrieve current application phase from database.</p>
+<pre><code>/**
+ * Getter which allows to retrieve current application phase from database
+ * @return array - phase
+ */
+public function get_phase(){
+    //Prepare sql query.
+    $sql = 'select state from phase';
+    //Run query
+    $query = $this-&gt;db-&gt;query($sql);
+    //If query failed return error
+    if($query === FALSE){
+        return $this-&gt;db-&gt;error();
+        }
+    //Assign query result to array
+    $result = $query-&gt;result_array();
+    //Assign values of `state` columns to $currentphase variable
+    $currentphase = $result[0]['state'];
+    return $currentphase;
+}
+</code></pre>
+<p>Setter which allows to change application phase in database.</p>
+<pre><code>/**
+ * Setter which allows to change application phase in database
+ * @param $phase
+ * @return array|bool - true or error while connection to database
+ */
+public function set_phase($phase){
+    //Prepare sql query. Update table `phase` with new phase value
+    $sql = 'update phase set state = \''.$phase.'\';';
+    //Run query
+    $query = $this-&gt;db-&gt;query($sql);
+    //If query failed return error
+    if($query === FALSE){
+        return $this-&gt;db-&gt;error();
+    }
+    return true;
+}
+</code></pre>
+<p>Getter which allows to retrieve settings from database.</p>
+<pre><code>/**
+ * Getter which allows to retrieve settings from database
+ * @return array - array of key=&gt;value settings
+ */
+public function get_settings(){
+    //Prepare sql query. Select settings from `settings` table
+    $sql = 'select * from settings';
+    //Run query
+    $query = $this-&gt;db-&gt;query($sql);
+    //If query failed return error
+    if($query === FALSE){
+        return $this-&gt;db-&gt;error();
+    }
+    //Assign query result to array
+    $result = $query-&gt;result_array();
+    //Assign values of settings columns to appropriate variables
+    $category = $result[0]['category'];
+    $restriction = $result[0]['restriction_level'];
+    return ['category'=&gt;''.$category,'restriction_level'=&gt;$restriction];
+}
+</code></pre>
+<p>Setter which allows to write settings to database.</p>
+<pre><code>/**
+ * Setter which allows to write settings to database
+ * @param array $settings
+ * @return array|bool
+ */
+public function set_settings(array $settings){
+    //Prepare sql query. Update table `settings` with new settings values
+    $sql = 'update settings set category = \''.$settings['category'].'\', restriction_level = \''.$settings['restriction_level'].'\';';
+    //Run query
+    $query = $this-&gt;db-&gt;query($sql);
+    //If query failed return error
+    if($query === FALSE){
+        return $this-&gt;db-&gt;error();
+    }
+    return true;
+}
+</code></pre>
+<p>Function that checks if page is allowed to be opened at current phase.</p>
+<pre><code>/**
+ * Function that checks if page is allowed to be opened at current phase
+ * @param $page - page to check
+ * @param $phase - phase
+ * @return array|bool - allowed or not or error during database query
+ */
+public function check_restrictions($page, $phase){
+    //Get settings from database
+    $settings = $this-&gt;get_settings();
+    //Get current restriction level from settings array
+    $restriction_level = $settings['restriction_level'];
+
+    if ($restriction_level == 'strict'){
+        //If restriction level is strict then allow only pages which are the same as current phase. e.g. page extract will be opened only on phase extract
+        return $page == $phase;
+    }elseif ($restriction_level == 'development'){
+        //If restriction level is development then return true for any page and allow any page
+        return true;
+    }elseif ($restriction_level == 'soft'){
+        //If restriction level is soft then allow to run page which corresponds to phase and previous one
+        switch($phase){
+            case 'extract':
+                if($page == 'extract' || $page == 'load'){
+                    return true;
+                }else{
+                    return false;
+                }
+            case 'transform':
+                if($page == 'transform' || $page == 'extract'){
+                    return true;
+                }else{
+                    return false;
+                }
+            case 'load':
+                if($page == 'load' || $page == 'transform'){
+                    return true;
+                }else{
+                    return false;
+                }
+            default:
+                //If database was corrupted and phase is not one of the values "extract", "transform" or "load" return error
+                return ['error'=&gt;'phase is not valid, check database'];
+        }
+
+    }
+    //If database was corrupted and restriction level is not one of the values "development", "soft" or "strict" return error
+    return ['error'=&gt;'restriction_level is not valid, check database'];
+}
+</code></pre>
+<p>Function that allows to download csv file with the content of query.</p>
+<pre><code>/**
+ * Function that allows to download csv file with the content of query
+ * @param $sql_query - sql query
+ */
+public function get_csv($sql_query){
+    //Load helpers
+    $this-&gt;load-&gt;dbutil();
+    $this-&gt;load-&gt;helper('file');
+    $this-&gt;load-&gt;helper('download');
+    //Query database
+    $query = $this-&gt;db-&gt;query($sql_query);
+    //Set delimiter to comma
+    $delimiter = ",";
+    //Set newline character
+    $newline = "\r\n";
+    //generate csv file from query result
+    $data = $this-&gt;dbutil-&gt;csv_from_result($query, $delimiter, $newline);
+    //force csv file download
+    force_download('CSV_Report.csv', $data);
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../views/" class="btn btn-neutral float-right" title="Views">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../controller/" class="btn btn-neutral" title="Controllers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2018 Uniwersytet Ekonomiczny w Krakowie</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Vjatches/etlproject/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../controller/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../views/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

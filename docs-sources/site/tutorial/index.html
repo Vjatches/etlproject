@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Viacheslav Babanin">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Tutorial - ETL Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/uekrtd.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Tutorial";
+    var mkdocs_page_input_path = "tutorial.md";
+    var mkdocs_page_url = "/tutorial/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ETL Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	  
+          
+		  
+  <ul class="" href="..">
+    <li class="toctree-l1">
+  <a class="" href="..">Home</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../installation/">
+    <li class="toctree-l1">
+  <a class="" href="../installation/">Installation</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../overview/">
+    <li class="toctree-l1">
+  <a class="" href="../overview/">General Overview</a>
+  </li></ul>
+          
+		  
+  <ul class="current" href="./">
+    <li class="toctree-l1 current">
+  <a class="current" href="./">Tutorial</a>
+  <ul class="subnav">
+      
+  <li class="toctree-l2 current">
+  
+    <a class="current"  href="#interface-overview">Interface Overview</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#basic-usage">Basic Usage</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#top-bar-navigation">Top bar navigation</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#side-bar-navigation">Side bar navigation</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#etl-home-main-application">ETL Home Main Application</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#extract-module">Extract Module</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#transform-module">Transform Module</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#load-module">Load Module</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#database-monitoring">Database Monitoring</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#sql-monitoring">SQL Monitoring</a>
+        </li>
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#mongodb-monitoring">MongoDB Monitoring</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#application-settings">Application Settings</a>
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#flow-restriction-level">Flow restriction level</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  </ul>
+  </li></ul>
+          
+		  
+  <ul class="" href="../flow/">
+    <li class="toctree-l1">
+  <a class="" href="../flow/">Application Flow</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../routing/">
+    <li class="toctree-l1">
+  <a class="" href="../routing/">URI Routing</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../controller/">
+    <li class="toctree-l1">
+  <a class="" href="../controller/">Controllers</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../models/">
+    <li class="toctree-l1">
+  <a class="" href="../models/">Models</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../views/">
+    <li class="toctree-l1">
+  <a class="" href="../views/">Views</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../libraries/">
+    <li class="toctree-l1">
+  <a class="" href="../libraries/">Custom Libraries</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../helpers/">
+    <li class="toctree-l1">
+  <a class="" href="../helpers/">Helper functions</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../frontend/">
+    <li class="toctree-l1">
+  <a class="" href="../frontend/">Frontend Logic</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../stylesheets/">
+    <li class="toctree-l1">
+  <a class="" href="../stylesheets/">Stylesheets</a>
+  </li></ul>
+          
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ETL Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Tutorial</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Vjatches/etlproject/edit/master/docs/tutorial.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="interface-overview">Interface Overview<a class="headerlink" href="#interface-overview" title="Permanent link"></a></h1>
+<p>Application interface consists of 3 main parts:</p>
+<ol>
+<li>
+<p>Top bar Menu</p>
+<p><img alt="topbar" src="../img/topbar.png" /></p>
+</li>
+<li>
+<p>Side bar Menu</p>
+<p><img alt="sidebar" src="../img/sidebar.png" /></p>
+</li>
+<li>
+<p>Application Plane</p>
+</li>
+</ol>
+<p>Top bar and side bar are used to navigate between application modules and pages.</p>
+<p>Application Plane contains application windows and usually is different for different modules.</p>
+<h1 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link"></a></h1>
+<p>To open main application interface locate <strong>Home</strong> button on a top bar menu and press it.</p>
+<p>Alternatively, chose one of the modules at side bar menu and click respective button to navigate to this module.</p>
+<h2 id="top-bar-navigation">Top bar navigation<a class="headerlink" href="#top-bar-navigation" title="Permanent link"></a></h2>
+<p>Top bar menu consist of 3 elements:
+<em> <strong>Home</strong> - main gui for the ETL process.
+</em> <strong>Settings</strong> - global configuration for the application. Description of available configuration options can be found at <a href="#application-settings">Settings</a> page.
+* <strong>Documentation</strong> - link to project documentation.</p>
+<h2 id="side-bar-navigation">Side bar navigation<a class="headerlink" href="#side-bar-navigation" title="Permanent link"></a></h2>
+<p>Sidebar consists of 4 modules:</p>
+<ul>
+<li><strong>Extract</strong> - standalone Extract module, allows user to scrap data from Allegro page and put it into temporal database.</li>
+<li><strong>Transform</strong> - standalone Transform module, allows user to specify data set which will be aggregated and processed from extracted data.</li>
+<li><strong>Load</strong> - standalone Load module, allows user to perform process of loading transformed data to target data-warehouse.</li>
+<li><strong>Monitor DB</strong> - CRUD-like analysing and monitoring module, allows user to analyse data at every step of ETL process.<ul>
+<li><strong>E: Mongo</strong> (Extract MongoDB) - interface which allows user to query Mongo DB Collection <code>products</code> where raw data from html lands.</li>
+<li><strong>T: Mongo</strong> (Transform MongoDB) - interface which allows user to query Mongo DB Collection <code>aggregated</code> where aggregated selected data lands during transform.</li>
+<li><strong>T: SQL</strong> (Transform SQL) - interface which allows user to query SQL Table with structured data with converted data-types after full transform.</li>
+<li><strong>L: SQL</strong> (Load SQL) - interface which allows user to query SQL Table which represents target Data Warehouse.</li>
+</ul>
+</li>
+</ul>
+<h1 id="etl-home-main-application">ETL Home Main Application<a class="headerlink" href="#etl-home-main-application" title="Permanent link"></a></h1>
+<p>This page can be accessed by clicking <strong>Home</strong> button.</p>
+<p>Main application consists of 4 windows, which represent 4 modules to configure before running ETL process.</p>
+<p><img alt="homeextract" src="../img/homeextract.png" /></p>
+<p>Extract options window allows to set value which tells how much pages would be extracted from Allegro category.</p>
+<p><img alt="hometransform" src="../img/hometransform.png" /></p>
+<p>Transform options window allows to specify a set of parameters which will be chosen to aggregate and transform.</p>
+<p><img alt="homeload" src="../img/homeload.png" /></p>
+<p>Load options window allows to set a limit on how many of extracted records will be inserted into data warehouse.</p>
+<p>Providing 0 results means there will be no limit.</p>
+<p><img alt="homestart" src="../img/homestart.png" /></p>
+<p>Final window allows to chose a set of temporal data structures which will be cleaned up after ETL process. </p>
+<p>And a <strong>BIG RED</strong> button to start ETL process.</p>
+<h1 id="extract-module">Extract Module<a class="headerlink" href="#extract-module" title="Permanent link"></a></h1>
+<p><img alt="extract" src="../img/extract.png" /></p>
+<p>This module allows to configure and run <strong>Extract</strong> part of ETL process.</p>
+<p>Following configuration window prompts user to provide amount of pages to extract from current Allegro category.</p>
+<p>This amount should be not less than <strong>1</strong> and not more than maximum amount of pages, which is a dynamic value and is taken from current allegro category.</p>
+<h1 id="transform-module">Transform Module<a class="headerlink" href="#transform-module" title="Permanent link"></a></h1>
+<p><img alt="transform" src="../img/transform.png" /></p>
+<p>This module allows to configure and run <strong>Transform</strong> part of ETL process.</p>
+<p>Transform options window allows to specify a set of parameters which will be chosen to aggregate and transform.</p>
+<p>If "Save as default transform profile" checkbox is checked, your current selection will be saved as a default for future runs.</p>
+<h1 id="load-module">Load Module<a class="headerlink" href="#load-module" title="Permanent link"></a></h1>
+<p><img alt="load" src="../img/load.png" /></p>
+<p>This module allows to configure and run <strong>Load</strong> part of ETL process.
+which we want to load to Data Warehouse.</p>
+<p>This amount should not be less than <strong>1</strong> and not more than maximum amount of rows in temporal table left after <strong>Transform</strong> process.</p>
+<h1 id="database-monitoring">Database Monitoring<a class="headerlink" href="#database-monitoring" title="Permanent link"></a></h1>
+<p>This module is a CRUD-like analysing and monitoring module, which allows user to analyse data at every step of ETL process.</p>
+<h2 id="sql-monitoring">SQL Monitoring<a class="headerlink" href="#sql-monitoring" title="Permanent link"></a></h2>
+<p>Monitoring interface consists of two parts:</p>
+<ol>
+<li>
+<p>Query builder module</p>
+<p><img alt="sqlquery" src="../img/querybar.png" /></p>
+<p>Upper area can be used to provide SQL query to the current table. Please, note, that only valid SELECT query 
+to only this table will be accepted.</p>
+<p>Lower area contains last performed query. It might be useful for copying previous query for modification</p>
+</li>
+<li>
+<p>Query Result table</p>
+<p><img alt="sqltable" src="../img/products.png" /></p>
+</li>
+</ol>
+<p>This table contains result of the last performed query.</p>
+<p>It also might contain (depending on the table) additional buttons which allow to delete everything from current table
+or dump last query result into csv file. </p>
+<p><img alt="csv" src="../img/csv.png" /></p>
+<h2 id="mongodb-monitoring">MongoDB Monitoring<a class="headerlink" href="#mongodb-monitoring" title="Permanent link"></a></h2>
+<p>Monitoring interface consists of two parts:</p>
+<ol>
+<li>
+<p>Filter builder module</p>
+<p>Upper area can be used to provide MongoDV filter to the current table. Please, note, that only filter in valid JSON format
+will be accepted.</p>
+<p>Lower area contains last performed query. It might be useful for copying previous query for modification</p>
+</li>
+</ol>
+<h1 id="application-settings">Application Settings<a class="headerlink" href="#application-settings" title="Permanent link"></a></h1>
+<p>This module is accessible by clicking <strong>Settings</strong> at the top bar.</p>
+<p><img alt="settings" src="../img/settings.png" /></p>
+<p><strong>Category link (URL)</strong> - link to Allegro category, which application will use as a data source for ETL process.</p>
+<p><strong>Flow restriction level</strong> - option which allows to regulate restrictions on order of performing ETL processes (Extract, Transform, Load).
+More on it in the section below.</p>
+<h2 id="flow-restriction-level">Flow restriction level<a class="headerlink" href="#flow-restriction-level" title="Permanent link"></a></h2>
+<p>At any given point of time whole application is at one of the three possible phases. This phases correspond to ETL processes and phase tells what module should be ran next.</p>
+<p>For example, if we just performed <strong>Extract</strong> then application is at <em>Transform</em> phase -&gt; application expects that next module that we will run will be <strong>Transform</strong>.</p>
+<p><strong>Flow restriction level</strong> option allows us to configure this application behavior and to enforce order of execution of modules <strong>Extract</strong>, <strong>Transform</strong>, <strong>Load</strong> if they are ran separately from sidebar.</p>
+<p>There are 3 possible levels of flow restriction:</p>
+<ul>
+<li><strong>Development</strong> - any module might be ran in any order. </li>
+<li><strong>Strict</strong> - only module which is equal to the application phase can be ran. Processes are only possible to run consequently.</li>
+<li><strong>Soft</strong> - at any phase it is possible to repeat previous process or proceed to next one. </li>
+</ul>
+<p>Following table summarises which modules are available at which phase.</p>
+<table>
+<thead>
+<tr>
+<th>Restriction level</th>
+<th>Phase</th>
+<th>Module</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development</td>
+<td>Any</td>
+<td>Any</td>
+</tr>
+<tr>
+<td>Strict</td>
+<td>Extract</td>
+<td>Extract</td>
+</tr>
+<tr>
+<td>Strict</td>
+<td>Transform</td>
+<td>Transform</td>
+</tr>
+<tr>
+<td>Strict</td>
+<td>Load</td>
+<td>Load</td>
+</tr>
+<tr>
+<td>Soft</td>
+<td>Extract</td>
+<td>Load or Extract</td>
+</tr>
+<tr>
+<td>Soft</td>
+<td>Transform</td>
+<td>Extract or Transform</td>
+</tr>
+<tr>
+<td>Soft</td>
+<td>Load</td>
+<td>Transform or Load</td>
+</tr>
+</tbody>
+</table>
+<p>If user will try to access wrong module he will see following <code>error</code> with a hint on which module should be used now.</p>
+<p><img alt="module_error" src="../img/moduleerror.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../flow/" class="btn btn-neutral float-right" title="Application Flow">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../overview/" class="btn btn-neutral" title="General Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2018 Uniwersytet Ekonomiczny w Krakowie</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Vjatches/etlproject/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../flow/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

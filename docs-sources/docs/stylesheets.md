@@ -1,0 +1,341 @@
+# Stylesheets
+
+Application uses css libraries as well as custom css.
+
+Core library which is used is [Bootstrap v3.3.7 JS CSS HTML Framework](https://getbootstrap.com/docs/3.3/)
+
+Custom css is created with the help of [SASS/SCSS Extension](https://sass-lang.com)
+
+# Technology Used
+
+Css was written and build from [SASS/SCSS Extension](https://sass-lang.com) with 
+[ScoutAPP v2.12.12 SASS/SCSS processor](http://scout-app.io).
+
+# Libraries
+Following styling libraries had been used:
+
+* Bootstrap JS CSS HTML Framework
+* Jquery-ui
+* Jquery Json-Viewer supportive library
+* Custom modified MkDocs theme library
+
+# Custom CSS
+
+Custom CSS is written using SCSS extension and consists of two files.
+
+`_vars.css` - contains various variables and mixins which are used in main css file.
+
+    /*Colors*/
+    $uek-red: #8d0126;
+    $light-red: #dd4814;
+    $background: #f1f1f1;
+    $uek-blue: #27018d;
+    $uek-green: #004f48;
+    /*Mixins*/
+    @mixin transform($property){
+      -moz-transform:$property;
+      -webkit-transform:$property;
+      transform:$property;
+    }
+    /*Extend/Inheritance*/
+    %uek-shadow{
+      text-shadow: 1px 1px 3px $uek-red;
+    }
+    
+`uek.css` - main css file which styles the entire application.
+
+    @import 'vars';
+    /*Left top colored block*/
+    .wy-side-nav-search{
+        text-shadow: 2px 2px 8px #000000;
+        background:transparent url(../img/applogo.png) no-repeat left;
+    	background-color:white;
+        height:150px;
+    	width: 150px;
+    }
+    
+    a.icon,a.icon-home{
+        visibility:hidden;
+    }
+    /*Icon left to title*/
+    .fa-home:before, .icon-home:before {
+        content: "";
+    }
+    .wy-nav-top{
+      	margin-top:30px;
+        background-color: $light-red;
+        text-shadow: 2px 2px 8px #000000;
+    }
+    /*Left bottom line*/
+    .rst-versions{
+        border-top:solid 10px #f0f0f0;
+    }
+    /*Links*/
+    a{
+        color: $light-red;
+    }
+    
+    #logged_as{
+    
+      float: right !important;
+      font-size: 13px;
+      color: #fff;
+      text-shadow: 2px 2px 8px #000000;
+      margin-right:20px;
+    
+      a:visited{
+    	color: $light-red;
+      }
+      a:hover{
+    	color: red;
+    	@extend %uek-shadow;
+      }
+    }
+    
+    /*Admin bar*/
+    #adminbar{
+    	direction: ltr;
+    	color: #ccc;
+    	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+    	height: 32px;
+    	position: fixed;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	min-width: 600px;
+    	z-index: 99999;
+    	background: #484141;
+    }
+    
+    .wy-nav-side{
+    	margin-top: 32px;
+    	background-color: #484141;
+    }
+    .wy-nav-content{
+    	padding: 3.618em 3.236em;
+    	background-color:$background;
+    	max-width: 2000px;
+    }
+    .windows{
+    	display:inline-block;
+    }
+    /*Errors block*/
+    .errors{
+    	display:inline-block;
+    	border: 1px solid #800000;
+    	background-color: #F1EBE4;
+    	height: 200px;
+    	width: 380px;
+    	position: relative;
+    	top: 20px;
+    	margin-left: 60px;
+    
+      h2{
+    	//background: url(../img/info4.png) no-repeat scroll 10px 2px #006b80c9;
+    	background: #006B80 url(../img/info4.png) no-repeat scroll 10px 2px;
+    	color: #FFFFFF;
+    	text-align: center;
+    	font-size: 24px;
+    	margin-top: 0;
+    	padding: 5px;
+    	text-shadow: 2px 2px 0px #000000;
+      }
+    }
+    
+    #err_list{
+    	padding:20px;
+    }
+    
+    /*Buttons*/
+    #adminbar ul{
+    	float:left;
+    	top:0;
+    	line-height: 32px;
+    	font-weight: 500;
+    }
+    
+    .button-left{
+      li{
+    	padding-left:10px;
+    	padding-right:10px;
+    	cursor: pointer;
+    	text-align:center;
+      }
+      li:hover{
+    	background: #584f4f;
+    	@extend %uek-shadow;
+      }
+      li:active{
+    	background: black;
+    	@extend %uek-shadow;
+      }
+    }
+    
+    /*Sidebar*/
+    /*Buttons*/
+    .wy-menu-vertical{
+    
+      li.current>a, li.current>a:hover{
+    	border-top:1px solid $uek-red;
+    	background-color: $uek-red;
+    	color: white;
+    	text-shadow: 1px 1px 2px #000000;
+    	border-bottom:1px solid $uek-red;
+    	border-right:black solid 1px;
+    	position:relative;
+      }
+    
+    	li.toc-current{
+    		background: #d8d7d7;
+    	}
+    	/*Classes to color buttons */
+    	li.blue>a, li.blue>a:hover{
+    		border-top:1px solid $uek-blue;
+    		background-color: $uek-blue;
+    		border-bottom:1px solid $uek-blue;
+    
+    	}
+    	li.green>a, li.green>a:hover{
+    		border-top:1px solid $uek-green;
+    		background-color: $uek-green;
+    		border-bottom:1px solid $uek-green;
+    
+    	}
+    
+      /*arrow on lists*/
+      li.current>a:after{
+    	content:'';
+    	width:15px;
+    	height:15px;
+    	background:$background;
+    	position:absolute;
+    	@include transform(rotate(45deg));
+    	top:27%;
+    	left:142px;
+    	border-left:black solid 1px;
+    	border-bottom:black solid 1px;
+      }
+    
+      li :active{
+    	background-color: black;
+      }
+      li.on a:hover span.toctree-expand, .wy-menu-vertical li.current>a:hover span.toctree-expand{
+    	color:white;
+      }
+      li.on a span.toctree-expand, .wy-menu-vertical li.current>a span.toctree-expand{
+    	color:white;
+      }
+    }
+    
+    /*Whole panel*/
+    /*Change sidebar width*/
+    .wy-nav-side, .rst-versions, .wy-menu-vertical{
+    	width:150px;
+    }
+    
+    .wy-nav-content-wrap{ /*Content block*/
+    	margin-left: 150px;
+    	background-color:$background;
+    }
+    .wy-body-for-nav{
+    	background-size: 150px 1px;
+    }
+    
+    
+    /*Search app*/
+    .headerlink{
+    	visibility:hidden;
+    }
+    .input-group{
+    	width:100%;
+    }
+    /*Remove Bootstrap blue outline*/
+    .form-control:focus{
+    	border-color: #cccccc;
+    	-webkit-box-shadow: none;
+    	box-shadow: none;
+    }
+    /*Application div*/
+    .app{
+    	display: block;
+    	margin: 16px;
+    	padding: 23px;
+    	border: 1px solid #e5e5e5;
+    	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    	background: #fff;
+      h1{
+    	font-size:20px;
+      }
+      hr{
+    	margin:0;
+      }
+    }
+    /*Table*/
+    table td{
+    	padding: 10px 10px 0 10px;
+    }
+    .pcont{
+    	margin-bottom:10px;
+    }
+    .tdbutton{
+    	padding:0;
+    }
+    th {
+    	text-align:center;
+    }
+    .invisible{
+    	display:none;
+    }
+    .checkbox{
+    	display:inline-block;
+    	margin-right: 10px;
+    }
+    
+    //Bootstrap overwrites
+    .row{
+    	margin-bottom: 5px;
+    }
+    .col-centered{
+    	float: none;
+    	margin: 0 auto;
+    }
+    .table-responsive{
+    	max-height: 500px;
+    	overflow-y: auto;
+    	overflow-x: auto;
+    }
+    .table td, .table th {
+    	padding: 5px;
+    	font-size: 14px;
+    	text-align:center;
+    }
+    
+    //CRUD Table
+    
+    td > div {
+    	max-height: 50px;
+    	text-align:center;
+    	display: inline-block;
+    	overflow-y:auto;
+    	overflow-x:auto;
+    }
+    
+    textarea{
+    	min-height: 49px;
+    	height: auto;
+    }
+    
+    //Big red button. Home page
+    .btn-big{
+    	height:150px;
+    	width:150px;
+    	border-radius: 50%;
+    	font-size: 25px;
+    }
+    
+    //Json item style
+    ul.json-dict, ol.json-array{
+    	li{
+    		list-style: none !important;
+    	}
+    }

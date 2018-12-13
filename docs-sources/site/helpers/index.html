@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Viacheslav Babanin">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Helper functions - ETL Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/uekrtd.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Helper functions";
+    var mkdocs_page_input_path = "helpers.md";
+    var mkdocs_page_url = "/helpers/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ETL Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	  
+          
+		  
+  <ul class="" href="..">
+    <li class="toctree-l1">
+  <a class="" href="..">Home</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../installation/">
+    <li class="toctree-l1">
+  <a class="" href="../installation/">Installation</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../overview/">
+    <li class="toctree-l1">
+  <a class="" href="../overview/">General Overview</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../tutorial/">
+    <li class="toctree-l1">
+  <a class="" href="../tutorial/">Tutorial</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../flow/">
+    <li class="toctree-l1">
+  <a class="" href="../flow/">Application Flow</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../routing/">
+    <li class="toctree-l1">
+  <a class="" href="../routing/">URI Routing</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../controller/">
+    <li class="toctree-l1">
+  <a class="" href="../controller/">Controllers</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../models/">
+    <li class="toctree-l1">
+  <a class="" href="../models/">Models</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../views/">
+    <li class="toctree-l1">
+  <a class="" href="../views/">Views</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../libraries/">
+    <li class="toctree-l1">
+  <a class="" href="../libraries/">Custom Libraries</a>
+  </li></ul>
+          
+		  
+  <ul class="current" href="./">
+    <li class="toctree-l1 current">
+  <a class="current" href="./">Helper functions</a>
+  <ul class="subnav">
+      
+  <li class="toctree-l2 current">
+  
+    <a class="current"  href="#helpers">Helpers</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#extract-helper">Extract Helper</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#transform-helper">Transform Helper</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#crud-helper">CRUD Helper</a>
+  
+  
+  </li>
+
+  </ul>
+  </li></ul>
+          
+		  
+  <ul class="" href="../frontend/">
+    <li class="toctree-l1">
+  <a class="" href="../frontend/">Frontend Logic</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../stylesheets/">
+    <li class="toctree-l1">
+  <a class="" href="../stylesheets/">Stylesheets</a>
+  </li></ul>
+          
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ETL Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Helper functions</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Vjatches/etlproject/edit/master/docs/helpers.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="helpers">Helpers<a class="headerlink" href="#helpers" title="Permanent link"></a></h1>
+<p>Helpers are files with independent functions which are used in models or controllers to simplify certain tasks.</p>
+<h1 id="extract-helper">Extract Helper<a class="headerlink" href="#extract-helper" title="Permanent link"></a></h1>
+<p>Extract helper file contains function which are used mainly in <code>Extract_model</code>.</p>
+<p>It contains following functions:</p>
+<p>Function which recursively converts multidimensional array to one-dimensional array for ease of iteration</p>
+<pre><code>if (!function_exists('toSingleArray')) {
+    /**
+     * 
+     * @param $arr - input multidimensional array
+     * @return array - output one-dimensional array
+     */
+    function toSingleArray($arr)
+    {
+        foreach ($arr as $key) {
+            if (is_array($key)) {
+                $arr1 = toSingleArray($key);
+                foreach ($arr1 as $k) {
+                    $new_arr[] = $k;
+                }
+            } else {
+                $new_arr[] = $key;
+            }
+        }
+        return $new_arr;
+    }
+}
+</code></pre>
+<p>Strip uri from redirects and any parameters</p>
+<pre><code>if (!function_exists('getCleanUrl')) {
+    /**
+     * 
+     * @param $uri - input dirty uri
+     * @return bool|string - clean uri or error
+     */
+    function getCleanUrl($uri)
+    {
+        if (strpos($uri, '&amp;redirect=') !== false) {
+            $url = get_string_between($uri, 'redirect=', '?');
+        } else {
+            $url = $uri;
+        }
+        return $url;
+    }
+}
+</code></pre>
+<p>Function which returns substring located between two other substrings</p>
+<pre><code>if (!function_exists('get_string_between')) {
+    /**
+     * 
+     * @param $string - input string
+     * @param $start - start substring
+     * @param $end - end substring
+     * @return bool|string - cut substring or error
+     */
+    function get_string_between($string, $start, $end)
+    {
+        $string = ' ' . $string;
+        $ini = strpos($string, $start);
+        if ($ini == 0) return '';
+        $ini += strlen($start);
+        $len = strpos($string, $end, $ini) - $ini;
+        return substr($string, $ini, $len);
+    }
+}
+</code></pre>
+<p>Cuts and removes substring between two other substrings</p>
+<pre><code>if (!function_exists('delete_all_between')) {
+    /**
+     * 
+     * @param $string - input string
+     * @param $beginning - start substring
+     * @param $end - end substring
+     * @return mixed - transformed input substring
+     */
+    function delete_all_between($string, $beginning, $end)
+    {
+        $beginningPos = strpos($string, $beginning);
+        $endPos = strpos($string, $end);
+        if ($beginningPos === false || $endPos === false) {
+            return $string;
+        }
+
+        $textToDelete = substr($string, $beginningPos, ($endPos + strlen($end)) - $beginningPos);
+
+        return delete_all_between($beginning, $end, str_replace($textToDelete, '', $string)); // recursion to ensure all occurrences are replaced
+    }
+}
+</code></pre>
+<p>Function which returns time between two microtimes in seconds or minutes   </p>
+<pre><code>if (!function_exists('getTime')) {
+    /**
+     *
+     * if it is less than 60, otherwise in minutes and seconds
+     * @param $start_time
+     * @param $end_time
+     * @return string
+     */
+    function getTime($start_time, $end_time)
+    {
+        $duration = $end_time-$start_time;
+
+        if ($duration &lt; 60)
+           return $duration;
+        else {
+            $min = (int)($duration / 60);
+            $sec = $duration % 60;
+           return "$min min $sec s";
+        }
+    }
+
+}
+</code></pre>
+<h1 id="transform-helper">Transform Helper<a class="headerlink" href="#transform-helper" title="Permanent link"></a></h1>
+<p>Transform helper file contains function which are used mainly in <code>Transform_model</code>.</p>
+<p>It contains following functions:</p>
+<p>Function that converts boolean values to string values</p>
+<pre><code>if (!function_exists('convertBoolean')) {
+    /**
+     * 
+     * @param $attribute - input value, boolean or NULL
+     * @return string - string "TRUE", "FALSE", or "NULL"
+     */
+    function convertBoolean($attribute){
+        if($attribute==='NULL'){
+            return 'NULL';
+        }
+        if($attribute === true){
+            return "TRUE";
+        }else{
+            return "FALSE";
+        }
+    }
+}
+</code></pre>
+<p>Function which helps to retrieve value of an attribute and strips illegal characters in strings, if it is NULL it returns string "NULL"    </p>
+<pre><code>if (!function_exists('getAttributeOrNull')) {
+    /**
+     * 
+     * @param $attribute - name of an attribute
+     * @return mixed|string - attribute or null
+     */
+    function getAttributeOrNull($attribute){
+        $value =  isset($attribute) ? $attribute : 'NULL';
+        //Add single quotes around values which are of a string type or an empty string
+        if($value!=='NULL'&amp;&amp;is_string($value)){
+            //replace single quotes with double quotes inside strings
+            $value = str_replace('\'','"',$value);
+            $value = '\''.$value.'\'';
+
+        }
+        return $value;
+    }
+
+}
+</code></pre>
+<p>Function which helps to generate checkboxes for views</p>
+<pre><code>if (!function_exists('generateCheckboxes')) {
+    /**
+     * 
+     * @return array of checkboxes
+     */
+    function generateCheckboxes(){
+    //value has to be like in mongo collection
+        $checkboxes= [
+            [
+            'value'=&gt;'offerTitle.title','id'=&gt;'title_chb','label'=&gt;'Title'
+        ],[
+                'value'=&gt;'price.priceInteger','id'=&gt;'price_chb','label'=&gt;'Price'
+            ],[
+                'value'=&gt;'offerTitle.sellerName','id'=&gt;'seller_chb','label'=&gt;'Seller'
+            ],[
+                'value'=&gt;'offerTitle.sellerListingUrl','id'=&gt;'sellerlink_chb','label'=&gt;'Seller link'
+            ],[
+                'value'=&gt;'coins.quantityWithLabel','id'=&gt;'coins_chb','label'=&gt;'Coins'
+            ],[
+                'value'=&gt;'notifyAndWatch.quantity','id'=&gt;'amount_chb','label'=&gt;'Amount'
+            ],[
+                'value'=&gt;'schema.description','id'=&gt;'description_chb','label'=&gt;'Description'
+            ],[
+                'value'=&gt;'offerTitle.superSellerActive','id'=&gt;'superstatus_chb','label'=&gt;'Super status'
+            ],[
+                'value'=&gt;'schema.itemCondition','id'=&gt;'condition_chb','label'=&gt;'Condition'
+            ],[
+                'value'=&gt;'biddingSection.endingDate','id'=&gt;'enddate_chb','label'=&gt;'End date'
+            ],[
+                'value'=&gt;'biddingSection.nextPrice','id'=&gt;'nextprice_chb','label'=&gt;'Next price'
+            ],[
+                'value'=&gt;'popularity.label','id'=&gt;'popularity_chb','label'=&gt;'Popularity'
+            ],[
+                'value'=&gt;'price.installments.quantity','id'=&gt;'installments_chb','label'=&gt;'Installments qty'
+            ],[
+                'value'=&gt;'price.installments.free','id'=&gt;'insttype_chb','label'=&gt;'Inst type'
+            ],[
+                'value'=&gt;'price.installments.price','id'=&gt;'qtyprice_chb','label'=&gt;'Inst price'
+            ]
+
+        ];
+        return $checkboxes;
+
+    }
+
+}
+</code></pre>
+<h1 id="crud-helper">CRUD Helper<a class="headerlink" href="#crud-helper" title="Permanent link"></a></h1>
+<p>CRUD helper file contains function which are used mainly in <code>Crud_model</code> and <code>Etl</code> controller.</p>
+<p>It contains following functions:</p>
+<p>Function which helps to validate sql string.</p>
+<pre><code>if (!function_exists('validateSql')) {
+    /**
+     * 
+     * @param $string - input string
+     * @param int $limit - limit to sql query
+     * @return mixed|string - transformed string
+     */
+    function validateSql($string, $limit = 100){
+        //Convert to lower case
+        $sqlstring = strtolower($string);
+        //Replace any occurrence of semicolon
+        $sqlstring = str_replace(';','',$sqlstring);
+        //If there was no limit specified add default limit
+        if(strpos($sqlstring,'limit')===FALSE){
+            $sqlstring = $sqlstring.' limit '.$limit;
+        }
+        return $sqlstring;
+    }
+
+}
+</code></pre>
+<p>Function which helps to determine database type in case that mongo and mysql has table\collection with same name</p>
+<pre><code>if (!function_exists('getDbType')) {
+
+    /**
+     * 
+     * @param $string - name of data structure
+     * @return string - type of database
+     */
+    function getDbType($string){
+        if($string=='temp_products' || $string=='sql_products'){
+            return 'sql';
+        }else{
+            //If name of data_structure is not one of reserved sql table names then it is mongo
+            return 'mongo';
+        }
+    }
+
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../frontend/" class="btn btn-neutral float-right" title="Frontend Logic">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../libraries/" class="btn btn-neutral" title="Custom Libraries"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2018 Uniwersytet Ekonomiczny w Krakowie</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Vjatches/etlproject/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../libraries/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../frontend/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

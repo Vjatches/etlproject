@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Viacheslav Babanin">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Application Flow - ETL Project</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../css/uekrtd.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Application Flow";
+    var mkdocs_page_input_path = "flow.md";
+    var mkdocs_page_url = "/flow/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ETL Project</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	  
+          
+		  
+  <ul class="" href="..">
+    <li class="toctree-l1">
+  <a class="" href="..">Home</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../installation/">
+    <li class="toctree-l1">
+  <a class="" href="../installation/">Installation</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../overview/">
+    <li class="toctree-l1">
+  <a class="" href="../overview/">General Overview</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../tutorial/">
+    <li class="toctree-l1">
+  <a class="" href="../tutorial/">Tutorial</a>
+  </li></ul>
+          
+		  
+  <ul class="current" href="./">
+    <li class="toctree-l1 current">
+  <a class="current" href="./">Application Flow</a>
+  <ul class="subnav">
+      
+  <li class="toctree-l2 current">
+  
+    <a class="current"  href="#model-view-controller">Model-View-Controller</a>
+  
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+  
+    <ul class=" submenu-toc">
+    
+        <li class="toctree-l3" >
+          <a class="toctree-l3" href="#how-does-it-work">How does it work?</a>
+        </li>
+    
+    </ul>
+  
+  </li>
+
+  <li class="toctree-l2 ">
+  
+    <a class=""  href="#class-uml">Class UML</a>
+  
+  
+  </li>
+
+  </ul>
+  </li></ul>
+          
+		  
+  <ul class="" href="../routing/">
+    <li class="toctree-l1">
+  <a class="" href="../routing/">URI Routing</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../controller/">
+    <li class="toctree-l1">
+  <a class="" href="../controller/">Controllers</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../models/">
+    <li class="toctree-l1">
+  <a class="" href="../models/">Models</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../views/">
+    <li class="toctree-l1">
+  <a class="" href="../views/">Views</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../libraries/">
+    <li class="toctree-l1">
+  <a class="" href="../libraries/">Custom Libraries</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../helpers/">
+    <li class="toctree-l1">
+  <a class="" href="../helpers/">Helper functions</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../frontend/">
+    <li class="toctree-l1">
+  <a class="" href="../frontend/">Frontend Logic</a>
+  </li></ul>
+          
+		  
+  <ul class="" href="../stylesheets/">
+    <li class="toctree-l1">
+  <a class="" href="../stylesheets/">Stylesheets</a>
+  </li></ul>
+          
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ETL Project</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Application Flow</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/Vjatches/etlproject/edit/master/docs/flow.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="model-view-controller">Model-View-Controller<a class="headerlink" href="#model-view-controller" title="Permanent link"></a></h1>
+<p>Application is developed using Model-View-Controller programming pattern.</p>
+<p>Application makes use of one central controller, 4 models and a bucket of views.</p>
+<p>Views render and present data to user. Models retrieve and process data from data-sources such as remote Allegro pages
+and databases. Controller passes data between views, models and also handles URL routing for the web pages.</p>
+<p>The following graphic illustrates how data flows through the MVC system. </p>
+<p><img alt="alt text" src="../img/flowchart.gif" /></p>
+<p>Structure, which was presented above is supported by following system, implemented in the core of the CodeIgniter framework.</p>
+<p><img alt="alt text" src="../img/ci_mvc.gif" /></p>
+<h1 id="application-flow">Application Flow<a class="headerlink" href="#application-flow" title="Permanent link"></a></h1>
+<p>Detailed application flow chart is as follows:</p>
+<p><img alt="alt text" src="../img/ETL.png" /></p>
+<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link"></a></h2>
+<h3 id="extract">Extract<a class="headerlink" href="#extract" title="Permanent link"></a></h3>
+<ul>
+<li>Extract scraps first page of the provided category and presents user amount of pages in this category.</li>
+<li>User specifies amount of pages which he wants to extract and hits the <code>EXTRACT</code> button.</li>
+<li>Application loops through through category pages and collects links to products from each page. Each page contains about 64 links.</li>
+<li>Object of the class <code>Symfony\Domcrawler</code> is created for each product page, which emulates web-browser and opens the page.</li>
+<li>Crawlers are sent in a multi-threaded manner, in a queue 10 at a time.</li>
+<li>After getting the page Crawler cuts out part of the javascript in this page which contains json object of a product which is described at this page.</li>
+<li>Object is processed using regex and some logic and is validates as a proper json-object.</li>
+<li>Json-object is added to a bulk which, when is full, will be inserted to a temporal <code>extracted</code> collection in MongoDB database as a multidimensional nested object with raw data.</li>
+<li>Process result: MongoDB Collection <code>extracted</code> with raw data.</li>
+</ul>
+<h3 id="transform">Transform<a class="headerlink" href="#transform" title="Permanent link"></a></h3>
+<ul>
+<li>User specifies list of properties which he wills to aggregate from raw data received after Extract process and hits the <code>Transform</code> button.</li>
+<li>Temporal collection with aggregated data from previous runs is cleared.</li>
+<li>Aggregation pipeline is formed and <code>extracted</code> collection is passed through it and the result is dumped into <code>aggregated</code> collection as a simple key-&gt;value objects.</li>
+<li>Data from <code>aggregated</code> collection is taken and value-by-value is transformed to an appropriate data type. Columns which were not chosen during user specification are set to <code>NULL</code>.</li>
+<li>Transformed data is upserted into MySQL temporal database <code>temp_products</code>.</li>
+<li>Process result: MongoDB Collection <code>aggregated</code> with one-dimensional key-&gt;value data and MySQL table <code>temp_products</code> with fully transformed data.</li>
+</ul>
+<h3 id="load">Load<a class="headerlink" href="#load" title="Permanent link"></a></h3>
+<ul>
+<li>Application queries <code>temp_products</code> table and presents the user how many rows are going to be inserted into database.</li>
+<li>User specifies amount of rows which he want to insert and hits the <code>LOAD</code> button.</li>
+<li>Application selects all rows from <code>temp_products</code> table and appends to each one a timestamp which consists from 4 rows:
+<code>create_date</code>, <code>create_id</code>, <code>modify_date</code>, <code>modify_id</code> which contain information about identity
+of creator, modifier and creation/modification timestamp.</li>
+<li>Data is upserted into target table <code>products</code> which represents data warehouse.</li>
+<li>Process result: MySQL table <code>products</code>.</li>
+</ul>
+<h1 id="class-uml">Class UML<a class="headerlink" href="#class-uml" title="Permanent link"></a></h1>
+<p><img alt="alt text" src="../img/application.png" /></p>
+<p>Core of the application consists of 4 Models which are children of <code>CI_Model</code> framework class.</p>
+<p>One controller class <code>Etl</code> is used to process data between models and various views.</p>
+<p>Additionally, 4 assistant classes are used in various models. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../routing/" class="btn btn-neutral float-right" title="URI Routing">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../tutorial/" class="btn btn-neutral" title="Tutorial"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>© 2018 Uniwersytet Ekonomiczny w Krakowie</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/Vjatches/etlproject/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../tutorial/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../routing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>
