@@ -16,7 +16,44 @@ Top bar and side bar are used to navigate between application modules and pages.
 
 Application Plane contains application windows and usually is different for different modules.
 
-# Basic Usage
+# Basic Exemplary Usage
+
+1. Open Application in a Web Browser
+2. Click `Extract` menu option button on sidebar
+
+    ![alt-text](img/tutorial1.png)
+    
+3. Provide amount of pages between **1** and **maximum** offered by application.
+
+    ![alt-text](img/tutorial2.png)
+    
+4. Click `Extract` button.
+5. Wait until Extract process finishes.
+6. Click `Transform` menu option button on sidebar.
+    
+    ![alt-text](img/tutorial3.png)
+    
+7. Choose set of attributes which you are willing to transform and aggregate.
+    
+    ![alt-text](img/tutorial4.png)
+    
+8. Click `Transform` button.
+9. Wait until Transform process finishes.
+6. Click `Load` menu option button on sidebar.
+   
+    ![alt-text](img/tutorial5.png)
+    
+7. Provide amount of rows you are willing to load into data warehouse.
+   
+    ![alt-text](img/tutorial6.png)
+    
+8. Click `Load` button.
+9. Wait until Load process finishes.
+10. Navigate to `Monitor DB -> L: SQL` menu option on sidebar to observe Data Warehouse.
+   
+    ![alt-text](img/tutorial7.png)
+
+# Detailed Feature Usage
 
 To open main application interface locate **Home** button on a top bar menu and press it.
 
