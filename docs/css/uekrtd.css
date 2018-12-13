@@ -1,0 +1,55 @@
+/*Left top colored block*/
+.wy-side-nav-search{
+    /*background-color: #dd4814;*/
+    text-shadow: 2px 2px 8px #000000;
+    background:transparent url(../img/uek_logo_red.jpg) no-repeat left;
+    height:160px
+}
+a.icon,a.icon-home{
+    visibility:hidden;
+}
+
+/*Icon left to title*/
+.fa-home:before, .icon-home:before {
+    content: "";
+}
+.wy-nav-top{
+    background-color: #dd4814;
+    text-shadow: 2px 2px 8px #000000;
+}
+/*Search bar*/
+.wy-side-nav-search input[type=text]{
+    border: 1px solid black;
+    border-radius:0;
+    margin-top:78px;
+    margin-left:95px;
+    width:70%;
+}
+input[name=q]:focus{
+    border: 1px solid #a00;
+    box-shadow: 0 0 5px red;
+}
+/*Left bottom line*/
+.rst-versions{
+    border-top:solid 10px #f0f0f0;
+}
+/*Links*/
+a{
+    color: #dd4814;
+}
+/*Hide first child of toctree*/
+/*li.toctree-l1:first-child {
+    display: none;
+}*/
+/*Headers not listed in toc-tree*/
+.header1, .header2{
+	margin-top: 0;
+    font-weight: 700;
+    font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+}
+.header1{
+	font-size: 175%;
+}
+.header2{
+	font-size: 150%;
+}
