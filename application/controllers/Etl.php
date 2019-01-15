@@ -43,7 +43,8 @@ class Etl extends CI_Controller
     }
 
     /**
-     *
+     * Function which loads
+	 * Settings page http://base_url/settings
      */
     function settings(){
         //Assign current page as settings and toccurrent (we use it to mark second level in sidebar) as settings
@@ -67,7 +68,7 @@ class Etl extends CI_Controller
 
     /**
      * Function which loads
-     * Home ETL page http://lh.pl/etlproject/home
+     * Home ETL page http://base_url/home
      */
     function home()
     {
@@ -139,7 +140,7 @@ class Etl extends CI_Controller
 
     /**
      * Function which loads
-     * Extract page http://lh.pl/etlproject/extract
+     * Extract page http://base_url/extract
      */
     function extract()
     {
@@ -193,7 +194,7 @@ class Etl extends CI_Controller
 
     /**
      * Function which loads
-     * Transform page http://lh.pl/etlproject/transform
+     * Transform page http://base_url/transform
      */
     function transform()
     {
@@ -253,7 +254,7 @@ class Etl extends CI_Controller
 
     /**
      * Function which loads
-     * Load page http://lh.pl/etlproject/load
+     * Load page http://base_url/load
      */
     function load()
     {
@@ -302,7 +303,7 @@ class Etl extends CI_Controller
 
     /**
      * Function which loads
-     * Homepage of CRUD module. http://lh.pl/etlproject/crudhome
+     * Homepage of CRUD module. http://base_url/crudhome
      */
     function crudhome()
     {
@@ -315,11 +316,11 @@ class Etl extends CI_Controller
 
 
     /**
-     * Function which loads mongo crud page http://lh.pl/etlproject/mongo/XXXX
+     * Function which loads mongo crud page http://base_url/mongo/XXXX
      * @param $collection - show CRUD table on this collection
      */
     function mongo($collection){
-        //If argument in adress bar ( lh.pl/etlproject/mongo/XXXX ) is not a name of collection -> redirect to 404
+        //If argument in adress bar ( base_url/mongo/XXXX ) is not a name of collection -> redirect to 404
         if($collection !== 'products' && $collection !== 'aggregated'){
             show_404();
         }
@@ -351,11 +352,11 @@ class Etl extends CI_Controller
 
 
     /**
-     * Function which loads sql crud page http://lh.pl/etlproject/sql/XXXX
+     * Function which loads sql crud page http://base_url/sql/XXXX
      * @param $table - show CRUD table on this table
      */
     function sql($table){
-        //If argument in adress bar ( lh.pl/etlproject/sql/XXXX ) is not a name of table -> redirect to 404
+        //If argument in adress bar ( base_url/sql/XXXX ) is not a name of table -> redirect to 404
         if($table !== 'products' && $table !== 'temp_products'){
             show_404();
         }

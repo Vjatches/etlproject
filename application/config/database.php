@@ -76,8 +76,8 @@ $query_builder = TRUE;
 $db['mysql'] = array(
 	'dsn'	=> 'mysql:host=localhost;dbname=warehouse',
 	'hostname' => 'localhost',
-	'username' => 'etl',
-	'password' => 'etlproject',
+	'username' => 'root',
+	'password' => 'root',
 	'database' => 'warehouse',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',

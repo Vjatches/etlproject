@@ -21,8 +21,6 @@ if (!function_exists('toSingleArray')) {
         return $new_arr;
     }
 }
-
-
 if (!function_exists('getCleanUrl')) {
     /**
      * Strip uri from redirects and any parameters
@@ -78,8 +76,6 @@ if (!function_exists('delete_all_between')) {
         return delete_all_between($beginning, $end, str_replace($textToDelete, '', $string)); // recursion to ensure all occurrences are replaced
     }
 }
-
-
 if (!function_exists('getTime')) {
     /**
      * Function which returns time between two microtimes in seconds

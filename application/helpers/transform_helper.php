@@ -17,7 +17,6 @@ if (!function_exists('convertBoolean')) {
         }
     }
 }
-
 if (!function_exists('getAttributeOrNull')) {
     /**
      * Function which helps to retrieve value of an attribute and strips illegal characters in strings, if it is NULL it returns string "NULL"
@@ -37,8 +36,6 @@ if (!function_exists('getAttributeOrNull')) {
     }
 
 }
-
-
 if (!function_exists('generateCheckboxes')) {
     /**
      * Function which helps to generate checkboxes for views

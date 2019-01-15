@@ -8,7 +8,7 @@
 class Crud_model extends CI_Model
 {
     /**
-     * ariable which holds object responsible for connection with MongoDB
+     * variable which holds object responsible for connection with MongoDB
      * @var \MongoDB\Client
      */
     private $mongoClient;
