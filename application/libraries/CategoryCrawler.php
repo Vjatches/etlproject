@@ -46,7 +46,7 @@ class CategoryCrawler extends AllegroCrawler
         //Extract Big div with items from page
         $div = $this->crawler->filter('[data-box-name="items container"]');
         //Extract Headers from big div which contain links to items
-        $h2 = $div->filter('[class="_4462670  "],[class="_4462670 _7b0067f "]');
+        $h2 = $div->filter('[class="ebc9be2  "],[class="ebc9be2 a998029 "]');
         //Extract Links from inside headers
         $anchors = $h2->filter('a');
         //Extract final uri's from links and push them to $linksArray
